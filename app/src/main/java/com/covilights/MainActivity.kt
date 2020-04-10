@@ -8,10 +8,22 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
+import com.covilights.beacon.BluetoothStateManager
+import com.covilights.beacon.advertiser.BeaconAdvertiser
+import com.covilights.beacon.advertiser.BeaconAdvertiserCallback
+import com.covilights.beacon.advertiser.BeaconAdvertiserImpl
+import com.covilights.beacon.advertiser.BeaconAdvertiserState
+import com.covilights.beacon.scanner.BeaconScanner
+import com.covilights.beacon.scanner.BeaconScannerCallback
+import com.covilights.beacon.scanner.BeaconScannerImpl
+import com.covilights.beacon.scanner.BeaconScannerState
 import com.covilights.databinding.MainActivityBinding
+import com.mirhoseini.appsettings.AppSettings
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +31,30 @@ class MainActivity : AppCompatActivity() {
 
     private val dateFormat = SimpleDateFormat("hh:mm:ss", Locale.US)
 
-    private val advertiseManager = AdvertiseManager(object : AdvertiseManager.OnAdvertiseListener {
+    private val userUuid: String by lazy {
+        AppSettings.getString(this, USER_UUID) ?: run {
+            val newUuid = UUID.randomUUID().toString()
+            AppSettings.setValue(this, USER_UUID, newUuid)
+            return@run newUuid
+        }
+    }
+
+    lateinit var bluetoothManager: BluetoothStateManager
+
+    private val beaconAdvertiser: BeaconAdvertiser = BeaconAdvertiserImpl()
+    private val beaconScanner: BeaconScanner = BeaconScannerImpl()
+
+    private val scannerCallback = object : BeaconScannerCallback {
+        override fun onSuccess() {
+            log("Scanning started successfully!")
+        }
+
+        override fun onError(throwable: Throwable) {
+            log(throwable.message ?: throwable.toString())
+        }
+    }
+
+    private val advertiserCallback = object : BeaconAdvertiserCallback {
         override fun onSuccess() {
             log("Advertising started successfully!")
         }
@@ -27,17 +62,7 @@ class MainActivity : AppCompatActivity() {
         override fun onError(throwable: Throwable) {
             log(throwable.message ?: throwable.toString())
         }
-    })
-
-    private val scanManager = ScanManager(object : ScanManager.OnScanListener {
-        override fun onScanResult(result: String) {
-            log(result)
-        }
-
-        override fun onError(throwable: Throwable) {
-            log(throwable.message ?: throwable.toString())
-        }
-    })
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +72,29 @@ class MainActivity : AppCompatActivity() {
 
         initUi()
 
+        log("User UUID\n$userUuid")
+
         checkPermissions()
+
+        bluetoothManager = BluetoothStateManager(this)
+
+        beaconAdvertiser.state.observe(this, Observer { state ->
+            state ?: return@Observer
+
+            when (state) {
+                BeaconAdvertiserState.IDLE -> log("Advertiser is idle")
+                BeaconAdvertiserState.RUNNING -> log("Advertiser is running")
+            }
+        })
+
+        beaconScanner.state.observe(this, Observer { state ->
+            state ?: return@Observer
+
+            when (state) {
+                BeaconScannerState.IDLE -> log("Scanner is idle")
+                BeaconScannerState.RUNNING -> log("Scanner is running")
+            }
+        })
     }
 
     private fun initUi() {
@@ -57,10 +104,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkPermissions() {
-        val permissions = arrayOf<String>(
+        val permissions: Array<String> = arrayOf(
             Manifest.permission.BLUETOOTH,
             Manifest.permission.BLUETOOTH_ADMIN,
-            Manifest.permission.ACCESS_COARSE_LOCATION
+            Manifest.permission.ACCESS_FINE_LOCATION
         )
 
         permissions.forEach { permission ->
@@ -125,11 +172,44 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onAdvertiseClick(v: View) {
-        advertiseManager.startAdvertising()
+        if (!bluetoothManager.getBluetoothStatus()) {
+            log("Enabling bluetooth...")
+
+            bluetoothManager.enableBluetooth(listener = object :
+                BluetoothStateManager.OnBluetoothStatusListener {
+                override fun onBluetoothTurnedOn() {
+                    log("Bluetooth is on now")
+                }
+
+                override fun onError(throwable: Throwable) {
+                    log(throwable.message ?: throwable.toString())
+                }
+            })
+        } else {
+            beaconAdvertiser.start(userUuid, advertiserCallback)
+        }
     }
 
     private fun onDiscoverClick(v: View) {
-        scanManager.startScan()
+        if (!bluetoothManager.getBluetoothStatus()) {
+            log("Enabling bluetooth...")
+
+            bluetoothManager.enableBluetooth(listener = object :
+                BluetoothStateManager.OnBluetoothStatusListener {
+                override fun onBluetoothTurnedOn() {
+                    log("Bluetooth is on now")
+                }
+
+                override fun onError(throwable: Throwable) {
+                    log(throwable.message ?: throwable.toString())
+                }
+            })
+        } else {
+            log("Start scanning...")
+            beaconScanner.start(scannerCallback).observe(this, Observer { beacons ->
+                binding.result.text = beacons.toString()
+            })
+        }
     }
 
     private fun log(message: String) {
