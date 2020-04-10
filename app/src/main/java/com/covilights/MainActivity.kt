@@ -3,41 +3,31 @@ package com.covilights
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.RemoteException
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.covilights.databinding.MainActivityBinding
+import org.altbeacon.beacon.Beacon
+import org.altbeacon.beacon.BeaconConsumer
+import org.altbeacon.beacon.BeaconManager
+import org.altbeacon.beacon.BeaconParser
+import org.altbeacon.beacon.BeaconTransmitter
+import org.altbeacon.beacon.MonitorNotifier
+import org.altbeacon.beacon.Region
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BeaconConsumer {
 
     lateinit var binding: MainActivityBinding
 
+    lateinit var beaconManager: BeaconManager
+
     private val dateFormat = SimpleDateFormat("hh:mm:ss", Locale.US)
-
-    private val advertiseManager = AdvertiseManager(object : AdvertiseManager.OnAdvertiseListener {
-        override fun onSuccess() {
-            log("Advertising started successfully!")
-        }
-
-        override fun onError(throwable: Throwable) {
-            log(throwable.message ?: throwable.toString())
-        }
-    })
-
-    private val scanManager = ScanManager(object : ScanManager.OnScanListener {
-        override fun onScanResult(result: String) {
-            log(result)
-        }
-
-        override fun onError(throwable: Throwable) {
-            log(throwable.message ?: throwable.toString())
-        }
-    })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -125,11 +115,84 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onAdvertiseClick(v: View) {
-        advertiseManager.startAdvertising()
+        val beacon = Beacon.Builder()
+            .setId1("2f234454-cf6d-4a0f-adf2-f4911ba9ffa6")
+            .setId2("1")
+            .setId3("2")
+            .setManufacturer(0x0118)
+            .setTxPower(-59)
+            .setDataFields(listOf(0L))
+            .build()
+        val beaconParser = BeaconParser()
+            .setBeaconLayout("m:2-3=beac,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25")
+        val beaconTransmitter =
+            BeaconTransmitter(applicationContext, beaconParser)
+        beaconTransmitter.startAdvertising(beacon)
     }
 
     private fun onDiscoverClick(v: View) {
-        scanManager.startScan()
+        beaconManager = BeaconManager.getInstanceForApplication(this);
+        // To detect proprietary beacons, you must add a line like below corresponding to your beacon
+        // type.  Do a web search for "setBeaconLayout" to get the proper expression.
+        // beaconManager.getBeaconParsers().add(new BeaconParser().
+        //        setBeaconLayout("m:2-3=beac,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25"));
+        beaconManager.bind(this);
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        beaconManager.unbind(this)
+    }
+
+    override fun onBeaconServiceConnect() {
+        monitoring()
+        ranging()
+    }
+
+    private fun ranging() {
+        beaconManager.removeAllRangeNotifiers()
+        beaconManager.addRangeNotifier { beacons, region ->
+            if (beacons.isNotEmpty()) {
+                log(
+                    "The first beacon I see is about " + beacons.iterator().next()
+                        .distance + " meters away."
+                )
+            }
+        }
+
+        try {
+            beaconManager.startRangingBeaconsInRegion(
+                Region("myRangingUniqueId", null, null, null)
+            )
+        } catch (e: RemoteException) {
+        }
+    }
+
+    private fun monitoring() {
+        beaconManager.removeAllMonitorNotifiers()
+        beaconManager.addMonitorNotifier(object : MonitorNotifier {
+            override fun didEnterRegion(region: Region) {
+                log("I just saw an beacon for the first time!")
+            }
+
+            override fun didExitRegion(region: Region) {
+                log("I no longer see an beacon")
+            }
+
+            override fun didDetermineStateForRegion(
+                state: Int,
+                region: Region
+            ) {
+                log("I have just switched from seeing/not seeing beacons: $state")
+            }
+        })
+
+        try {
+            beaconManager.startMonitoringBeaconsInRegion(
+                Region("myMonitoringUniqueId", null, null, null)
+            )
+        } catch (e: RemoteException) {
+        }
     }
 
     private fun log(message: String) {
