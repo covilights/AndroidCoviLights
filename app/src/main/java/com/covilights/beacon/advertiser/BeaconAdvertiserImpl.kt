@@ -56,14 +56,14 @@ class BeaconAdvertiserImpl : BeaconAdvertiser {
     private fun getScanResponse(userUuid: String): AdvertiseData {
         return AdvertiseData.Builder()
             .addServiceUuid(userUuid.toParcelUuid())
+            .setIncludeTxPowerLevel(true)
             .build()
     }
 
     private fun getSettings(): AdvertiseSettings? {
         return AdvertiseSettings.Builder()
-            // .setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_POWER)
-            .setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_BALANCED)
-            .setTxPowerLevel(AdvertiseSettings.ADVERTISE_TX_POWER_MEDIUM)
+            .setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_POWER)
+            .setTxPowerLevel(AdvertiseSettings.ADVERTISE_TX_POWER_ULTRA_LOW)
             .setConnectable(false)
             .setTimeout(0)
             .build()

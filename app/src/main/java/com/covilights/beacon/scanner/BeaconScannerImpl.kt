@@ -11,15 +11,11 @@ import android.os.ParcelUuid
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.covilights.Constants
+import com.covilights.beacon.BeaconResultsCache
 import com.covilights.beacon.scanner.model.Beacon
 import com.covilights.beacon.scanner.utils.getErrorCodeMessage
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import java.nio.ByteBuffer
 
-class BeaconScannerImpl : BeaconScanner {
+class BeaconScannerImpl(val beaconResultsCache: BeaconResultsCache) : BeaconScanner {
 
     private val bluetoothAdapter: BluetoothAdapter
         get() = BluetoothAdapter.getDefaultAdapter()
@@ -31,23 +27,8 @@ class BeaconScannerImpl : BeaconScanner {
     override val state: LiveData<BeaconScannerState>
         get() = _state
 
-    private val results = MutableLiveData<Map<String, Beacon>>()
-
     init {
         _state.value = BeaconScannerState.IDLE
-        results.value = HashMap()
-
-
-        GlobalScope.launch(Dispatchers.IO) {
-            while (true) {
-                val currentTime = System.currentTimeMillis()
-                results.postValue(results.value?.filter {
-                    it.value.lastSeen > currentTime - Constants.BEACON_VISIBILITY_TIMEOUT
-                })
-
-                delay(Constants.BEACON_VISIBILITY_TIMEOUT)
-            }
-        }
     }
 
     private var callback: BeaconScannerCallback? = null
@@ -56,10 +37,9 @@ class BeaconScannerImpl : BeaconScanner {
 
         override fun onScanResult(callbackType: Int, result: ScanResult?) {
             super.onScanResult(callbackType, result)
-            if (result?.device == null) return
-
-            val beacon = mapScanResultToBeacon(result)
-            results.value = results.value?.toMutableMap()?.apply { put(beacon.address, beacon) }
+            val userUuid = result?.getUserUuid()
+            if (result == null || result.device == null || userUuid == null) return
+            beaconResultsCache.add(mapScanResultToBeacon(result, userUuid))
         }
 
         override fun onScanFailed(errorCode: Int) {
@@ -69,12 +49,8 @@ class BeaconScannerImpl : BeaconScanner {
         }
     }
 
-    private fun mapScanResultToBeacon(result: ScanResult): Beacon {
-        val serviceUuids: List<ParcelUuid>? = result.scanRecord?.serviceUuids
-        val userUuid: String? = if (serviceUuids != null && serviceUuids.isNotEmpty()) serviceUuids[0].toString() else null
-
+    private fun mapScanResultToBeacon(result: ScanResult, userUuid: String): Beacon {
         return Beacon(
-            name = result.device.name,
             address = result.device.address,
             userUuid = userUuid,
             rssi = result.rssi,
@@ -83,11 +59,16 @@ class BeaconScannerImpl : BeaconScanner {
         )
     }
 
-    override fun start(callback: BeaconScannerCallback?): LiveData<Map<String, Beacon>> {
+    private fun ScanResult.getUserUuid(): String? {
+        val serviceUuids: List<ParcelUuid>? = scanRecord?.serviceUuids
+        return if (serviceUuids != null && serviceUuids.isNotEmpty()) serviceUuids[0].toString() else null
+    }
+
+    override fun start(callback: BeaconScannerCallback?) {
 
         if (_state.value == BeaconScannerState.RUNNING) {
             callback?.onSuccess()
-            return results
+            return
         }
 
         this.callback = callback
@@ -96,45 +77,21 @@ class BeaconScannerImpl : BeaconScanner {
 
         _state.value = BeaconScannerState.RUNNING
         callback?.onSuccess()
-
-        return results
     }
 
     private fun getScanFilters(): List<ScanFilter> {
-        val filter: ScanFilter = ScanFilter.Builder()
-            .setManufacturerData(Constants.APPLE_MANUFACTURER_ID, Constants.getManufacturerData(), getManufacturerDataMask())
-            .build()
-        return listOf(filter)
-    }
-
-    private fun getManufacturerDataMask(): ByteArray {
-        val manufacturerDataMask = ByteBuffer.allocate(23)
-
-        for (i in 0..17) {
-            manufacturerDataMask.put(0x01.toByte())
-        }
-
-        return manufacturerDataMask.array()
+        return listOf(
+            ScanFilter.Builder().apply {
+                setManufacturerData(Constants.APPLE_MANUFACTURER_ID, Constants.getManufacturerData(), Constants.getManufacturerDataMask())
+            }.build()
+        )
     }
 
     private fun getSettings(): ScanSettings? {
-        val builder = ScanSettings.Builder()
-        // builder.setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
-        builder.setScanMode(ScanSettings.SCAN_MODE_BALANCED)
-        builder.setReportDelay(0)
-
-        // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        // builder.setLegacy(false)
-        // builder.setPhy(ScanSettings.PHY_LE_ALL_SUPPORTED)
-        // }
-
-        // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        //     builder.setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
-        //     builder.setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)
-        //     builder.setNumOfMatches(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)
-        // }
-
-        return builder.build()
+        return ScanSettings.Builder().apply {
+            setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
+            setReportDelay(0)
+        }.build()
     }
 
     override fun stop(callback: BeaconScannerCallback?) {

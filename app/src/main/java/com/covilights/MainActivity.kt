@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
+import com.covilights.beacon.BeaconResultsCache
 import com.covilights.beacon.BluetoothStateManager
 import com.covilights.beacon.advertiser.BeaconAdvertiser
 import com.covilights.beacon.advertiser.BeaconAdvertiserCallback
@@ -39,8 +40,9 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var bluetoothManager: BluetoothStateManager
 
+    private val beaconResultsCache: BeaconResultsCache = BeaconResultsCache()
     private val beaconAdvertiser: BeaconAdvertiser = BeaconAdvertiserImpl()
-    private val beaconScanner: BeaconScanner = BeaconScannerImpl()
+    private val beaconScanner: BeaconScanner = BeaconScannerImpl(beaconResultsCache)
 
     private val scannerCallback = object : BeaconScannerCallback {
         override fun onSuccess() {
@@ -91,6 +93,12 @@ class MainActivity : AppCompatActivity() {
             when (state) {
                 BeaconScannerState.IDLE -> log("Scanner state: idle")
                 BeaconScannerState.RUNNING -> log("Scanner state: running")
+            }
+        })
+
+        beaconResultsCache.results.observe(this, Observer { beacons ->
+            binding.result.text = beacons.values.joinToString("\n--------------------------------\n") {
+                "User: ${it.userUuid}\nDistance: ${"%.2f".format(it.getDistanceInMeter())}m"
             }
         })
     }
@@ -204,9 +212,7 @@ class MainActivity : AppCompatActivity() {
             })
         } else {
             log("Start scanning...")
-            beaconScanner.start(scannerCallback).observe(this, Observer { beacons ->
-                binding.result.text = beacons.toString()
-            })
+            beaconScanner.start(scannerCallback)
         }
     }
 

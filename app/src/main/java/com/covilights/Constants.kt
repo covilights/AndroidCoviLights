@@ -8,7 +8,7 @@ object Constants {
     const val GOOGLE_MANUFACTURER_ID = 224
     const val APPLE_MANUFACTURER_ID = 0x4c00
 
-    const val BEACON_VISIBILITY_TIMEOUT: Long = 30_000
+    const val BEACON_VISIBILITY_TIMEOUT: Long = 10_000
 
     fun getManufacturerData(): ByteArray {
         val manufacturerData: ByteBuffer = ByteBuffer.allocate(23)
@@ -28,5 +28,15 @@ object Constants {
         manufacturerData.put(22, 0xB5.toByte()) // txPower
 
         return manufacturerData.array()
+    }
+
+    fun getManufacturerDataMask(): ByteArray {
+        val manufacturerDataMask = ByteBuffer.allocate(23)
+
+        for (i in 0..17) {
+            manufacturerDataMask.put(0x01.toByte())
+        }
+
+        return manufacturerDataMask.array()
     }
 }
