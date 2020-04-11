@@ -1,7 +1,6 @@
 package com.covilights
 
 import android.os.ParcelUuid
-import androidx.lifecycle.MutableLiveData
 import java.nio.ByteBuffer
 import java.util.UUID
 

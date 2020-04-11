@@ -7,6 +7,6 @@ interface BeaconScanner {
 
     val state: LiveData<BeaconScannerState>
 
-    fun start(callback: BeaconScannerCallback? = null): LiveData<HashMap<String, Beacon>>
+    fun start(callback: BeaconScannerCallback? = null): LiveData<Map<String, Beacon>>
     fun stop(callback: BeaconScannerCallback? = null)
 }

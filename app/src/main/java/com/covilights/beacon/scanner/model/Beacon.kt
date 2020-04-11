@@ -1,17 +1,17 @@
 package com.covilights.beacon.scanner.model
 
-import java.util.UUID
 import kotlin.math.pow
 
 data class Beacon(
     val name: String?,
     val address: String,
-    val userUuid: UUID?,
+    val userUuid: String?,
     val rssi: Int,
-    val txPower: Int
+    val txPower: Int,
+    val lastSeen: Long
 ) {
 
-    val calculateDistance: Double
+    private val calculateDistance: Double
         get() {
             if (rssi == 0) {
                 return -1.0 // if we cannot determine accuracy, return -1.
@@ -21,10 +21,10 @@ data class Beacon(
                 ratio.pow(10.0)
             } else {
                 0.89976 * ratio.pow(7.7095) + 0.111
-            }
+            } * 100
         }
 
     override fun toString(): String {
-        return "content: $userUuid\ndistance:$calculateDistance"
+        return "\nUser: $userUuid\nDistance:${"%.2f".format(calculateDistance)}m\n---------------\n"
     }
 }

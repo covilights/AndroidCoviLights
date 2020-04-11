@@ -8,10 +8,8 @@ import android.bluetooth.le.BluetoothLeAdvertiser
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.covilights.Constants
-import com.covilights.beacon.scanner.utils.getErrorCodeMessage
+import com.covilights.beacon.advertiser.utils.getErrorCodeMessage
 import com.covilights.toParcelUuid
-import com.covilights.toShortBytesMost
-import com.covilights.toUuid
 
 class BeaconAdvertiserImpl : BeaconAdvertiser {
 
@@ -51,23 +49,21 @@ class BeaconAdvertiserImpl : BeaconAdvertiser {
 
     private fun getAdvertiseData(userUuid: String): AdvertiseData {
         return AdvertiseData.Builder()
-            .addManufacturerData(Constants.MANUFACTURER_ID, Constants.getBeaconManufacturerData())
+            .addManufacturerData(Constants.APPLE_MANUFACTURER_ID, Constants.getManufacturerData())
             .build()
     }
 
     private fun getScanResponse(userUuid: String): AdvertiseData {
         return AdvertiseData.Builder()
-            .addServiceData(
-                Constants.SERVICE_UUID_MOST.toParcelUuid(),
-                userUuid.toUuid()?.toShortBytesMost()
-            )
+            .addServiceUuid(userUuid.toParcelUuid())
             .build()
     }
 
     private fun getSettings(): AdvertiseSettings? {
         return AdvertiseSettings.Builder()
-            .setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_POWER)
-            .setTxPowerLevel(AdvertiseSettings.ADVERTISE_TX_POWER_ULTRA_LOW)
+            // .setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_POWER)
+            .setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_BALANCED)
+            .setTxPowerLevel(AdvertiseSettings.ADVERTISE_TX_POWER_MEDIUM)
             .setConnectable(false)
             .setTimeout(0)
             .build()

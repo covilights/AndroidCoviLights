@@ -20,16 +20,14 @@ import com.covilights.beacon.scanner.BeaconScannerImpl
 import com.covilights.beacon.scanner.BeaconScannerState
 import com.covilights.databinding.MainActivityBinding
 import com.mirhoseini.appsettings.AppSettings
-import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.Locale
 import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: MainActivityBinding
 
-    private val dateFormat = SimpleDateFormat("hh:mm:ss", Locale.US)
+    // private val dateFormat = SimpleDateFormat("hh:mm:ss", Locale.US)
 
     private val userUuid: String by lazy {
         AppSettings.getString(this, USER_UUID) ?: run {
@@ -72,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
         initUi()
 
-        log("User UUID\n$userUuid")
+        binding.user.text = "User: $userUuid"
 
         checkPermissions()
 
@@ -82,8 +80,8 @@ class MainActivity : AppCompatActivity() {
             state ?: return@Observer
 
             when (state) {
-                BeaconAdvertiserState.IDLE -> log("Advertiser is idle")
-                BeaconAdvertiserState.RUNNING -> log("Advertiser is running")
+                BeaconAdvertiserState.IDLE -> log("Advertiser state: idle")
+                BeaconAdvertiserState.RUNNING -> log("Advertiser state: running")
             }
         })
 
@@ -91,8 +89,8 @@ class MainActivity : AppCompatActivity() {
             state ?: return@Observer
 
             when (state) {
-                BeaconScannerState.IDLE -> log("Scanner is idle")
-                BeaconScannerState.RUNNING -> log("Scanner is running")
+                BeaconScannerState.IDLE -> log("Scanner state: idle")
+                BeaconScannerState.RUNNING -> log("Scanner state: running")
             }
         })
     }
@@ -215,10 +213,10 @@ class MainActivity : AppCompatActivity() {
     private fun log(message: String) {
         val date = Date()
         runOnUiThread {
-            binding.log.text = "${dateFormat.format(date)} - " +
+            binding.log.text = /*"${dateFormat.format(date)} - " +*/
                 "$message\n" +
-                "-----------------------------------\n" +
-                "${binding.log.text}"
+                    "-----------------------------------\n" +
+                    "${binding.log.text}"
         }
     }
 
