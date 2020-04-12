@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CoviLights</string>
+    <string name="ble_not_supported">This phone does not support BluetoothLE!</string>
 </resources>

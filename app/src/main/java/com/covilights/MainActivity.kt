@@ -5,65 +5,24 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
-import com.covilights.beacon.BeaconResultsCache
-import com.covilights.beacon.BluetoothStateManager
-import com.covilights.beacon.advertiser.BeaconAdvertiser
-import com.covilights.beacon.advertiser.BeaconAdvertiserCallback
-import com.covilights.beacon.advertiser.BeaconAdvertiserImpl
-import com.covilights.beacon.advertiser.BeaconAdvertiserState
-import com.covilights.beacon.scanner.BeaconScanner
-import com.covilights.beacon.scanner.BeaconScannerCallback
-import com.covilights.beacon.scanner.BeaconScannerImpl
-import com.covilights.beacon.scanner.BeaconScannerState
-import com.covilights.beacon.scanner.model.Beacon
+import com.covilights.beacon.BeaconCallback
+import com.covilights.beacon.BeaconManager
+import com.covilights.beacon.model.Beacon
 import com.covilights.databinding.MainActivityBinding
-import com.mirhoseini.appsettings.AppSettings
-import java.util.Date
-import java.util.UUID
+import com.covilights.user.UserManager
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: MainActivityBinding
 
-    // private val dateFormat = SimpleDateFormat("hh:mm:ss", Locale.US)
-
-    private val userUuid: String by lazy {
-        AppSettings.getString(this, USER_UUID) ?: run {
-            val newUuid = UUID.randomUUID().toString()
-            AppSettings.setValue(this, USER_UUID, newUuid)
-            return@run newUuid
-        }
-    }
-
-    lateinit var bluetoothManager: BluetoothStateManager
-
-    private val beaconResultsCache: BeaconResultsCache = BeaconResultsCache()
-    private val beaconAdvertiser: BeaconAdvertiser = BeaconAdvertiserImpl()
-    private val beaconScanner: BeaconScanner = BeaconScannerImpl(beaconResultsCache)
-
-    private val scannerCallback = object : BeaconScannerCallback {
-        override fun onSuccess() {
-            log("Scanning started successfully!")
-        }
-
-        override fun onError(throwable: Throwable) {
-            log(throwable.message ?: throwable.toString())
-        }
-    }
-
-    private val advertiserCallback = object : BeaconAdvertiserCallback {
-        override fun onSuccess() {
-            log("Advertising started successfully!")
-        }
-
-        override fun onError(throwable: Throwable) {
-            log(throwable.message ?: throwable.toString())
-        }
-    }
+    private val userManager: UserManager by inject()
+    private val beaconManager: BeaconManager by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,31 +32,15 @@ class MainActivity : AppCompatActivity() {
 
         initUi()
 
-        binding.user.text = "User: $userUuid"
+        binding.user.text = "User: ${userManager.userUuid}"
 
         checkPermissions()
 
-        bluetoothManager = BluetoothStateManager(this)
-
-        beaconAdvertiser.state.observe(this, Observer { state ->
-            state ?: return@Observer
-
-            when (state) {
-                BeaconAdvertiserState.IDLE -> log("Advertiser state: idle")
-                BeaconAdvertiserState.RUNNING -> log("Advertiser state: running")
-            }
+        beaconManager.state.observe(this, Observer { state ->
+            log("Beacon state: $state")
         })
 
-        beaconScanner.state.observe(this, Observer { state ->
-            state ?: return@Observer
-
-            when (state) {
-                BeaconScannerState.IDLE -> log("Scanner state: idle")
-                BeaconScannerState.RUNNING -> log("Scanner state: running")
-            }
-        })
-
-        beaconResultsCache.results.observe(this, Observer { beacons ->
+        beaconManager.results.observe(this, Observer { beacons ->
             binding.result.text = beacons.values.joinToString("\n--------------------------------\n") {
                 "User: ${it.userUuid}\n" +
                     "isVisible: ${it.isVisible}\n" +
@@ -105,12 +48,17 @@ class MainActivity : AppCompatActivity() {
                     "LastDistance: ${"%.2f".format(Beacon.getDistanceInMeter(it.rssi, it.txPower))}m"
             }
         })
+
+        if (!beaconManager.hasBleFeature()) {
+            Toast.makeText(this, R.string.ble_not_supported, Toast.LENGTH_LONG).show()
+            finish()
+        }
     }
 
     private fun initUi() {
         binding.log.movementMethod = ScrollingMovementMethod()
-        binding.advertise.setOnClickListener(::onAdvertiseClick)
-        binding.discover.setOnClickListener(::onDiscoverClick)
+        binding.start.setOnClickListener(::onStartClick)
+        binding.stop.setOnClickListener(::onStopClick)
     }
 
     private fun checkPermissions() {
@@ -181,13 +129,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun onAdvertiseClick(v: View) {
-        if (!bluetoothManager.getBluetoothStatus()) {
+    private fun onStartClick(v: View) {
+        if (!beaconManager.isBluetoothEnabled()) {
             log("Enabling bluetooth...")
 
-            bluetoothManager.enableBluetooth(listener = object :
-                BluetoothStateManager.OnBluetoothStatusListener {
-                override fun onBluetoothTurnedOn() {
+            beaconManager.enableBluetooth(object : BeaconCallback {
+                override fun onSuccess() {
                     log("Bluetooth is on now")
                 }
 
@@ -196,37 +143,35 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         } else {
-            beaconAdvertiser.start(userUuid, advertiserCallback)
+            beaconManager.start(object : BeaconCallback {
+                override fun onSuccess() {
+                    log("Beacon started successfully!")
+                }
+
+                override fun onError(throwable: Throwable) {
+                    log(throwable.message ?: throwable.toString())
+                }
+            })
         }
     }
 
-    private fun onDiscoverClick(v: View) {
-        if (!bluetoothManager.getBluetoothStatus()) {
-            log("Enabling bluetooth...")
+    private fun onStopClick(v: View) {
+        beaconManager.stop(object : BeaconCallback {
+            override fun onSuccess() {
+                log("Beacon stopped successfully!")
+            }
 
-            bluetoothManager.enableBluetooth(listener = object :
-                BluetoothStateManager.OnBluetoothStatusListener {
-                override fun onBluetoothTurnedOn() {
-                    log("Bluetooth is on now")
-                }
-
-                override fun onError(throwable: Throwable) {
-                    log(throwable.message ?: throwable.toString())
-                }
-            })
-        } else {
-            log("Start scanning...")
-            beaconScanner.start(scannerCallback)
-        }
+            override fun onError(throwable: Throwable) {
+                log(throwable.message ?: throwable.toString())
+            }
+        })
     }
 
     private fun log(message: String) {
-        val date = Date()
         runOnUiThread {
-            binding.log.text = /*"${dateFormat.format(date)} - " +*/
-                "$message\n" +
-                    "-----------------------------------\n" +
-                    "${binding.log.text}"
+            binding.log.text = "$message\n" +
+                "-----------------------------------\n" +
+                "${binding.log.text}"
         }
     }
 
