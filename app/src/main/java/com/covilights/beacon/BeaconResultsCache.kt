@@ -21,9 +21,7 @@ class BeaconResultsCache {
         GlobalScope.launch(Dispatchers.IO) {
             while (true) {
                 val currentTime = System.currentTimeMillis()
-                _results.postValue(results.value?.filter {
-                    it.value.lastSeen > currentTime - Constants.BEACON_VISIBILITY_TIMEOUT
-                })
+                _results.value?.forEach { if (it.value.lastSeen > currentTime - Constants.BEACON_VISIBILITY_TIMEOUT) it.value.isVisible = false }
 
                 delay(Constants.BEACON_VISIBILITY_TIMEOUT)
             }
@@ -31,6 +29,13 @@ class BeaconResultsCache {
     }
 
     fun add(beacon: Beacon) {
-        _results.value = _results.value?.toMutableMap()?.apply { put(beacon.userUuid, beacon) }
+        val minDistanceInMeter = _results.value?.get(beacon.userUuid)?.minDistanceInMeter
+        val beaconMinDistance: Beacon =
+            if (minDistanceInMeter != null && minDistanceInMeter < beacon.minDistanceInMeter) beacon.copy(minDistanceInMeter = minDistanceInMeter)
+            else beacon
+
+        _results.value = _results.value?.toMutableMap()?.apply {
+            put(beaconMinDistance.userUuid, beaconMinDistance)
+        }
     }
 }

@@ -19,6 +19,7 @@ import com.covilights.beacon.scanner.BeaconScanner
 import com.covilights.beacon.scanner.BeaconScannerCallback
 import com.covilights.beacon.scanner.BeaconScannerImpl
 import com.covilights.beacon.scanner.BeaconScannerState
+import com.covilights.beacon.scanner.model.Beacon
 import com.covilights.databinding.MainActivityBinding
 import com.mirhoseini.appsettings.AppSettings
 import java.util.Date
@@ -98,7 +99,10 @@ class MainActivity : AppCompatActivity() {
 
         beaconResultsCache.results.observe(this, Observer { beacons ->
             binding.result.text = beacons.values.joinToString("\n--------------------------------\n") {
-                "User: ${it.userUuid}\nDistance: ${"%.2f".format(it.getDistanceInMeter())}m"
+                "User: ${it.userUuid}\n" +
+                    "isVisible: ${it.isVisible}\n" +
+                    "MinDistance: ${"%.2f".format(it.minDistanceInMeter)}m\n" +
+                    "LastDistance: ${"%.2f".format(Beacon.getDistanceInMeter(it.rssi, it.txPower))}m"
             }
         })
     }

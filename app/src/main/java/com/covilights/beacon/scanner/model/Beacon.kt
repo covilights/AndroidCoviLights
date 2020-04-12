@@ -7,18 +7,21 @@ data class Beacon(
     val userUuid: String,
     val rssi: Int,
     val txPower: Int,
-    val lastSeen: Long
+    val lastSeen: Long,
+    val minDistanceInMeter: Double = getDistanceInMeter(rssi, txPower),
+    var isVisible: Boolean = true
 ) {
-
-    fun getDistanceInMeter(): Double {
-        if (rssi == 0) {
-            return -1.0 // if we cannot determine accuracy, return -1.
+    companion object {
+        fun getDistanceInMeter(rssi: Int, txPower: Int): Double {
+            if (rssi == 0) {
+                return -1.0 // if we cannot determine accuracy, return -1.
+            }
+            val ratio = rssi * 1.0 / txPower
+            return if (ratio < 1.0) {
+                ratio.pow(10.0)
+            } else {
+                0.89976 * ratio.pow(7.7095) + 0.111
+            } * 100 // fix to show correct meter!
         }
-        val ratio = rssi * 1.0 / txPower
-        return if (ratio < 1.0) {
-            ratio.pow(10.0)
-        } else {
-            0.89976 * ratio.pow(7.7095) + 0.111
-        } * 100 // fix to show correct meter!
     }
 }
