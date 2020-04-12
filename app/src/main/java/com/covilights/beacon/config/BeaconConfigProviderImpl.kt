@@ -13,4 +13,10 @@ class BeaconConfigProviderImpl(private val userManager: UserManager) : BeaconCon
 
     override val manufacturerUuid: String
         get() = Constants.MANUFACTURER_UUID
+
+    override val visibilityTimeout: Long
+        get() = Constants.BEACON_VISIBILITY_TIMEOUT
+
+    override val visibilityDistance: Double
+        get() = Constants.BEACON_VISIBILITY_DISTANCE
 }

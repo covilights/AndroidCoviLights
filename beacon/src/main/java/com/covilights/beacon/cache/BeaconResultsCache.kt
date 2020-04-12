@@ -2,13 +2,15 @@ package com.covilights.beacon.cache
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.covilights.beacon.config.BeaconConfigProvider
 import com.covilights.beacon.model.Beacon
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.math.min
 
-internal class BeaconResultsCache {
+internal class BeaconResultsCache(config: BeaconConfigProvider) {
 
     private val _results = MutableLiveData<Map<String, Beacon>>()
     val results: LiveData<Map<String, Beacon>>
@@ -19,32 +21,33 @@ internal class BeaconResultsCache {
 
         GlobalScope.launch(Dispatchers.IO) {
             while (true) {
-                val currentTime = System.currentTimeMillis()
-
                 val value = _results.value
-                value?.forEach {
-                    if (it.value.lastSeen > currentTime - BEACON_VISIBILITY_TIMEOUT)
+                value?.filter { it.value.isVisible }?.forEach {
+                    if (it.value.lastSeen < System.currentTimeMillis() - config.visibilityTimeout) {
                         it.value.isVisible = false
+                    }
                 }
                 _results.postValue(value)
 
-                delay(BEACON_VISIBILITY_TIMEOUT)
+                delay(config.visibilityTimeout)
             }
         }
     }
 
     fun add(beacon: Beacon) {
-        val minDistanceInMeter = _results.value?.get(beacon.userUuid)?.minDistanceInMeter
-        val beaconMinDistance: Beacon =
-            if (minDistanceInMeter != null && minDistanceInMeter < beacon.minDistanceInMeter) beacon.copy(minDistanceInMeter = minDistanceInMeter)
-            else beacon
-
-        _results.value = _results.value?.toMutableMap()?.apply {
-            put(beaconMinDistance.userUuid, beaconMinDistance)
-        }
+        val beaconWithMinDistance = updateBeaconMinDistance(beacon)
+        addResult(beaconWithMinDistance)
     }
 
-    companion object {
-        const val BEACON_VISIBILITY_TIMEOUT: Long = 10_000
+    private fun updateBeaconMinDistance(beacon: Beacon): Beacon {
+        return _results.value?.get(beacon.userUuid)?.let { existingBeacon ->
+            beacon.copy(minDistanceInMeter = min(existingBeacon.minDistanceInMeter, beacon.distanceInMeter))
+        } ?: beacon.copy(minDistanceInMeter = beacon.distanceInMeter)
+    }
+
+    private fun addResult(beacon: Beacon) {
+        _results.value = _results.value?.toMutableMap()?.apply {
+            put(beacon.userUuid, beacon)
+        }
     }
 }

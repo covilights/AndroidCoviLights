@@ -17,6 +17,7 @@ import com.covilights.beacon.config.BeaconConfigProvider
 import com.covilights.beacon.model.Beacon
 import com.covilights.beacon.utils.getManufacturerData
 import com.covilights.beacon.utils.getManufacturerDataMask
+import kotlin.math.pow
 
 internal class BeaconScannerImpl(private val config: BeaconConfigProvider, private val resultsCache: BeaconResultsCache) : BeaconScanner {
 
@@ -53,13 +54,29 @@ internal class BeaconScannerImpl(private val config: BeaconConfigProvider, priva
     }
 
     private fun mapScanResultToBeacon(result: ScanResult, userUuid: String): Beacon {
+        val txPower = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) result.txPower else 0
+        val distance = calculateDistanceInMeter(result.rssi, txPower)
+
         return Beacon(
             address = result.device.address,
             userUuid = userUuid,
-            rssi = result.rssi,
-            txPower = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) result.txPower else 0,
-            lastSeen = System.currentTimeMillis()
+            lastSeen = System.currentTimeMillis(),
+            distanceInMeter = distance,
+            isNear = distance < config.visibilityDistance,
+            isVisible = true
         )
+    }
+
+    private fun calculateDistanceInMeter(rssi: Int, txPower: Int): Double {
+        if (rssi == 0) {
+            return -1.0 // if we cannot determine accuracy, return -1.
+        }
+        val ratio = rssi * 1.0 / txPower
+        return if (ratio < 1.0) {
+            ratio.pow(10.0)
+        } else {
+            0.89976 * ratio.pow(7.7095) + 0.111
+        } * 100 // fix to show correct meter!
     }
 
     private fun ScanResult.getUserUuid(): String? {

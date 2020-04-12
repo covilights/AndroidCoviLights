@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 apply from: "$rootDir/ktlint.gradle"
 
@@ -28,6 +29,24 @@ android {
     viewBinding {
         enabled = true
     }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        animationsDisabled true
+
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 check.dependsOn ktlint
@@ -44,7 +63,14 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$androidx_appcompat_version"
     implementation "androidx.core:core-ktx:$androidx_core_ktx_version"
     implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout_version"
-    implementation "com.mirhoseini.appsettings:appsettings:$appsettings_version"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$androidx_lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-service:$androidx_lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$androidx_lifecycle_version"
+    kapt "android.arch.lifecycle:common-java8:$androidx_lifecycle_version"
+    testImplementation "androidx.arch.core:core-testing:$androidx_arch_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_testext_version"
@@ -56,4 +82,8 @@ dependencies {
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
     implementation "org.koin:koin-androidx-fragment:$koin_version"
     testImplementation "org.koin:koin-test:$koin_version"
+
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    implementation "com.mirhoseini.appsettings:appsettings:$appsettings_version"
 }

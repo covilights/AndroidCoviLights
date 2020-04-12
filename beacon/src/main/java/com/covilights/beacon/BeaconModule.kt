@@ -12,7 +12,7 @@ import org.koin.dsl.module
 
 val beaconModule = module {
 
-    single { BeaconResultsCache() }
+    single { BeaconResultsCache(config = get()) }
 
     single<BluetoothManager> { BluetoothManagerImpl(context = androidContext()) }
 

@@ -1,6 +1,8 @@
 package com.covilights
 
 import android.Manifest
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
@@ -9,10 +11,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.covilights.beacon.BeaconCallback
 import com.covilights.beacon.BeaconManager
-import com.covilights.beacon.model.Beacon
+import com.covilights.beacon.BeaconState
 import com.covilights.databinding.MainActivityBinding
 import com.covilights.user.UserManager
 import org.koin.android.ext.android.inject
@@ -38,14 +41,26 @@ class MainActivity : AppCompatActivity() {
 
         beaconManager.state.observe(this, Observer { state ->
             log("Beacon state: $state")
+
+            when (state) {
+                BeaconState.STARTED -> {
+                    binding.start.isVisible = false
+                    binding.stop.isVisible = true
+                }
+                else -> {
+                    binding.start.isVisible = true
+                    binding.stop.isVisible = false
+                }
+            }
         })
 
         beaconManager.results.observe(this, Observer { beacons ->
             binding.result.text = beacons.values.joinToString("\n--------------------------------\n") {
                 "User: ${it.userUuid}\n" +
                     "isVisible: ${it.isVisible}\n" +
+                    "isNear: ${it.isNear}\n" +
                     "MinDistance: ${"%.2f".format(it.minDistanceInMeter)}m\n" +
-                    "LastDistance: ${"%.2f".format(Beacon.getDistanceInMeter(it.rssi, it.txPower))}m"
+                    "LastDistance: ${"%.2f".format(it.distanceInMeter)}m"
             }
         })
 
@@ -179,5 +194,10 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val PERMISSIONS_REQUEST = 1010
         const val USER_UUID = "user_uuid"
+
+        fun intent(context: Context) =
+            Intent(context, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
     }
 }

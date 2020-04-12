@@ -15,6 +15,8 @@ ext {
     androidx_testcore_version = '1.2.0'
     androidx_testext_version = '1.1.1'
     androidx_testespresso_version = '3.2.0'
+    androidx_lifecycle_version = '2.2.0'
+    androidx_arch_version = '2.1.0'
 
     // Kotlin
     kotlin_version = '1.3.71'
@@ -28,6 +30,7 @@ ext {
     mockito_kotlin_version = '2.1.0'
 
     // Dependencies
+    timber_version = '4.7.1'
     koin_version = '2.1.5'
     appsettings_version = '1.0.4'
 }
