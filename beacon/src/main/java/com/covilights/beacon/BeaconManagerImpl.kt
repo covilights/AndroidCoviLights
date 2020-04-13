@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.Observer
 import com.covilights.beacon.advertiser.BeaconAdvertiser
 import com.covilights.beacon.bluetooth.BluetoothManager
 import com.covilights.beacon.cache.BeaconResultsCache
@@ -32,6 +33,16 @@ internal class BeaconManagerImpl(
 
     override val results: LiveData<Map<String, Beacon>>
         get() = cache.results
+
+    init {
+        bluetoothManager.isEnabled.observeForever(Observer { isActive ->
+            if (isActive == false) {
+                stop()
+            } else {
+                start()
+            }
+        })
+    }
 
     override fun hasBleFeature(): Boolean {
         return context.packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)

@@ -16,20 +16,20 @@ import androidx.lifecycle.Observer
 import com.covilights.beacon.BeaconCallback
 import com.covilights.beacon.BeaconManager
 import com.covilights.beacon.BeaconState
-import com.covilights.databinding.MainActivityBinding
+import com.covilights.databinding.DebugActivityBinding
 import com.covilights.user.UserManager
 import org.koin.android.ext.android.inject
 
-class MainActivity : AppCompatActivity() {
+class DebugActivity : AppCompatActivity() {
 
-    lateinit var binding: MainActivityBinding
+    lateinit var binding: DebugActivityBinding
 
     private val userManager: UserManager by inject()
     private val beaconManager: BeaconManager by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = MainActivityBinding.inflate(layoutInflater)
+        binding = DebugActivityBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
@@ -62,6 +62,8 @@ class MainActivity : AppCompatActivity() {
                     "MinDistance: ${"%.2f".format(it.minDistanceInMeter)}m\n" +
                     "LastDistance: ${"%.2f".format(it.distanceInMeter)}m"
             }
+
+            log("Result: $beacons")
         })
 
         if (!beaconManager.hasBleFeature()) {
@@ -196,7 +198,7 @@ class MainActivity : AppCompatActivity() {
         const val USER_UUID = "user_uuid"
 
         fun intent(context: Context) =
-            Intent(context, MainActivity::class.java).apply {
+            Intent(context, DebugActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             }
     }

@@ -16,11 +16,13 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.Observer
 import com.covilights.Constants
-import com.covilights.MainActivity
+import com.covilights.DebugActivity
 import com.covilights.R
+import com.covilights.beacon.BeaconCallback
 import com.covilights.beacon.BeaconManager
 import com.covilights.beacon.BeaconState
 import org.koin.android.ext.android.inject
+import timber.log.Timber
 
 class BeaconService : LifecycleService() {
 
@@ -50,6 +52,16 @@ class BeaconService : LifecycleService() {
             notificationBuilder?.applyNotificationResultCount(resultCount)?.also {
                 val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                 notificationManager.notify(Constants.NOTIFICATION_ID, it.build())
+            }
+        })
+
+        beaconManager.start(object : BeaconCallback {
+            override fun onSuccess() {
+                Timber.i("Beacon Manager started successfully.")
+            }
+
+            override fun onError(throwable: Throwable) {
+                Timber.w(throwable, "Beacon Manager didn't start.")
             }
         })
     }
@@ -95,7 +107,7 @@ class BeaconService : LifecycleService() {
         val pendingIntent = PendingIntent.getActivity(
             this,
             MAIN_ACTIVITY_REQUEST_CODE,
-            MainActivity.intent(this),
+            DebugActivity.intent(this),
             PendingIntent.FLAG_UPDATE_CURRENT
         )
 
@@ -120,18 +132,18 @@ class BeaconService : LifecycleService() {
 
                 mActions.clear()
 
-                addAction(
-                    NotificationCompat.Action.Builder(
-                        R.drawable.ic_notification_off,
-                        "Stop",
-                        PendingIntent.getService(
-                            this@BeaconService,
-                            MAIN_SERVICE_REQUEST_CODE,
-                            BeaconServiceActions.StopBeacon.toIntent(this@BeaconService),
-                            PendingIntent.FLAG_UPDATE_CURRENT
-                        )
-                    ).build()
-                )
+                // addAction(
+                //     NotificationCompat.Action.Builder(
+                //         R.drawable.ic_notification_off,
+                //         "Stop",
+                //         PendingIntent.getService(
+                //             this@BeaconService,
+                //             MAIN_SERVICE_REQUEST_CODE,
+                //             BeaconServiceActions.StopBeacon.toIntent(this@BeaconService),
+                //             PendingIntent.FLAG_UPDATE_CURRENT
+                //         )
+                //     ).build()
+                // )
             }
             else -> {
                 setSmallIcon(R.drawable.ic_notification_off)
@@ -139,18 +151,18 @@ class BeaconService : LifecycleService() {
 
                 mActions.clear()
 
-                addAction(
-                    NotificationCompat.Action.Builder(
-                        R.drawable.ic_notification_on,
-                        "Start",
-                        PendingIntent.getService(
-                            this@BeaconService,
-                            MAIN_SERVICE_REQUEST_CODE,
-                            BeaconServiceActions.StartBeacon.toIntent(this@BeaconService),
-                            PendingIntent.FLAG_UPDATE_CURRENT
-                        )
-                    ).build()
-                )
+                // addAction(
+                //     NotificationCompat.Action.Builder(
+                //         R.drawable.ic_notification_on,
+                //         "Start",
+                //         PendingIntent.getService(
+                //             this@BeaconService,
+                //             MAIN_SERVICE_REQUEST_CODE,
+                //             BeaconServiceActions.StartBeacon.toIntent(this@BeaconService),
+                //             PendingIntent.FLAG_UPDATE_CURRENT
+                //         )
+                //     ).build()
+                // )
             }
         }
 
