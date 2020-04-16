@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.firebase.appdistribution'
 
 apply from: "$rootDir/ktlint.gradle"
 
@@ -23,6 +24,23 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            firebaseAppDistribution {
+                releaseNotes = "Commit: ${commitMessage()}\n\n" +
+                        "Branch: ${System.getenv('GITHUB_REF')}\n\n" +
+                        "Author: ${commitAuthor()}\n\n" +
+                        "Hash: ${commitShortHash()}"
+                groups = "qa, dev"
+            }
+        }
+        debug {
+            firebaseAppDistribution {
+                releaseNotes = "Commit: ${commitMessage()}\n\n" +
+                        "Branch: ${System.getenv('GITHUB_REF')}\n\n" +
+                        "Author: ${commitAuthor()}\n\n" +
+                        "Hash: ${commitShortHash()}"
+                groups = "qa, dev"
+            }
         }
     }
 
@@ -87,3 +105,5 @@ dependencies {
 
     implementation "com.mirhoseini.appsettings:appsettings:$appsettings_version"
 }
+
+apply plugin: 'com.google.gms.google-services'
