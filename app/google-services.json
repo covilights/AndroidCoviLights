@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "894215575019",
+    "firebase_url": "https://covi-lights.firebaseio.com",
+    "project_id": "covi-lights",
+    "storage_bucket": "covi-lights.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894215575019:android:749e4121a14dbb0a7c35ae",
+        "android_client_info": {
+          "package_name": "com.covilights"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894215575019-3ub6k2vpa5b4ol1qd6n8u2fgrh1bijte.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhtS-enQTkl5EryNFMHONyYOmemlZCYCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894215575019-3ub6k2vpa5b4ol1qd6n8u2fgrh1bijte.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
