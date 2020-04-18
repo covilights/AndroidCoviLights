@@ -1,11 +1,40 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorSurface">@color/colorSurface</item>
+
+        <item name="materialButtonStyle">@style/AppTheme.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/AppTheme.Button.OutlinedButton</item>
+
+        <item name="textAppearanceHeadline1">@style/AppTheme.TextAppearance.Display4</item>
+        <item name="textAppearanceHeadline2">@style/AppTheme.TextAppearance.Display3</item>
+        <item name="textAppearanceHeadline3">@style/AppTheme.TextAppearance.Display2</item>
+        <item name="textAppearanceHeadline4">@style/AppTheme.TextAppearance.Display1</item>
+        <item name="textAppearanceHeadline5">@style/AppTheme.TextAppearance.Headline</item>
+        <item name="textAppearanceHeadline6">@style/AppTheme.TextAppearance.Title</item>
+        <item name="textAppearanceSubtitle1">@style/AppTheme.TextAppearance.Subheading</item>
+        <item name="textAppearanceSubtitle2">@style/AppTheme.TextAppearance.Subheading</item>
+        <item name="textAppearanceBody1">@style/AppTheme.TextAppearance.Body1</item>
+        <item name="textAppearanceBody2">@style/AppTheme.TextAppearance.Body2</item>
+        <item name="textAppearanceCaption">@style/AppTheme.TextAppearance.Caption</item>
+        <item name="textAppearanceButton">@style/AppTheme.TextAppearance.Button</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/button</item>
+        <item name="backgroundTint">?attr/colorSecondary</item>
+    </style>
+
+    <style name="AppTheme.Button.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/outlined_button</item>
+        <item name="strokeColor">?attr/colorSecondary</item>
+    </style>
 </resources>

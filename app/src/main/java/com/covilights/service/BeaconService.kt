@@ -118,7 +118,7 @@ class BeaconService : LifecycleService() {
             setSound(null)
             setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.ic_notification_off))
             setCategory(NotificationCompat.CATEGORY_STATUS)
-            color = ResourcesCompat.getColor(resources, R.color.colorAccent, theme)
+            color = ResourcesCompat.getColor(resources, R.color.accent, theme)
             priority = NotificationCompat.PRIORITY_DEFAULT
         }
     }

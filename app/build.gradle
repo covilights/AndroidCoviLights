@@ -90,6 +90,8 @@ dependencies {
     kapt "android.arch.lifecycle:common-java8:$androidx_lifecycle_version"
     testImplementation "androidx.arch.core:core-testing:$androidx_arch_version"
 
+    implementation "com.google.android.material:material:$android_material_version"
+
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_testext_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_testespresso_version"
