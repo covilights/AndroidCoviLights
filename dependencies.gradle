@@ -35,4 +35,5 @@ ext {
     timber_version = '4.7.1'
     koin_version = '2.1.5'
     appsettings_version = '1.0.4'
+    android_material_version = '1.1.0'
 }
