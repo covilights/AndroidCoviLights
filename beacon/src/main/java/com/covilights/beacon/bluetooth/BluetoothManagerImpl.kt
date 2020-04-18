@@ -15,11 +15,11 @@ internal class BluetoothManagerImpl(context: Context) : BluetoothManager {
     override val isEnabled: LiveData<Boolean>
         get() = _isEnabled
 
-    private val bluetoothAdapter: BluetoothAdapter
+    private val bluetoothAdapter: BluetoothAdapter?
         get() = BluetoothAdapter.getDefaultAdapter()
 
     init {
-        _isEnabled.value = bluetoothAdapter.isEnabled
+        _isEnabled.value = isBluetoothEnabled()
     }
 
     private val bluetoothReceiver: BroadcastReceiver = object : BroadcastReceiver() {
@@ -49,21 +49,23 @@ internal class BluetoothManagerImpl(context: Context) : BluetoothManager {
     }
 
     override fun isBluetoothEnabled(): Boolean {
-        return bluetoothAdapter.isEnabled
+        return bluetoothAdapter?.isEnabled ?: false
     }
 
     private var callback: BeaconCallback? = null
 
     override fun enableBluetooth(callback: BeaconCallback?) {
 
-        if (bluetoothAdapter.isEnabled) {
+        if (isBluetoothEnabled()) {
             callback?.onSuccess()
             return
         }
 
         this.callback = callback
 
-        if (!bluetoothAdapter.enable()) {
+        val enabled = bluetoothAdapter?.enable() ?: false
+
+        if (!enabled) {
             callback?.onError(Throwable("Unable to enable Bluetooth!"))
             this.callback = null
         }
