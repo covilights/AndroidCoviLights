@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:padding="@dimen/space_normal"
+    android:layout_height="match_parent">
+
+    <RadioButton
+        android:id="@+id/status_positive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding_status_dialog_radio_positive" />
+
+    <RadioButton
+        android:id="@+id/status_exposed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/onboarding_status_dialog_radio_exposed" />
+
+    <RadioButton
+        android:id="@+id/status_negative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/onboarding_status_dialog_radio_negative" />
+
+</RadioGroup>

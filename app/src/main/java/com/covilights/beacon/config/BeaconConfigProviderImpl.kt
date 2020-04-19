@@ -1,7 +1,7 @@
 package com.covilights.beacon.config
 
-import com.covilights.Constants
 import com.covilights.user.UserManager
+import com.covilights.utils.Constants
 
 class BeaconConfigProviderImpl(private val userManager: UserManager) : BeaconConfigProvider {
 

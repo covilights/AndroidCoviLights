@@ -9,6 +9,12 @@
         <item name="materialButtonStyle">@style/AppTheme.Button</item>
         <item name="materialButtonOutlinedStyle">@style/AppTheme.Button.OutlinedButton</item>
 
+        <item name="snackbarButtonStyle">@style/AppTheme.Button.TextButton</item>
+
+        <item name="android:alertDialogTheme">@style/AppTheme.AlertDialog</item>
+
+        <item name="android:textViewStyle">@style/AppTheme.TextView</item>
+
         <item name="textAppearanceHeadline1">@style/AppTheme.TextAppearance.Display4</item>
         <item name="textAppearanceHeadline2">@style/AppTheme.TextAppearance.Display3</item>
         <item name="textAppearanceHeadline3">@style/AppTheme.TextAppearance.Display2</item>
@@ -28,13 +34,38 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+    </style>
+
+    <style name="AppTheme.TextView.Onboarding.Content" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/brand_black_54</item>
+    </style>
+
     <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">@color/button</item>
         <item name="backgroundTint">?attr/colorSecondary</item>
     </style>
 
+    <style name="AppTheme.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/text_button</item>
+    </style>
+
+    <style name="AppTheme.Button.TextButton.Secondary" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/text_button_secondary</item>
+    </style>
+
     <style name="AppTheme.Button.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:textColor">@color/outlined_button</item>
         <item name="strokeColor">?attr/colorSecondary</item>
+    </style>
+
+    <style name="AppTheme.AlertDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="android:buttonBarNegativeButtonStyle">@style/AppTheme.Button.TextButton</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/AppTheme.Button.TextButton</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/AppTheme.Button.TextButton</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
     </style>
 </resources>

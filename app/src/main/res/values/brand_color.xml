@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="brand_primary">#080434</color>
-    <color name="brand_secondary">#02A675</color>
+    <color name="brand_secondary">@color/brand_green</color>
+    <color name="brand_green">#02A675</color>
     <color name="brand_yellow">#F5B100</color>
     <color name="brand_red">#E85151</color>
     <color name="brand_light_gray">#EBEBEE</color>

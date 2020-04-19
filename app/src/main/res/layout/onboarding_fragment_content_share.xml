@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/onboarding_fragment">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.covilights.view.onboarding.OnboardingViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/AppTheme.TextView.Onboarding.Content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/onboarding_share_top_text"
+            android:textAppearance="?attr/textAppearanceBody1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_normal"
+                android:src="@drawable/ic_community" />
+
+            <TextView
+                style="@style/AppTheme.TextView.Onboarding.Content"
+                htmlText="@{String.format(@string/onboarding_share_now_text)}"
+                linkMovementMethod="@{true}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBody1" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

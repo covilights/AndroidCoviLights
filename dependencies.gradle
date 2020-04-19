@@ -19,6 +19,8 @@ ext {
     androidx_testespresso_version = '3.2.0'
     androidx_lifecycle_version = '2.2.0'
     androidx_arch_version = '2.1.0'
+    androidx_legacy_support_v4 = '1.0.0'
+    navigation_component_version = '2.3.0-alpha04'
 
     // Kotlin
     kotlin_version = '1.3.71'
@@ -33,7 +35,7 @@ ext {
 
     // Dependencies
     timber_version = '4.7.1'
-    koin_version = '2.1.5'
+    koin_version = '2.1.0-alpha-10'
     appsettings_version = '1.0.4'
     android_material_version = '1.1.0'
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/onboarding_fragment">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.covilights.view.onboarding.OnboardingViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/start"
+            style="@style/AppTheme.Button"
+            visibility="@{viewmodel.startVisible}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/space_small"
+            android:onClick="@{(v) -> viewmodel.onNextClick() }"
+            android:text="@string/start" />
+
+        <androidx.cardview.widget.CardView
+            visibility="@{!viewmodel.startVisible}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_small"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/prev"
+                    style="@style/AppTheme.Button.TextButton.Secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v) -> viewmodel.onPrevClick() }"
+                    android:text="@string/prev"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                    app:icon="@drawable/ic_arrow_left"
+                    app:iconGravity="start"
+                    app:iconTint="@color/text_button_secondary" />
+
+                <include
+                    layout="@layout/onboarding_fragment_progress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    app:viewmodel="@{viewmodel}" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/next"
+                    style="@style/AppTheme.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v) -> viewmodel.onNextClick() }"
+                    android:text="@string/next"
+                    app:icon="@drawable/ic_arrow_right"
+                    app:iconGravity="end"
+                    app:iconTint="@color/text_button" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

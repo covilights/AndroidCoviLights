@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="onboarding_title">
+        <item>@string/onboarding_welcome_title</item>
+        <item>@string/onboarding_permission_title</item>
+        <item>@string/onboarding_status_title</item>
+        <item>@string/onboarding_share_title</item>
+    </string-array>
+
+    <string-array name="onboarding_subtitle">
+        <item>@string/onboarding_welcome_subtitle</item>
+        <item>@string/onboarding_permission_subtitle</item>
+        <item>@string/onboarding_status_subtitle</item>
+        <item>@string/onboarding_share_subtitle</item>
+    </string-array>
+
+    <array name="onboarding_icon">
+        <item>@drawable/ic_covidlights</item>
+        <item>@drawable/ic_notify</item>
+        <item>@drawable/ic_evaluate</item>
+        <item>@drawable/ic_share</item>
+    </array>
+</resources>

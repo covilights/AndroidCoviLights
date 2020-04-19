@@ -8,5 +8,8 @@
     <color name="color_error">@color/brand_red</color>
     <color name="button">@color/brand_white</color>
     <color name="outlined_button">@color/brand_secondary</color>
+    <color name="text_button">@color/brand_secondary</color>
+    <color name="text_button_secondary">@color/brand_black_54</color>
     <color name="text">@color/brand_primary</color>
+    <color name="ic_green_tint">@color/brand_primary</color>
 </resources>

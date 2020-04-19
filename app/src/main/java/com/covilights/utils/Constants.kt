@@ -1,6 +1,8 @@
-package com.covilights
+package com.covilights.utils
 
 object Constants {
+
+    const val SPLASH_TIMEOUT = 2_000L
 
     const val NOTIFICATION_CHANNEL_ID = "beacon_service"
     const val NOTIFICATION_CHANNEL_NAME = "Beacon Service Channel"
