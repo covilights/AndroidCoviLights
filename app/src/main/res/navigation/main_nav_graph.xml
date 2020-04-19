@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.covilights.view.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment">
+
+        <action
+            android:id="@+id/action_mainFragment_to_debugFragment"
+            app:destination="@id/debugFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_designFragment"
+            app:destination="@id/designFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/debugFragment"
+        android:name="com.covilights.view.main.debug.DebugFragment"
+        android:label="debug_fragment"
+        tools:layout="@layout/debug_fragment" />
+
+    <fragment
+        android:id="@+id/designFragment"
+        android:name="com.covilights.view.main.design.DesignFragment"
+        android:label="design_fragment"
+        tools:layout="@layout/design_fragment" />
+</navigation>

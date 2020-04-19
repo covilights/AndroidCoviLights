@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.main.design.DesignFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="?attr/materialButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Primary Button" />
+
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Secondary Button" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Radio Button 1" />
+
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:text="Radio Button 2" />
+                </RadioGroup>
+
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false" />
+            </LinearLayout>
+
+            <TextView
+                style="?attr/textAppearanceHeadline1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Display4"
+                android:textColor="@color/text" />
+
+            <TextView
+                style="?attr/textAppearanceHeadline2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Display3"
+                android:textColor="@color/text" />
+
+            <TextView
+                style="?attr/textAppearanceHeadline3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Display2"
+                android:textColor="@color/text" />
+
+            <TextView
+                style="?attr/textAppearanceHeadline4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Display1"
+                android:textColor="@color/text" />
+
+            <TextView
+                style="?attr/textAppearanceHeadline5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Headline"
+                android:textColor="@color/text" />
+
+            <TextView
+                style="?attr/textAppearanceHeadline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Title"
+                android:textColor="@color/text" />
+
+            <TextView
+                style="?attr/textAppearanceSubtitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Subheading"
+                android:textColor="@color/text" />
+
+            <TextView
+                style="?attr/textAppearanceBody2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Body2"
+                android:textColor="@color/text" />
+
+            <TextView
+                style="?attr/textAppearanceBody1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Body1"
+                android:textColor="@color/text" />
+
+            <TextView
+                style="?attr/textAppearanceCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Caption"
+                android:textColor="@color/text" />
+        </LinearLayout>
+    </ScrollView>
+</layout>

@@ -8,19 +8,18 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Build
-import android.os.IBinder
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.Observer
-import com.covilights.Constants
-import com.covilights.DebugActivity
 import com.covilights.R
 import com.covilights.beacon.BeaconCallback
 import com.covilights.beacon.BeaconManager
 import com.covilights.beacon.BeaconState
+import com.covilights.utils.Constants
+import com.covilights.view.main.MainActivity
 import org.koin.android.ext.android.inject
 import timber.log.Timber
 
@@ -29,10 +28,6 @@ class BeaconService : LifecycleService() {
     private val beaconManager: BeaconManager by inject()
 
     private var notificationBuilder: NotificationCompat.Builder? = null
-
-    override fun onBind(intent: Intent): IBinder? {
-        return super.onBind(intent)
-    }
 
     override fun onCreate() {
         super.onCreate()
@@ -107,7 +102,7 @@ class BeaconService : LifecycleService() {
         val pendingIntent = PendingIntent.getActivity(
             this,
             MAIN_ACTIVITY_REQUEST_CODE,
-            DebugActivity.intent(this),
+            MainActivity.intent(this),
             PendingIntent.FLAG_UPDATE_CURRENT
         )
 

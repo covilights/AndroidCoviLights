@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/onboarding_fragment">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.covilights.view.onboarding.OnboardingViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/onboarding_fragment_content_welcome"
+                visibility="@{viewmodel.stepIndex == 0}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:viewmodel="@{viewmodel}" />
+
+            <include
+                layout="@layout/onboarding_fragment_content_permission"
+                visibility="@{viewmodel.stepIndex == 1}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:viewmodel="@{viewmodel}" />
+
+            <include
+                layout="@layout/onboarding_fragment_content_status"
+                visibility="@{viewmodel.stepIndex == 2}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:viewmodel="@{viewmodel}" />
+
+            <include
+                layout="@layout/onboarding_fragment_content_share"
+                visibility="@{viewmodel.stepIndex == 3}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:viewmodel="@{viewmodel}" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
