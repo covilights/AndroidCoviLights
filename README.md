@@ -2,3 +2,6 @@
 CoviLights Android Application
 
 ![logo](logo.png)
+
+Link to UI/UX design and assets:
+https://www.figma.com/file/Ij9ViaAUBnmmsidQourBsC/COVID
