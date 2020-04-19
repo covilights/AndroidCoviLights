@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorSecondary">@color/secondary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
@@ -27,11 +27,6 @@
         <item name="textAppearanceBody2">@style/AppTheme.TextAppearance.Body2</item>
         <item name="textAppearanceCaption">@style/AppTheme.TextAppearance.Caption</item>
         <item name="textAppearanceButton">@style/AppTheme.TextAppearance.Button</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.TextView" parent="Widget.MaterialComponents.TextView">

@@ -1,4 +1,4 @@
-package com.covilights.view.main
+package com.covilights.view
 
 import android.content.Context
 import android.content.Intent

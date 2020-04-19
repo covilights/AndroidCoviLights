@@ -34,7 +34,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Secondary Button" />
+                    android:text="Sec. Button" />
             </LinearLayout>
 
             <LinearLayout
@@ -54,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="true"
-                        android:text="Radio Button 1" />
+                        android:text="RadioButton1" />
 
                     <View
                         android:layout_width="16dp"
@@ -65,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Radio Button 2" />
+                        android:text="RadioButton2" />
                 </RadioGroup>
 
                 <View
@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="1"
-                android:text="Display4"
+                android:text="Displ.4"
                 android:textColor="@color/text" />
 
             <TextView

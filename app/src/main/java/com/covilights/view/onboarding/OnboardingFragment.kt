@@ -34,8 +34,8 @@ class OnboardingFragment : Fragment() {
         binding.viewmodel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.navigate.observe(viewLifecycleOwner, Observer { navigate ->
-            if (navigate) navigateToMain()
+        viewModel.navigate.observe(viewLifecycleOwner, Observer { direction ->
+            view.findNavController().navigate(direction)
         })
 
         viewModel.permission.observe(viewLifecycleOwner, Observer { requestPermissions ->
@@ -135,11 +135,6 @@ class OnboardingFragment : Fragment() {
             .setCancelable(true)
             .setView(customLayout)
             .show()
-    }
-
-    private fun navigateToMain() {
-        val action = OnboardingFragmentDirections.actionOnboardingFragmentToMainActivity()
-        view?.findNavController()?.navigate(action)
     }
 
     companion object {

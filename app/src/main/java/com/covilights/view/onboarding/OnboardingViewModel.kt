@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavDirections
 import com.covilights.R
 import com.covilights.user.UserManager
 import com.covilights.user.UserStatus
@@ -24,8 +25,8 @@ class OnboardingViewModel(
     val stepIndex: LiveData<Int>
         get() = _stepIndex
 
-    private val _navigate = MutableLiveData(false)
-    val navigate: LiveData<Boolean>
+    private val _navigate = MutableLiveData<NavDirections>()
+    val navigate: LiveData<NavDirections>
         get() = _navigate
 
     private val _permission = MutableLiveData(false)
@@ -65,7 +66,7 @@ class OnboardingViewModel(
         when (_stepIndex.value ?: 0) {
             LAST_STEP_INDEX -> {
                 stateManager.isFirstRun = false
-                _navigate.value = true
+                _navigate.value = OnboardingFragmentDirections.actionOnboardingFragmentToMainFragment()
             }
             PERMISSION_STEP_INDEX -> _permission.value = true
             STATUS_STEP_INDEX -> _statusDialog.value = true
