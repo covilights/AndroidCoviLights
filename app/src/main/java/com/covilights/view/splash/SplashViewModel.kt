@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavDirections
 import com.covilights.utils.Constants
 import com.covilights.utils.StateManager
 import kotlinx.coroutines.delay
@@ -11,8 +12,8 @@ import kotlinx.coroutines.launch
 
 class SplashViewModel(private val stateManager: StateManager) : ViewModel() {
 
-    private val _navigate = MutableLiveData<Boolean>()
-    val navigate: LiveData<Boolean>
+    private val _navigate = MutableLiveData<NavDirections>()
+    val navigate: LiveData<NavDirections>
         get() = _navigate
 
     private val job = viewModelScope.launch {
@@ -26,6 +27,10 @@ class SplashViewModel(private val stateManager: StateManager) : ViewModel() {
     }
 
     private fun navigate() {
-        _navigate.value = stateManager.isFirstRun
+        _navigate.value = if (stateManager.isFirstRun) {
+            SplashFragmentDirections.actionSplashFragmentToOnboardingFragment()
+        } else {
+            SplashFragmentDirections.actionSplashFragmentToMainFragment()
+        }
     }
 }

@@ -19,7 +19,7 @@ import com.covilights.beacon.BeaconCallback
 import com.covilights.beacon.BeaconManager
 import com.covilights.beacon.BeaconState
 import com.covilights.utils.Constants
-import com.covilights.view.main.MainActivity
+import com.covilights.view.MainActivity
 import org.koin.android.ext.android.inject
 import timber.log.Timber
 

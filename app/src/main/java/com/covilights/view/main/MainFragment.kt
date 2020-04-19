@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.covilights.databinding.MainFragmentBinding
+import com.covilights.service.BeaconServiceActions
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
@@ -22,10 +25,26 @@ class MainFragment : Fragment() {
         binding.viewmodel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.navigate.observe(viewLifecycleOwner, Observer { action ->
-            view.findNavController().navigate(action)
+        viewModel.navigate.observe(viewLifecycleOwner, Observer { direction ->
+            view.findNavController().navigate(direction)
         })
 
+        startBeaconService()
+        // setupOnBackExit()
+
         return view
+    }
+
+    private fun startBeaconService() {
+        ContextCompat.startForegroundService(requireContext(), BeaconServiceActions.AppStart.toIntent(requireContext()))
+    }
+
+    private fun setupOnBackExit() {
+        val onBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                requireActivity().finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
     }
 }
