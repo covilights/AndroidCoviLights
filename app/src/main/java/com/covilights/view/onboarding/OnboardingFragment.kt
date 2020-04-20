@@ -21,12 +21,19 @@ import com.covilights.databinding.OnboardingFragmentBinding
 import com.covilights.user.UserStatus
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 
 class OnboardingFragment : Fragment() {
 
     lateinit var binding: OnboardingFragmentBinding
 
     private val viewModel: OnboardingViewModel by viewModel()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        loadKoinModules(onboardingModule)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = OnboardingFragmentBinding.inflate(layoutInflater)
@@ -135,6 +142,11 @@ class OnboardingFragment : Fragment() {
             .setCancelable(true)
             .setView(customLayout)
             .show()
+    }
+
+    override fun onDestroy() {
+        unloadKoinModules(onboardingModule)
+        super.onDestroy()
     }
 
     companion object {

@@ -12,12 +12,19 @@ import androidx.navigation.findNavController
 import com.covilights.databinding.MainFragmentBinding
 import com.covilights.service.BeaconServiceActions
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 
 class MainFragment : Fragment() {
 
     lateinit var binding: MainFragmentBinding
 
     private val viewModel: MainViewModel by viewModel()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        loadKoinModules(mainModule)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = MainFragmentBinding.inflate(layoutInflater)
@@ -46,5 +53,10 @@ class MainFragment : Fragment() {
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
+    }
+
+    override fun onDestroy() {
+        unloadKoinModules(mainModule)
+        super.onDestroy()
     }
 }

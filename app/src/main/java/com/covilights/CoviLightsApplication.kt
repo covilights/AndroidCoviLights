@@ -6,9 +6,6 @@ import com.covilights.beacon.beaconModule
 import com.covilights.injection.appModule
 import com.covilights.service.BeaconServiceActions
 import com.covilights.utils.StateManager
-import com.covilights.view.main.mainModule
-import com.covilights.view.onboarding.onboardingModule
-import com.covilights.view.splash.splashModule
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -22,7 +19,7 @@ class CoviLightsApplication : Application() {
 
         startKoin {
             androidContext(this@CoviLightsApplication)
-            modules(appModule, beaconModule, splashModule, onboardingModule, mainModule)
+            modules(appModule, beaconModule)
         }
 
         if (!stateManager.isFirstRun) {
