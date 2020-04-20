@@ -7,6 +7,13 @@ apply plugin: "androidx.navigation.safeargs.kotlin"
 
 apply from: "$rootDir/ktlint.gradle"
 
+def releaseNote = "Commit: ${commitMessage()}\n\n" +
+        "Branch: ${System.getenv('GITHUB_REF')}\n\n" +
+        "Author: ${commitAuthor()}\n\n" +
+        "Hash: ${commitShortHash()}"
+
+def releaseTestersGroup = "qa, dev"
+
 android {
     compileSdkVersion rootProject.ext.compile_sdk_version
 
@@ -28,21 +35,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             firebaseAppDistribution {
-                releaseNotes = "Commit: ${commitMessage()}\n\n" +
-                        "Branch: ${System.getenv('GITHUB_REF')}\n\n" +
-                        "Author: ${commitAuthor()}\n\n" +
-                        "Hash: ${commitShortHash()}"
-                groups = "qa, dev"
+                releaseNotes = releaseNote
+                groups = releaseTestersGroup
             }
+
+            buildConfigField("String", "INSTABUG_APP_TOKEN", instabugReleaseAppToken)
         }
         debug {
             firebaseAppDistribution {
-                releaseNotes = "Commit: ${commitMessage()}\n\n" +
-                        "Branch: ${System.getenv('GITHUB_REF')}\n\n" +
-                        "Author: ${commitAuthor()}\n\n" +
-                        "Hash: ${commitShortHash()}"
-                groups = "qa, dev"
+                releaseNotes = releaseNote
+                groups = releaseTestersGroup
             }
+
+            buildConfigField("String", "INSTABUG_APP_TOKEN", instabugDebugAppToken)
         }
     }
 
@@ -113,6 +118,8 @@ dependencies {
 
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_component_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_component_version"
+
+    implementation "com.instabug.library:instabug:$instabug_version"
 
     implementation "com.mirhoseini.appsettings:appsettings:$appsettings_version"
 }
