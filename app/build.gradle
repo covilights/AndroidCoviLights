@@ -54,16 +54,12 @@ android {
                 releaseNotes = releaseNote
                 groups = releaseTestersGroup
             }
-
-            buildConfigField("String", "INSTABUG_APP_TOKEN", instabugReleaseAppToken)
         }
         debug {
             firebaseAppDistribution {
                 releaseNotes = releaseNote
                 groups = releaseTestersGroup
             }
-
-            buildConfigField("String", "INSTABUG_APP_TOKEN", instabugDebugAppToken)
         }
     }
 
@@ -134,8 +130,6 @@ dependencies {
 
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_component_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_component_version"
-
-    implementation "com.instabug.library:instabug:$instabug_version"
 
     implementation "com.mirhoseini.appsettings:appsettings:$appsettings_version"
 }
