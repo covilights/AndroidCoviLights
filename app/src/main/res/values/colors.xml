@@ -29,4 +29,5 @@
     <color name="text_button_secondary">@color/brand_black_54</color>
     <color name="text">@color/brand_primary</color>
     <color name="ic_green_tint">@color/brand_primary</color>
+    <color name="brand_green_20">#3302A675</color>
 </resources>

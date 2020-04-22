@@ -56,4 +56,13 @@
     <string name="prev">Prev</string>
     <string name="change">Change</string>
     <string name="cancel">Cancel</string>
+
+    <string name="main_status_ok_title">You should be fine.</string>
+    <string name="main_more_info">more info</string>
+    <string name="main_change_status">Change status</string>
+    <string name="main_did_you_test_positive">Did you test positive or were you exposed?</string>
+    <string name="main_share_proximity">Share proximity</string>
+    <string name="main_allow_tracking">Allow tracking of proximity using\nBluetooth</string>
+    <string name="main_share_app">Share the app</string>
+    <string name="main_grow_community">Grow the community to keep all of us safe</string>
 </resources>
