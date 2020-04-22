@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/main_fragment">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.covilights.view.main.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/changeStatusContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_normal">
+
+            <ImageView
+                android:id="@+id/iconChangeStatus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="26dp"
+                android:background="@drawable/shape_gray_circle"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_covidlights" />
+
+            <TextView
+                android:id="@+id/tvChangeStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:text="@string/main_change_status"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="@color/text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iconChangeStatus" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:text="@string/main_did_you_test_positive"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="@color/text_button_secondary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvChangeStatus" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/shareProximityContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_normal">
+
+            <ImageView
+                android:id="@+id/iconShareProximity"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="26dp"
+                android:background="@drawable/shape_gray_circle"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_bluetooth_notify" />
+
+            <TextView
+                android:id="@+id/tvShareProximity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:text="@string/main_share_proximity"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="@color/text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iconShareProximity" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_allow_tracking"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="@color/text_button_secondary"
+                app:layout_constraintEnd_toStartOf="@+id/switchShareProximity"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/tvShareProximity"
+                app:layout_constraintTop_toBottomOf="@+id/tvShareProximity" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchShareProximity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_normal">
+
+            <ImageView
+                android:id="@+id/ivShareApp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="26dp"
+                android:background="@drawable/shape_gray_circle"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_share" />
+
+            <TextView
+                android:id="@+id/tvShareApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:text="@string/main_share_app"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="@color/text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivShareApp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:text="@string/main_grow_community"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="@color/text_button_secondary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvShareApp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>
