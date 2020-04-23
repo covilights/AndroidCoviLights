@@ -37,6 +37,7 @@
             visibility="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/space_normal"
             android:text="@string/onboarding_status_top_text"
             android:textAppearance="?attr/textAppearanceBody1" />
 
@@ -115,6 +116,7 @@
             linkMovementMethod="@{true}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/space_normal"
             android:textAppearance="?attr/textAppearanceBody1" />
     </LinearLayout>
 </layout>
