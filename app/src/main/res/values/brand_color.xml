@@ -18,8 +18,10 @@
 
 <resources>
     <color name="brand_primary">#080434</color>
+    <color name="brand_primary_20">#14080434</color>
     <color name="brand_secondary">@color/brand_green</color>
     <color name="brand_green">#02A675</color>
+    <color name="brand_green_20">#3302A675</color>
     <color name="brand_yellow">#F5B100</color>
     <color name="brand_red">#E85151</color>
     <color name="brand_light_gray">#EBEBEE</color>
