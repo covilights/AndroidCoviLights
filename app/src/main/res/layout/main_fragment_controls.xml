@@ -13,103 +13,99 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/status">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/changeStatusContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/space_normal">
 
             <ImageView
-                android:id="@+id/iconChangeStatus"
+                android:id="@+id/change_status_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="26dp"
                 android:layout_marginBottom="26dp"
-                android:background="@drawable/shape_gray_circle"
-                android:padding="8dp"
+                android:backgroundTint="@color/main_control_bg"
+                android:background="@drawable/ic_circle"
+                android:padding="@dimen/space_small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_covidlights" />
 
             <TextView
-                android:id="@+id/tvChangeStatus"
-                android:layout_width="wrap_content"
+                android:id="@+id/change_status_title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="72dp"
+                android:layout_marginStart="@dimen/space_normal"
                 android:text="@string/main_change_status"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="@color/text"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iconChangeStatus" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/change_status_icon"
+                app:layout_constraintTop_toTopOf="@id/change_status_icon" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="72dp"
                 android:text="@string/main_did_you_test_positive"
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/text_button_secondary"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvChangeStatus" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/change_status_title"
+                app:layout_constraintTop_toBottomOf="@+id/change_status_title" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/shareProximityContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/space_normal">
 
             <ImageView
-                android:id="@+id/iconShareProximity"
+                android:id="@+id/share_proximity_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="26dp"
                 android:layout_marginBottom="26dp"
-                android:background="@drawable/shape_gray_circle"
-                android:padding="8dp"
+                android:backgroundTint="@color/main_control_bg"
+                android:background="@drawable/ic_circle"
+                android:padding="@dimen/space_small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_bluetooth_notify" />
 
             <TextView
-                android:id="@+id/tvShareProximity"
-                android:layout_width="wrap_content"
+                android:id="@+id/share_proximity_title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="72dp"
+                android:layout_marginStart="@dimen/space_normal"
                 android:text="@string/main_share_proximity"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="@color/text"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/iconShareProximity" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/share_proximity_icon"
+                app:layout_constraintTop_toTopOf="@+id/share_proximity_icon" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/main_allow_tracking"
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/text_button_secondary"
-                app:layout_constraintEnd_toStartOf="@+id/switchShareProximity"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@+id/tvShareProximity"
-                app:layout_constraintTop_toBottomOf="@+id/tvShareProximity" />
+                app:layout_constraintEnd_toStartOf="@+id/share_proximity_switch"
+                app:layout_constraintStart_toStartOf="@+id/share_proximity_title"
+                app:layout_constraintTop_toBottomOf="@+id/share_proximity_title" />
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switchShareProximity"
+                android:id="@+id/share_proximity_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -121,40 +117,40 @@
             android:padding="@dimen/space_normal">
 
             <ImageView
-                android:id="@+id/ivShareApp"
+                android:id="@+id/share_app_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="26dp"
                 android:layout_marginBottom="26dp"
-                android:background="@drawable/shape_gray_circle"
-                android:padding="8dp"
+                android:backgroundTint="@color/main_control_bg"
+                android:background="@drawable/ic_circle"
+                android:padding="@dimen/space_small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_share" />
 
             <TextView
-                android:id="@+id/tvShareApp"
-                android:layout_width="wrap_content"
+                android:id="@+id/share_app_title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="72dp"
+                android:layout_marginStart="@dimen/space_normal"
                 android:text="@string/main_share_app"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="@color/text"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/ivShareApp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/share_app_icon"
+                app:layout_constraintTop_toTopOf="@+id/share_app_icon" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="72dp"
                 android:text="@string/main_grow_community"
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/text_button_secondary"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvShareApp" />
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/share_app_title"
+                app:layout_constraintTop_toBottomOf="@+id/share_app_title" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </LinearLayout>
 </layout>

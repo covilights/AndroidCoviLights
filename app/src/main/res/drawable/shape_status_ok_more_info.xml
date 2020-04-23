@@ -5,7 +5,7 @@
         android:bottomLeftRadius="4dp"
         android:bottomRightRadius="4dp" />
 
-    <solid android:color="@color/brand_green_20" />
+    <solid android:color="@color/status_ok_more_info_bg" />
 
     <size
         android:width="100dp"

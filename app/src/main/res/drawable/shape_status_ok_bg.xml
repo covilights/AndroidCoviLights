@@ -5,7 +5,7 @@
         android:topLeftRadius="4dp"
         android:topRightRadius="4dp" />
 
-    <solid android:color="@color/accent" />
+    <solid android:color="@color/status_ok_bg" />
 
     <size
         android:width="100dp"

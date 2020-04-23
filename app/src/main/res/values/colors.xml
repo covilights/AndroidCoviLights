@@ -29,5 +29,9 @@
     <color name="text_button_secondary">@color/brand_black_54</color>
     <color name="text">@color/brand_primary</color>
     <color name="ic_green_tint">@color/brand_primary</color>
-    <color name="brand_green_20">#3302A675</color>
+    <color name="status_ok_more_info_bg">@color/brand_green_20</color>
+    <color name="status_ok_icon">@color/brand_white</color>
+    <color name="status_ok_text">@color/brand_white</color>
+    <color name="main_control_bg">@color/brand_primary_20</color>
+    <color name="status_ok_bg">@color/accent</color>
 </resources>
