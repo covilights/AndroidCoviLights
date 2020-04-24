@@ -18,7 +18,6 @@ package com.covilights
 
 import android.app.Application
 import androidx.core.content.ContextCompat
-import com.covilights.beacon.beaconModule
 import com.covilights.injection.appModule
 import com.covilights.service.BeaconServiceActions
 import com.covilights.utils.StateManager
@@ -35,7 +34,8 @@ class CoviLightsApplication : Application() {
 
         startKoin {
             androidContext(this@CoviLightsApplication)
-            modules(appModule, beaconModule)
+
+            modules(appModule)
         }
 
         if (!stateManager.isFirstRun) {

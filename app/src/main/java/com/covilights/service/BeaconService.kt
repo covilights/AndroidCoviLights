@@ -31,33 +31,33 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.Observer
 import com.covilights.R
-import com.covilights.beacon.BeaconCallback
-import com.covilights.beacon.BeaconManager
-import com.covilights.beacon.BeaconState
 import com.covilights.utils.Constants
 import com.covilights.view.MainActivity
+import com.mohsenoid.closetome.CloseToMe
+import com.mohsenoid.closetome.CloseToMeCallback
+import com.mohsenoid.closetome.CloseToMeState
 import org.koin.android.ext.android.inject
 import timber.log.Timber
 
 class BeaconService : LifecycleService() {
 
-    private val beaconManager: BeaconManager by inject()
+    private val closeToMe: CloseToMe by inject()
 
     private var notificationBuilder: NotificationCompat.Builder? = null
 
     override fun onCreate() {
         super.onCreate()
 
-        beaconManager.state.observe(this, Observer { state ->
-            notificationBuilder?.updateNotificationBeaconState(state)?.also {
+        closeToMe.state.observe(this, Observer { state ->
+            notificationBuilder?.updateNotificationCloseToMeState(state)?.also {
                 val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                 notificationManager.notify(Constants.NOTIFICATION_ID, it.build())
 
-                if (state != BeaconState.STARTED) ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_DETACH)
+                if (state != CloseToMeState.STARTED) ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_DETACH)
             }
         })
 
-        beaconManager.results.observe(this, Observer { result ->
+        closeToMe.results.observe(this, Observer { result ->
             val resultCount =
                 result.values.filter { it.isVisible && it.isNear }.size
             notificationBuilder?.applyNotificationResultCount(resultCount)?.also {
@@ -66,13 +66,13 @@ class BeaconService : LifecycleService() {
             }
         })
 
-        beaconManager.start(object : BeaconCallback {
+        closeToMe.start(object : CloseToMeCallback {
             override fun onSuccess() {
-                Timber.i("Beacon Manager started successfully.")
+                Timber.i("CoviLights started successfully.")
             }
 
             override fun onError(throwable: Throwable) {
-                Timber.w(throwable, "Beacon Manager didn't start.")
+                Timber.w(throwable, "CoviLights didn't start.")
             }
         })
     }
@@ -83,15 +83,15 @@ class BeaconService : LifecycleService() {
         }
 
         notificationBuilder = createNotificationBuilder().apply {
-            updateNotificationBeaconState(beaconManager.state.value)
+            updateNotificationCloseToMeState(closeToMe.state.value)
             applyNotificationResultCount(0)
         }.also {
             startForeground(Constants.NOTIFICATION_ID, it.build())
         }
 
         when (intent?.action) {
-            BeaconServiceActions.ACTION_START_BEACON -> beaconManager.start()
-            BeaconServiceActions.ACTION_STOP_BEACON -> beaconManager.stop()
+            BeaconServiceActions.ACTION_START_BEACON -> closeToMe.start()
+            BeaconServiceActions.ACTION_STOP_BEACON -> closeToMe.stop()
         }
 
         // return START_NOT_STICKY
@@ -135,11 +135,11 @@ class BeaconService : LifecycleService() {
     }
 
     @SuppressLint("RestrictedApi")
-    private fun NotificationCompat.Builder.updateNotificationBeaconState(state: BeaconState?): NotificationCompat.Builder {
+    private fun NotificationCompat.Builder.updateNotificationCloseToMeState(state: CloseToMeState?): NotificationCompat.Builder {
         when (state) {
-            BeaconState.STARTED -> {
+            CloseToMeState.STARTED -> {
                 setSmallIcon(R.drawable.ic_notification_on)
-                setContentTitle("CoviLights Beacon Running")
+                setContentTitle("CoviLights is running")
 
                 mActions.clear()
 
@@ -158,7 +158,7 @@ class BeaconService : LifecycleService() {
             }
             else -> {
                 setSmallIcon(R.drawable.ic_notification_off)
-                setContentTitle("CoviLights Beacon Stopped")
+                setContentTitle("CoviLights stopped")
 
                 mActions.clear()
 
@@ -184,7 +184,7 @@ class BeaconService : LifecycleService() {
         if (resultCount > 0) {
             setContentText("People around: $resultCount")
         } else {
-            setContentText("No People around")
+            setContentText("No people around")
         }
         return this
     }

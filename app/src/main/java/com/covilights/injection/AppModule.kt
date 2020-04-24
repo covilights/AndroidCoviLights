@@ -16,10 +16,10 @@
 
 package com.covilights.injection
 
-import com.covilights.beacon.config.BeaconConfigProvider
-import com.covilights.beacon.config.BeaconConfigProviderImpl
 import com.covilights.user.UserManager
+import com.covilights.utils.Constants
 import com.covilights.utils.StateManager
+import com.mohsenoid.closetome.CloseToMe
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -31,5 +31,12 @@ val appModule = module {
 
     single { androidContext().resources }
 
-    single<BeaconConfigProvider> { BeaconConfigProviderImpl(userManager = get()) }
+    single {
+        val userUuid = get<UserManager>().userUuid
+        CloseToMe.Builder(androidContext(), Constants.MANUFACTURER_UUID).apply {
+            setUserUuid(userUuid)
+            setVisibilityDistanceMeter(Constants.VISIBILITY_DISTANCE)
+            setVisibilityTimeoutMs(Constants.VISIBILITY_TIMEOUT)
+        }.build()
+    }
 }

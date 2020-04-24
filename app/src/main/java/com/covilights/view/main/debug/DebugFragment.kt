@@ -26,11 +26,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.covilights.R
-import com.covilights.beacon.BeaconCallback
-import com.covilights.beacon.BeaconManager
-import com.covilights.beacon.BeaconState
 import com.covilights.databinding.DebugFragmentBinding
 import com.covilights.user.UserManager
+import com.mohsenoid.closetome.CloseToMe
+import com.mohsenoid.closetome.CloseToMeCallback
+import com.mohsenoid.closetome.CloseToMeState
 import org.koin.android.ext.android.inject
 
 class DebugFragment : Fragment() {
@@ -38,7 +38,7 @@ class DebugFragment : Fragment() {
     lateinit var binding: DebugFragmentBinding
 
     private val userManager: UserManager by inject()
-    private val beaconManager: BeaconManager by inject()
+    private val closeToMe: CloseToMe by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DebugFragmentBinding.inflate(layoutInflater)
@@ -48,11 +48,11 @@ class DebugFragment : Fragment() {
 
         binding.user.text = "User: ${userManager.userUuid}"
 
-        beaconManager.state.observe(viewLifecycleOwner, Observer { state ->
+        closeToMe.state.observe(viewLifecycleOwner, Observer { state ->
             log("Beacon state: $state")
 
             when (state) {
-                BeaconState.STARTED -> {
+                CloseToMeState.STARTED -> {
                     binding.start.isVisible = false
                     binding.stop.isVisible = true
                 }
@@ -63,7 +63,7 @@ class DebugFragment : Fragment() {
             }
         })
 
-        beaconManager.results.observe(viewLifecycleOwner, Observer { beacons ->
+        closeToMe.results.observe(viewLifecycleOwner, Observer { beacons ->
             binding.result.text = beacons.values.joinToString("\n--------------------------------\n") {
                 "User: ${it.userUuid}\n" +
                     "isVisible: ${it.isVisible}\n" +
@@ -75,7 +75,7 @@ class DebugFragment : Fragment() {
             log("Result: $beacons")
         })
 
-        if (!beaconManager.hasBleFeature()) {
+        if (!closeToMe.hasBleFeature()) {
             Toast.makeText(requireContext(), R.string.ble_not_supported, Toast.LENGTH_LONG).show()
         }
 
@@ -89,10 +89,10 @@ class DebugFragment : Fragment() {
     }
 
     private fun onStartClick(v: View) {
-        if (!beaconManager.isBluetoothEnabled()) {
+        if (closeToMe.isBluetoothEnabled.value == false) {
             log("Enabling bluetooth...")
 
-            beaconManager.enableBluetooth(object : BeaconCallback {
+            closeToMe.enableBluetooth(object : CloseToMeCallback {
                 override fun onSuccess() {
                     log("Bluetooth is on now")
                 }
@@ -102,7 +102,7 @@ class DebugFragment : Fragment() {
                 }
             })
         } else {
-            beaconManager.start(object : BeaconCallback {
+            closeToMe.start(object : CloseToMeCallback {
                 override fun onSuccess() {
                     log("Beacon started successfully!")
                 }
@@ -115,7 +115,7 @@ class DebugFragment : Fragment() {
     }
 
     private fun onStopClick(v: View) {
-        beaconManager.stop(object : BeaconCallback {
+        closeToMe.stop(object : CloseToMeCallback {
             override fun onSuccess() {
                 log("Beacon stopped successfully!")
             }
