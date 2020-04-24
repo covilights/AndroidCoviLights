@@ -41,9 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="@dimen/space_small"
-            app:cornerRadius="20dp"
             android:onClick="@{(v) -> viewmodel.onNextClick() }"
-            android:text="@string/start" />
+            android:text="@string/start"
+            app:cornerRadius="20dp" />
 
         <androidx.cardview.widget.CardView
             visibility="@{!viewmodel.startVisible}"

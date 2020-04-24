@@ -43,8 +43,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/space_small"
                 android:layout_marginEnd="@dimen/space_normal"
+                android:padding="@dimen/space_small"
                 android:src="@drawable/ic_bluetooth" />
 
             <TextView
@@ -66,8 +66,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/space_small"
                 android:layout_marginEnd="@dimen/space_normal"
+                android:padding="@dimen/space_small"
                 android:src="@drawable/ic_lock" />
 
             <TextView
@@ -89,8 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/space_small"
                 android:layout_marginEnd="@dimen/space_normal"
+                android:padding="@dimen/space_small"
                 android:src="@drawable/ic_notify" />
 
             <TextView
