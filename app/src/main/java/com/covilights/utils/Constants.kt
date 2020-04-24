@@ -16,6 +16,9 @@
 
 package com.covilights.utils
 
+import com.mohsenoid.closetome.utils.toUuid
+import java.util.UUID
+
 object Constants {
 
     const val SPLASH_TIMEOUT = 2_000L
@@ -25,10 +28,8 @@ object Constants {
     const val NOTIFICATION_CHANNEL_DESC = "Beacon background service"
     const val NOTIFICATION_ID = 1
 
-    const val MANUFACTURER_UUID = "C0D7950D-73F1-4D4D-8E47-C090502D4497"
-    const val GOOGLE_MANUFACTURER_ID = 224
-    const val APPLE_MANUFACTURER_ID = 0x4c00
+    val MANUFACTURER_UUID: UUID = "C0D7950D-73F1-4D4D-8E47-C090502D4497".toUuid()!!
 
-    const val BEACON_VISIBILITY_TIMEOUT: Long = 10_000
-    const val BEACON_VISIBILITY_DISTANCE: Double = 1.0
+    const val VISIBILITY_TIMEOUT: Long = 10_000
+    const val VISIBILITY_DISTANCE: Double = 1.0
 }

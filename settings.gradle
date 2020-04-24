@@ -16,4 +16,3 @@
 
 rootProject.name='CoviLights'
 include ':app'
-include ':beacon'
