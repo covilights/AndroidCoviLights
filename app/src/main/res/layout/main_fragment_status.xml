@@ -54,7 +54,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@drawable/shape_status_ok_more_info">
+            android:background="@drawable/shape_status_ok_more_info_bg">
 
             <TextView
                 android:layout_width="wrap_content"
