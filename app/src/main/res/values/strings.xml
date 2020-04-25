@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2020 CoviLights GbR
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,52 +15,52 @@
   -->
 
 <resources>
-    <string name="app_name">CoviLights</string>
-    <string name="ble_not_supported">This phone does not support BluetoothLE!</string>
+    <string name="app_name">"CoviLights"</string>
+    <string name="ble_not_supported">"Your phone does not support BluetoothLE"</string>
+    <string name="onboarding_welcome_title">"Welcome to CoviLights"</string>
+    <string name="onboarding_welcome_subtitle">"Fight the spread of COVID-19"</string>
 
-    <string name="onboarding_welcome_title">Welcome to CovidLights</string>
-    <string name="onboarding_welcome_subtitle">Fight the spread of COVID-19</string>
-    <string name="onboarding_welcome_text">CovidLights helps contain the spread of the COVID-19 virus by tracking your movements and notifying you in case of exposure.</string>
+    <!-- @Minna: "Tracking your movements" can be a loaded term with respect to privacy. And, it's actually not what we are doing. We are logging which other CoviLights users you were near. Not sure how to say that nicely ... but I would avoid the notion of "we are watching where you go" -->
+    <string name="onboarding_welcome_text">"CoviLights helps contain the spread of COVID-19 by tracking your movements and notifying you in case of exposure."</string>
+    <string name="onboarding_permission_title">"Stay safe"</string>
+    <string name="onboarding_permission_subtitle">"Protect yourself and those nearby"</string>
 
-    <string name="onboarding_permission_title">Stay safe</string>
-    <string name="onboarding_permission_subtitle">Protect yourself and those nearby</string>
-    <string name="onboarding_permission_bluetooth_text">CovidLights uses Bluetooth and location information for tracking.</string>
-    <string name="onboarding_permission_data_text">The tracking data is anonymous and stored locally in your phone for 14 days.</string>
-    <string name="onboarding_permission_exposure_text">In case of exposure, the tracking data is used to determine who to notify.</string>
-    <string name="onboarding_permission_required_toast">App does not work without this permission!</string>
-    <string name="onboarding_permission_required_snackbar">App does not work without this permission!</string>
-    <string name="onboarding_permission_required_snackbar_action">Settings</string>
-
-    <string name="onboarding_status_title">Add your status</string>
-    <string name="onboarding_status_subtitle">Check how likely you are to have COVID-19 right now.</string>
-    <string name="onboarding_status_top_text">The app shows your status with traffic lights:</string>
+    <!-- @minna: Similar issue here, "location infromation for tracking" ... also has this Big Brother element. For a draft in German I'm saying "to detect other CoviLights users" but will finetune further in the future. -->
+    <string name="onboarding_permission_bluetooth_text">"CoviLights uses Bluetooth and location information to detect proximity to other CoviLights users."</string>
+    <string name="onboarding_permission_data_text">"The tracking data is anonymous and stored locally in your phone for 14 days."</string>
+    <string name="onboarding_permission_exposure_text">"In case of exposure, the tracking data is used to determine who to notify."</string>
+    <string name="onboarding_permission_required_toast">"CoviLights will not work without this permission"</string>
+    <string name="onboarding_permission_required_snackbar">"CoviLights will not work without this permission"</string>
+    <string name="onboarding_permission_required_snackbar_action">"Settings"</string>
+    <string name="onboarding_status_title">"Add your status"</string>
+    <string name="onboarding_status_subtitle">"Based on your test results or on an estimate from self-evaluation tools"</string>
+    <string name="onboarding_status_top_text">"The app shows your status with traffic lights:"</string>
     <string name="onboarding_status_green_text"><![CDATA[<font color=#02A675><b>Green</b></font> – follow hygiene and social distancing recommendations.]]></string>
     <string name="onboarding_status_yellow_text"><![CDATA[<font color=#F5B100><b>Yellow</b></font> – you have been exposed and should self-quarantine.]]></string>
-    <string name="onboarding_status_red_text"><![CDATA[<font color=#E85151><b>Red</b></font> – used only after testing positive.]]></string>
-    <string name="onboarding_status_bottom_text"><![CDATA[If you don’t know your current status, answer the <a href="https://covapp.charite.de/">survey from Charité hospital</a> to get an estimate.]]></string>
-    <string name="onboarding_status_dialog_title">Add status</string>
-    <string name="onboarding_status_dialog_radio_positive">I was tested positive.</string>
-    <string name="onboarding_status_dialog_radio_exposed">I was exposed.</string>
-    <string name="onboarding_status_dialog_radio_negative">I am well.</string>
+    <string name="onboarding_status_red_text"><![CDATA[<font color=#E85151><b>Red</b></font> – you tested positive.]]></string>
+    <string name="onboarding_status_bottom_text"><![CDATA[If you don’t know your current status, answer the <a href="https://covapp.charite.de/">survey from Charité hospital</a> or a similar self-evaluation to get an estimate.]]></string>
+    <string name="onboarding_status_dialog_title">"Add status"</string>
+    <string name="onboarding_status_dialog_radio_positive">"I was tested positive."</string>
+    <string name="onboarding_status_dialog_radio_exposed">"I was exposed."</string>
+    <string name="onboarding_status_dialog_radio_negative">"I am well."</string>
+    <string name="onboarding_share_title">"Share this app"</string>
+    <string name="onboarding_share_subtitle">"Spread the app, not the virus."</string>
+    <string name="onboarding_share_top_text">"To get the biggest value, this app should be used by as many people as possible."</string>
+    <string name="onboarding_share_now_text"><![CDATA[<a href="https://play.google.com/store/apps/details?id=com.covilights">Share now</a> to grow the CoviLights community.]]></string>
+    <string name="start">"Start"</string>
+    <string name="next">"Next"</string>
+    <string name="prev">"Previous"</string>
+    <string name="change">"Change"</string>
+    <string name="cancel">"Cancel"</string>
+    <string name="main_status_ok_title">"You should be fine."</string>
+    <string name="main_more_info">"What does this mean?"</string>
+    <string name="main_change_status">"Change status"</string>
+    <string name="main_did_you_test_positive">"Did you test positive or were you exposed?"</string>
+    <string name="main_share_proximity">"Share proximity"</string>
 
-
-    <string name="onboarding_share_title">Share this app</string>
-    <string name="onboarding_share_subtitle">Spread the app, not the virus.</string>
-    <string name="onboarding_share_top_text">To get the biggest value, this app should be used by as many people as possible.</string>
-    <string name="onboarding_share_now_text"><![CDATA[<a href="https://play.google.com/store/apps/details?id=com.covilights">Share now</a> to grow the CovidLights community.]]></string>
-
-    <string name="start">Start</string>
-    <string name="next">Next</string>
-    <string name="prev">Prev</string>
-    <string name="change">Change</string>
-    <string name="cancel">Cancel</string>
-
-    <string name="main_status_ok_title">You should be fine.</string>
-    <string name="main_more_info">more info</string>
-    <string name="main_change_status">Change status</string>
-    <string name="main_did_you_test_positive">Did you test positive or were you exposed?</string>
-    <string name="main_share_proximity">Share proximity</string>
-    <string name="main_allow_tracking">Allow tracking of proximity using\nBluetooth</string>
-    <string name="main_share_app">Share the app</string>
-    <string name="main_grow_community">Grow the community to keep all of us safe</string>
+    <!-- @Patrick I don't think this is right. Needs proper tech background as well. -->
+    <string name="main_allow_tracking">"Allow tracking of proximity using
+Bluetooth"</string>
+    <string name="main_share_app">"Share the app"</string>
+    <string name="main_grow_community">"Grow the community to keep all of us safe"</string>
 </resources>

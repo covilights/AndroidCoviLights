@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright 2020 CoviLights GbR
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">"CoviLights"</string>
+    <string name="ble_not_supported">"Dein Telefon unterstützt Bluetooth LE nicht"</string>
+    <string name="onboarding_welcome_title">"Willkommen bei CoviLights"</string>
+    <string name="onboarding_welcome_subtitle">"Stopp den Coronavirus!"</string>
+    <string name="onboarding_welcome_text">"Mit CoviLights wirst du benachrichtigt wenn in deiner Nähe jemand war der Corona hatte und dich vielleicht infiziert hat."</string>
+    <string name="onboarding_permission_title">"Bleib gesund!"</string>
+    <string name="onboarding_permission_subtitle">"Schütze dich und andere in deiner Nähe."</string>
+    <string name="onboarding_permission_bluetooth_text">"CoviLights benutzt Bluetooth um andere die Entfernung anderer CoviLights Nutzer zu erkennen."</string>
+    <string name="onboarding_permission_data_text">"Deine Daten werden für 14 Tage anonym und auf deinem Telefon gespeichert."</string>
+    <string name="onboarding_permission_exposure_text">"Falls du den Coronavirus bekommst nutzen wir deine Daten damit wir wissen wen wir benachrichtigen müssen. Anonym natürlich."</string>
+
+    <!-- @Mohsen: Where is this shown? And, does it go together with the onboarding_permission_requested_snackbar -->
+    <string name="onboarding_permission_required_toast">"CoviLights funktioniert ohne diese Erlaubnis nicht."</string>
+    <string name="onboarding_permission_required_snackbar">"CoviLights funktioniert ohne diese Erlaubnis nicht."</string>
+    <string name="onboarding_permission_required_snackbar_action">"Einstellungen"</string>
+    <string name="onboarding_status_title">"Wie ist dein Status?"</string>
+    <string name="onboarding_status_subtitle">"Überprüfe wie wahrscheinlich es ist dass du gerade den Coronavirus hast."</string>
+    <string name="onboarding_status_top_text">"CoviLights zeigt dein Risiko mit Ampelfarben:"</string>
+
+    <!-- @mohsen: do I need to copy the whole lot to the translation 
+
+<![CDATA[<font color=#02A675><b>Green</b></font> – follow hygiene and social distancing recommendations.]]> -->
+    <string name="onboarding_status_green_text"><![CDATA[<font color=#02A675><b>Grün</b></font> – Halte dich an die normalen Hygiene- und Vorbeugungsanweisungen.]]></string>
+    <string name="onboarding_status_yellow_text"><![CDATA[<font color=#F5B100><b>Gelb</b></font> – du warst in der Nähe einer infizierten Person und solltest zu Hause bleiben.]]></string>
+    <string name="onboarding_status_red_text"><![CDATA[<font color=#E85151><b>Rot</b></font> – wenn du positiv getestet bist.]]></string>
+    <string name="onboarding_status_bottom_text"><![CDATA[Wenn du deinen Status nicht weißt kannst du den <a href="https://covapp.charite.de/">Fragebogen der Charité</a> nutzen um ihn zu ermitteln.]]></string>
+    <string name="onboarding_status_dialog_title">"Status angeben"</string>
+    <string name="onboarding_status_dialog_radio_positive">"Ich bin gerade infiziert."</string>
+    <string name="onboarding_status_dialog_radio_exposed">"Ich war in der Nähe einer infizierten Person."</string>
+    <string name="onboarding_status_dialog_radio_negative">"Ich bin gesund."</string>
+    <string name="onboarding_share_title">"CoviLights für alle!"</string>
+    <string name="onboarding_share_subtitle">"Spread the app, not the virus."</string>
+    <string name="onboarding_share_top_text">"Damit du, deine Familie und deine Freunde optimal geschützt sind sollten alle CoviLights nutzen."</string>
+    <string name="onboarding_share_now_text"><![CDATA[<a href="https://play.google.com/store/apps/details?id=com.covilights">Jetzt teilen</a> mit Familie & Freunden.]]></string>
+    <string name="start">"Start"</string>
+    <string name="next">"Weiter"</string>
+    <string name="prev">"Zurück"</string>
+    <string name="change">"Ändern"</string>
+    <string name="cancel">"Abbrechen"</string>
+    <string name="main_status_ok_title">"Niedriges Risiko"</string>
+    <string name="main_more_info">"Weiter Informationen"</string>
+    <string name="main_change_status">"Status ändern"</string>
+    <string name="main_did_you_test_positive">"Bist du infiziert oder in der Nähe eines Infizierten gewesen?"</string>
+    <string name="main_share_proximity">"Abstandsmessung"</string>
+    <string name="main_allow_tracking">"Messung über Bluetooth erlauben."</string>
+    <string name="main_share_app">"CoviLights weitergeben"</string>
+    <string name="main_grow_community">"App mit Familie &amp; Freunden teilen."</string>
+</resources>

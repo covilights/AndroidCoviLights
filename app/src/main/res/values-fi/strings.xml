@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright 2020 CoviLights GbR
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">"CoviLights"</string>
+    <string name="ble_not_supported">"Puhelimesi ei tue BluetoothLE:tä"</string>
+    <string name="onboarding_welcome_title">"Tervetuloa"</string>
+    <string name="onboarding_welcome_subtitle">"Taistellaan yhdessä virusta vastaan"</string>
+    <string name="onboarding_welcome_text">"CoviLights auttaa hillitsemään koronaviruksen leviämistä seuraamalla etäisyyksiä muihin käyttäjiin ja ilmoittamalla altistumisesta."</string>
+    <string name="onboarding_permission_title">"Pysy turvassa"</string>
+    <string name="onboarding_permission_subtitle">"Suojele itseäsi ja lähimmäisiäsi"</string>
+    <string name="onboarding_permission_bluetooth_text">"CoviLights käyttää Bluetoothia ja paikkatietoa määrittämään etäisyyksiä muihin CoviLights-käyttäjiin."</string>
+    <string name="onboarding_permission_data_text">"Etäisyystieto on anonyymiä ja se säilytetään puhelimessasi 14 päivän ajan."</string>
+    <string name="onboarding_permission_exposure_text">"Altistumisen sattuessa etäisyystietoa käytetään ilmoittamaan muille altistuneille."</string>
+    <string name="onboarding_permission_required_toast">"CoviLightsia ei voi käyttää ilman tätä lupaa."</string>
+    <string name="onboarding_permission_required_snackbar">"CoviLightsia ei voi käyttää ilman tätä lupaa."</string>
+    <string name="onboarding_permission_required_snackbar_action">"Asetukset"</string>
+    <string name="onboarding_status_title">"Lisää tilasi"</string>
+    <string name="onboarding_status_subtitle">"Anna testituloksesi tai tarkista todennäköisyys itsearviointityökaluista."</string>
+    <string name="onboarding_status_top_text">"Applikaatio näyttää tilasi liikennevaloilla:"</string>
+    <string name="onboarding_status_green_text"><![CDATA[<font color=#02A675><b>Vihreä</b></font> – seuraa paikallisia suosituksia hygieniasta ja etäisyyksistä.]]></string>
+    <string name="onboarding_status_yellow_text"><![CDATA[<font color=#02A675><b>Keltainen</b></font> – olet altistunut ja sinun pitää eristää itsesi.]]></string>
+    <string name="onboarding_status_red_text"><![CDATA[<font color=#02A675><b>Punainen</b></font> – olet saanut positiivisen testituloksen.]]></string>
+    <string name="onboarding_status_bottom_text"><![CDATA[Jos et tiedä tämänhetkistä tilaasi, tee itsearviointi <a href="https://www.omaolo.fi/">Omaolo-palvelussa</a> tai vastaavassa testissä.]]></string>
+    <string name="onboarding_status_dialog_title">"Lisää tilasi"</string>
+    <string name="onboarding_status_dialog_radio_positive">"Olen saanut positiivisen testituloksen."</string>
+    <string name="onboarding_status_dialog_radio_exposed">"Olen altistunut."</string>
+    <string name="onboarding_status_dialog_radio_negative">"Olen terve."</string>
+    <string name="onboarding_share_title">"Jaa applikaatio."</string>
+    <string name="onboarding_share_subtitle">"Levitä applikaatiota, älä virusta."</string>
+    <string name="onboarding_share_top_text">"Mitä useampi käyttää tätä applikaatiota, sitä nopeammin virus pysäytetään."</string>
+    <string name="onboarding_share_now_text"><![CDATA[<a href="https://play.google.com/store/apps/details?id=com.covilights">Jaa</a> ja kasvata CoviLights-yhteisöä.]]></string>
+    <string name="start">"Aloita"</string>
+    <string name="next">"Seuraava"</string>
+    <string name="prev">"Edellinen"</string>
+    <string name="change">"Muuta"</string>
+    <string name="cancel">"Peruuta"</string>
+    <string name="main_status_ok_title">"Olet todennäköisesti kunnossa."</string>
+    <string name="main_more_info">"Mitä tämä tarkoittaa?"</string>
+    <string name="main_change_status">"Muuta tilaasi"</string>
+    <string name="main_did_you_test_positive">"Sait posiitiivisen testituloksen tai altistuit?"</string>
+    <string name="main_share_proximity">"Jaa etäisyyttä"</string>
+    <string name="main_allow_tracking">"Käytä Bluetoothia selvittämään etäisyyksiä"</string>
+    <string name="main_share_app">"Jaa applikaatio"</string>
+    <string name="main_grow_community">"Kasvata yhteisöä ja pidä läheiset turvassa"</string>
+</resources>
