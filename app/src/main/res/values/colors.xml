@@ -30,8 +30,13 @@
     <color name="text">@color/brand_primary</color>
     <color name="ic_green_tint">@color/brand_primary</color>
     <color name="status_ok_more_info_bg">@color/brand_green_20</color>
+    <color name="status_exposed_more_info_bg">@color/brand_yellow_20</color>
+    <color name="status_positive_more_info_bg">@color/brand_red_20</color>
+    <color name="status_more_info_text">@color/brand_black_54</color>
     <color name="status_ok_icon">@color/brand_white</color>
     <color name="status_ok_text">@color/brand_white</color>
     <color name="main_control_bg">@color/brand_primary_20</color>
     <color name="status_ok_bg">@color/accent</color>
+    <color name="status_exposed_bg">@color/brand_yellow</color>
+    <color name="status_positive_bg">@color/brand_red</color>
 </resources>

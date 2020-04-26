@@ -21,6 +21,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@drawable/shape_status_ok_bg"
+            android:backgroundTint="@{viewmodel.statusBackgroundColor}"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingStart="@dimen/space_large"
@@ -31,40 +32,63 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:tint="@color/status_ok_icon"
+                android:src="@{viewmodel.statusIcon}"
+                android:tint="@{viewmodel.statusIconColor}"
                 tools:src="@drawable/ic_confirm" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_normal"
+                android:text="@{viewmodel.statusTitle}"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/status_ok_text"
-                tools:text="@string/onboarding_welcome_title" />
+                android:textColor="@{viewmodel.statusTextColor}"
+                tools:text="@string/onboarding_welcome_title"
+                tools:textColor="@color/status_ok_text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewmodel.statusSubtitle}"
                 android:textAlignment="center"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="@color/status_ok_text"
-                tools:text="@string/main_change_status" />
+                android:textColor="@{viewmodel.statusTextColor}"
+                tools:text="@string/main_change_status"
+                tools:textColor="@color/status_ok_text" />
         </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@drawable/shape_status_ok_more_info_bg">
+            android:background="@drawable/shape_status_ok_more_info_bg"
+            android:backgroundTint="@{viewmodel.statusMoreInfoBgColor}"
+            tools:background="@drawable/shape_status_ok_more_info_bg">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:drawableStart="@drawable/ic_information"
-                android:drawablePadding="@dimen/space_xsmall"
-                android:gravity="center"
-                android:text="@string/main_more_info"
-                android:textAllCaps="true" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:alpha="0.54"
+                    android:paddingStart="@dimen/space_small"
+                    android:paddingEnd="@dimen/space_small"
+                    android:src="@drawable/ic_information"
+                    android:tint="@color/status_more_info_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/main_more_info"
+                    android:textAllCaps="true"
+                    android:textColor="@color/status_more_info_text" />
+            </LinearLayout>
         </FrameLayout>
     </LinearLayout>
 </layout>

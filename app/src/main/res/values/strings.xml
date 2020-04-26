@@ -53,6 +53,11 @@
     <string name="change">"Change"</string>
     <string name="cancel">"Cancel"</string>
     <string name="main_status_ok_title">"You should be fine."</string>
+    <string name="main_status_ok_subtitle">"Follow the recommendations of your local authorities."</string>
+    <string name="main_status_exposed_title">"You are a risk."</string>
+    <string name="main_status_exposed_subtitle">"Please self-quarantine for 4 days after the symptoms are gone."</string>
+    <string name="main_status_positive_title">"You tested positive."</string>
+    <string name="main_status_positive_subtitle">"Please self-quarantine for 4 days after symptoms are gone."</string>
     <string name="main_more_info">"What does this mean?"</string>
     <string name="main_change_status">"Change status"</string>
     <string name="main_did_you_test_positive">"Did you test positive or were you exposed?"</string>
