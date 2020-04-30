@@ -35,7 +35,7 @@ import org.koin.android.ext.android.inject
 
 class DebugFragment : Fragment() {
 
-    lateinit var binding: DebugFragmentBinding
+    private lateinit var binding: DebugFragmentBinding
 
     private val userManager: UserManager by inject()
     private val closeToMe: CloseToMe by inject()

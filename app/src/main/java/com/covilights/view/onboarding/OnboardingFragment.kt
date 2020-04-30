@@ -42,7 +42,7 @@ import org.koin.core.context.unloadKoinModules
 
 class OnboardingFragment : Fragment() {
 
-    lateinit var binding: OnboardingFragmentBinding
+    private lateinit var binding: OnboardingFragmentBinding
 
     private val viewModel: OnboardingViewModel by viewModel()
 
