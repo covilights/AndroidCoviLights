@@ -25,8 +25,9 @@ class UserManager(val context: Context) {
     val userUuid: UUID by lazy {
         val value: UUID? = AppSettings.getString(context, USER_UUID)?.toUuid()
 
-        if (value != null) value
-        else {
+        if (value != null) {
+            value
+        } else {
             val newUuid: UUID = UUID.randomUUID()
             AppSettings.setValue(context, USER_UUID, newUuid.toString())
             newUuid
