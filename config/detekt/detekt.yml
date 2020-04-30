@@ -35,7 +35,7 @@ comments:
   active: true
   excludes: ['**/test/**', '**/androidTest/**', '**/*.Test.kt', '**/*.Spec.kt', '**/*.Spek.kt']
   AbsentOrWrongFileLicense:
-    active: false
+    active: true
     licenseTemplateFile: 'license.template'
   CommentOverPrivateFunction:
     active: true
