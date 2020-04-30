@@ -21,6 +21,7 @@ apply plugin: 'com.google.firebase.appdistribution'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply from: "$rootDir/ktlint.gradle"
 apply from: "$rootDir/jacoco.gradle"
+apply from: "$rootDir/detekt.gradle"
 
 def releaseNote = "Commit: ${commitMessage()}\n\n" +
         "Branch: ${System.getenv('GITHUB_REF')}\n\n" +
