@@ -20,12 +20,25 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
+import com.covilights.BuildConfig
 
 internal class MainViewModel : ViewModel() {
 
     private val _navigate = MutableLiveData<NavDirections>()
     val navigate: LiveData<NavDirections>
         get() = _navigate
+
+    private val _isDebugMode = MutableLiveData(BuildConfig.DEBUG)
+    val isDebugMode: LiveData<Boolean> = _isDebugMode
+
+    fun onToolbarLongClick(): Boolean {
+        return if (_isDebugMode.value != true) {
+            _isDebugMode.value = true
+            true
+        } else {
+            false
+        }
+    }
 
     fun onDebugClick() {
         _navigate.value = MainFragmentDirections.actionMainFragmentToDebugFragment()

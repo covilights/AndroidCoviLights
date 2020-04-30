@@ -55,7 +55,6 @@ class MainFragment : Fragment() {
         })
 
         startBeaconService()
-        // setupOnBackExit()
 
         return view
     }

@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="@dimen/space_small"
-            android:onClick="@{(v) -> viewmodel.onNextClick() }"
+            android:onClick="@{() -> viewmodel.onNextClick() }"
             android:text="@string/start"
             app:cornerRadius="20dp" />
 
@@ -62,7 +62,7 @@
                     style="@style/AppTheme.Button.TextButton.Secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="@{(v) -> viewmodel.onPrevClick() }"
+                    android:onClick="@{() -> viewmodel.onPrevClick() }"
                     android:text="@string/prev"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button"
                     app:icon="@drawable/ic_arrow_left"
@@ -82,7 +82,7 @@
                     style="@style/AppTheme.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="@{(v) -> viewmodel.onNextClick() }"
+                    android:onClick="@{() -> viewmodel.onNextClick() }"
                     android:text="@string/next"
                     app:icon="@drawable/ic_arrow_right"
                     app:iconGravity="end"
