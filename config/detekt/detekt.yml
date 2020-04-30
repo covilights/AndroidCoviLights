@@ -344,7 +344,7 @@ naming:
     excludes: ['**/test/**', '**/androidTest/**', '**/*.Test.kt', '**/*.Spec.kt', '**/*.Spek.kt']
     forbiddenName: []
   FunctionMaxLength:
-    active: false
+    active: true
     excludes: ['**/test/**', '**/androidTest/**', '**/*.Test.kt', '**/*.Spec.kt', '**/*.Spek.kt']
     maximumFunctionNameLength: 30
   FunctionMinLength:
