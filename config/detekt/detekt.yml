@@ -470,7 +470,7 @@ potential-bugs:
 style:
   active: true
   CollapsibleIfStatements:
-    active: false
+    active: true
   DataClassContainsFunctions:
     active: true
     conversionFunctionPrefix: 'to'
