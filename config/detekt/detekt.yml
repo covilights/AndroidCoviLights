@@ -440,10 +440,10 @@ potential-bugs:
   IteratorNotThrowingNoSuchElementException:
     active: true
   LateinitUsage:
-    active: false
+    active: true
     excludes: ['**/test/**', '**/androidTest/**', '**/*.Test.kt', '**/*.Spec.kt', '**/*.Spek.kt']
     excludeAnnotatedProperties: []
-    ignoreOnClassesPattern: ''
+    ignoreOnClassesPattern: '(.*Activity|.*Fragment|.*Adapter|.*ViewModel)'
   MapGetWithNotNullAssertionOperator:
     active: true
   MissingWhenCase:
