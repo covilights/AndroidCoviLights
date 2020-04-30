@@ -19,43 +19,59 @@
 <resources>
     <string name="app_name">"کوویلایتز"</string>
     <string name="ble_not_supported">"متأسفانه گوشی شما تکنولوژی بلوتوث کم مصرف را پشتیبانی نمی‌کند!"</string>
-    <string name="onboarding_welcome_title">"به کوویلایتز خوش آمدید"</string>
-    <string name="onboarding_welcome_subtitle">"با انتشار کووید-۱۹ بجنگید"</string>
-    <string name="onboarding_welcome_text">"کوویلایتز با ردیابی حرکات شما و اطلاع به شما در صورتی‌که در معرض بیماری باشید، از گسترش کووید-۱۹ جلوگیری می‌کند. "</string>
-    <string name="onboarding_permission_title">"سالم بمانید"</string>
-    <string name="onboarding_permission_subtitle">"از خود و اطرافیان خود محافظت کنید"</string>
+    <string name="cancel">"انصراف"</string>
+    <string name="change">"تغییر"</string>
+    <string name="main_allow_tracking">"اجازه ردیابی مجاورت با استفاده از بلوتوث را بدهید"</string>
+    <string name="main_change_status">"تغییر وضعیت"</string>
+    <string name="main_change_status_calendar_dialog_title">"از کی علائم بیماری شروع شد؟"</string>
+    <string name="main_change_status_dialog_text">"علائم بیماری عموما تب، تنگی نفس، سرفه و کوفتگی است."</string>
+    <string name="main_change_status_dialog_title">"علائم بیماری را داری؟"</string>
+    <string name="main_did_you_test_positive">"آیا جواب آزمایش شما مثبت بوده یا در معرض ویروس بوده‌اید؟"</string>
+    <string name="main_grow_community">"جامعه‌ی کاربری این اپلیکیشن را رشد دهید تا همه‌ی ما در امان بمانیم"</string>
+    <string name="main_more_info">"اطلاعات بیشتر"</string>
+    <string name="main_notify_status_dialog_title">"به اطلاع دیگران می رسانید؟"</string>
+    <string name="main_share_app">"انتشار اپلیکیشن"</string>
+    <string name="main_share_proximity">"انتشار نزدیکی"</string>
+
+    <!-- Fuzzy -->
+    <string name="main_status_exposed_with_sympthoms_subtitle">"لطفاً 4 روز پس از از بین رفتن علائم خود را قرنطینه کنید."</string>
+    <string name="main_status_exposed_with_sympthoms_title">"شما یک خطر محسوب میشوید."</string>
+    <string name="main_status_exposed_without_sympthoms_subtitle">"لطفا خود را قرنطینه کنید به مدت
+&lt;u&gt;%1$d روز&lt;/u&gt;"</string>
+    <string name="main_status_exposed_without_sympthoms_title">"شما در خطر هستید."</string>
+    <string name="main_status_ok_subtitle">"توصیه های مقامات محلی خود را دنبال کنید."</string>
+    <string name="main_status_ok_title">"باید خوب باشید."</string>
+    <string name="main_status_positive_subtitle">"لطفا بعد از بهبود کامل خود را به مدت 4 روز قرنطینه کنید."</string>
+    <string name="main_status_positive_title">"آزمایش شما مثبت بوده."</string>
+    <string name="next">"بعدی"</string>
+    <string name="not_now">"الان نه"</string>
     <string name="onboarding_permission_bluetooth_text">"کوویلایتز با استفاده از تکنولوژی بلوتوث و مکانیابی تعاملات شما را ردیابی می‌کند."</string>
     <string name="onboarding_permission_data_text">"اطلاعات ردیابی شما بصورت ناشناس و به مدت ۱۴ روز فقط در گوشی شما ذخیره می‌شوند."</string>
     <string name="onboarding_permission_exposure_text">"درصورت قرار گرفتن در معرض بیماری، از طریق داده‌های ردیابی شما برای اطلاع رسانی به دیگران استفاده می‌شود."</string>
-    <string name="onboarding_permission_required_toast">"اپلیکیشن کوویلایتز بدون این دسترسی کار نخواهد کرد!"</string>
     <string name="onboarding_permission_required_snackbar">"اپلیکیشن کوویلایتز بدون این دسترسی کار نخواهد کرد!"</string>
     <string name="onboarding_permission_required_snackbar_action">"تنظیمات"</string>
-    <string name="onboarding_status_title">"وضعیت خود را اعلام کنید"</string>
-    <string name="onboarding_status_subtitle">"احتمال ابتلای خود در حال حاضر به کووید-۱۹ را بررسی کنید."</string>
-    <string name="onboarding_status_top_text">"این اپلیکیشن وضعیت شما را بصورت چراع راهنمایی نمایش میدهد."</string>
-    <string name="onboarding_status_green_text"><![CDATA[<font color=#02A675><b>سبز</b></font> – نظافت را رعایت کنید و معاشرت کنید. distancing recommendations.]]></string>
-    <string name="onboarding_status_yellow_text"><![CDATA[<font color=#F5B100><b>زرد</b></font> – شما در معرض ویروس قرار گرفته اید. and should self-quarantine.]]></string>
-    <string name="onboarding_status_red_text"><![CDATA[<font color=#E85151><b>قرمز</b></font> – زمانی استفاده میشود که آزمایش شما مثبت اعلام شده. positive.]]></string>
+    <string name="onboarding_permission_required_toast">"اپلیکیشن کوویلایتز بدون این دسترسی کار نخواهد کرد!"</string>
+    <string name="onboarding_permission_subtitle">"از خود و اطرافیان خود محافظت کنید"</string>
+    <string name="onboarding_permission_title">"سالم بمانید"</string>
+    <string name="onboarding_share_now_text"><![CDATA[اپلیکیشن را <a href="https://play.google.com/store/apps/details?id=com.covilights">انتشار دهید</a> تا grجامعه کاربران افزایش یابد.]]></string>
+    <string name="onboarding_share_subtitle">"اپ را منتشر کنید نه ویروس را."</string>
+    <string name="onboarding_share_title">"این اپلیکیشن را به اشتراک بگذارید"</string>
+    <string name="onboarding_share_top_text">"برای رسیدن این اپلیکیشن به ارزشی که حقش است، این برنامه باید توسط افراد بیشتری استفاده شود."</string>
     <string name="onboarding_status_bottom_text"><![CDATA[اگر از وضعیت کنونی خود اطمینان ندارید با پاسخ دادن به <a href="https://corona.research.ac.ir/corona-screening">سامانه خود ارزیابی ابتلا به کرونا</a> از وضعیت خود مطمئن شوید.]]></string>
-    <string name="onboarding_status_dialog_title">"ثبت وضعیت"</string>
-    <string name="onboarding_status_dialog_radio_positive">"آزمایش من مثبت بوده."</string>
     <string name="onboarding_status_dialog_radio_exposed">"من در معرض بوده‌ام."</string>
     <string name="onboarding_status_dialog_radio_negative">"خوبم."</string>
-    <string name="onboarding_share_title">"این اپلیکیشن را به اشتراک بگذارید"</string>
-    <string name="onboarding_share_subtitle">"اپ را منتشر کنید نه ویروس را."</string>
-    <string name="onboarding_share_top_text">"برای رسیدن این اپلیکیشن به ارزشی که حقش است، این برنامه باید توسط افراد بیشتری استفاده شود."</string>
-    <string name="onboarding_share_now_text"><![CDATA[اپلیکیشن را <a href="https://play.google.com/store/apps/details?id=com.covilights">انتشار دهید</a> تا grجامعه کاربران افزایش یابد.]]></string>
-    <string name="start">"شروع"</string>
-    <string name="next">"بعدی"</string>
+    <string name="onboarding_status_dialog_radio_positive">"آزمایش من مثبت بوده."</string>
+    <string name="onboarding_status_dialog_title">"ثبت وضعیت"</string>
+    <string name="onboarding_status_green_text"><![CDATA[<font color=#02A675><b>سبز</b></font> – نظافت را رعایت کنید و معاشرت کنید. distancing recommendations.]]></string>
+    <string name="onboarding_status_red_text"><![CDATA[<font color=#E85151><b>قرمز</b></font> – زمانی استفاده میشود که آزمایش شما مثبت اعلام شده. positive.]]></string>
+    <string name="onboarding_status_subtitle">"احتمال ابتلای خود در حال حاضر به کووید-۱۹ را بررسی کنید."</string>
+    <string name="onboarding_status_title">"وضعیت خود را اعلام کنید"</string>
+    <string name="onboarding_status_top_text">"این اپلیکیشن وضعیت شما را بصورت چراع راهنمایی نمایش میدهد."</string>
+    <string name="onboarding_status_yellow_text"><![CDATA[<font color=#F5B100><b>زرد</b></font> – شما در معرض ویروس قرار گرفته اید. and should self-quarantine.]]></string>
+    <string name="onboarding_welcome_subtitle">"با انتشار کووید-۱۹ بجنگید"</string>
+    <string name="onboarding_welcome_text">"کوویلایتز با ردیابی حرکات شما و اطلاع به شما در صورتی‌که در معرض بیماری باشید، از گسترش کووید-۱۹ جلوگیری می‌کند. "</string>
+    <string name="onboarding_welcome_title">"به کوویلایتز خوش آمدید"</string>
     <string name="prev">"قبلی"</string>
-    <string name="change">"تغییر"</string>
-    <string name="cancel">"انصراف"</string>
-    <string name="main_status_ok_title">"باید خوب باشید."</string>
-    <string name="main_more_info">"اطلاعات بیشتر"</string>
-    <string name="main_change_status">"تغییر وضعیت"</string>
-    <string name="main_did_you_test_positive">"آیا جواب آزمایش شما مثبت بوده یا در معرض ویروس بوده‌اید؟"</string>
-    <string name="main_share_proximity">"انتشار نزدیکی"</string>
-    <string name="main_allow_tracking">"اجازه ردیابی مجاورت با استفاده از بلوتوث را بدهید"</string>
-    <string name="main_share_app">"انتشار اپلیکیشن"</string>
-    <string name="main_grow_community">"جامعه‌ی کاربری این اپلیکیشن را رشد دهید تا همه‌ی ما در امان بمانیم"</string>
+    <string name="send">"ارسال"</string>
+    <string name="start">"شروع"</string>
 </resources>

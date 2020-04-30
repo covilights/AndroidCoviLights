@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright 2020 CoviLights GbR
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">"CoviLights"</string>
+    <string name="ble_not_supported">"โทรศัพท์ของคุณไม่รองรับ BluetoothLE"</string>
+    <string name="cancel">"ยกเลิก"</string>
+    <string name="change">"เปลี่ยน"</string>
+    <string name="main_allow_tracking">"อนุญาตให้ระบบติดตามตำแหน่งของคุณด้วย Bluetooth"</string>
+    <string name="main_change_status">"เปลี่ยนสถานะ"</string>
+    <string name="main_change_status_calendar_dialog_title">"คุณเริ่มมีอาการตั้งแต่เมื่อไหร่"</string>
+    <string name="main_change_status_dialog_text">"ผู้ติดเชื้อส่วนใหญ่มีอาการหายใจลำบาก หรือหายใจเร็ว
+หอบ มีไข้ มีอาการไอ และอ่อนเพลีย"</string>
+    <string name="main_change_status_dialog_title">"คุณมีอาการป่วยหรือไม่"</string>
+    <string name="main_did_you_test_positive">"ถ้าคุณได้รับการยืนยันว่าติดเชื้อ หรือมีความเสี่ยง"</string>
+    <string name="main_grow_community">"ช่วยเพิ่มจำนวนผู้ใช้ เพื่อเพิ่มประสิทธิภาพของระบบ"</string>
+    <string name="main_more_info">"คำอธิบายเพิ่มเติม"</string>
+    <string name="main_notify_status_dialog_title">"ส่งข้อความเตือนผู้อื่น"</string>
+    <string name="main_notify_status_exposed_with_sympthoms_dialog_text">"ส่งข้อความแจ้งผู้ใช้ CoviLights ที่ได้อยู่ในบริเวณใกล้เคียงกับคุณในระยะเวลา 14 วันที่ผ่านมา ว่าพวกเขามีความเสี่ยงต่อการติดเชื้อ
+
+ตัวตนของคุณจะไม่ถูกเปิดเผย"</string>
+    <string name="main_notify_status_exposed_without_sympthoms_dialog_text">"ส่งข้อความแจ้งผู้ใช้ CoviLights ที่ได้อยู่ในบริเวณใกล้เคียงกับคุณในระยะเวลา 14 วันที่ผ่านมา ว่าพวกเขามีความเสี่ยงต่อการติดเชื้อ
+
+ตัวตนของคุณจะไม่ถูกเปิดเผย"</string>
+    <string name="main_notify_status_positive_dialog_text">"ส่งข้อความแจ้งผู้ใช้ CoviLights ที่ได้อยู่ในบริเวณใกล้เคียงกับคุณในระยะเวลา 14 วันที่ผ่านมา ว่าพวกเขามีความเสี่ยงต่อการติดเชื้อ
+
+ตัวตนของคุณจะไม่ถูกเปิดเผย"</string>
+    <string name="main_share_app">"บอกต่อ"</string>
+    <string name="main_share_proximity">"รายงานตำแหน่ง"</string>
+    <string name="main_status_exposed_with_sympthoms_details">"เนื่องจากคุณมีประวัติการอยู่ในบริเวณเดียวกันกับผู้ป่วย และตัวคุณเองเริ่มมีอาการป่วย เราจะส่งข้อความหาคุณวันละครั้งเพื่อสอบถามอาการ และแนะนำระยะเวลากักกันตัวเองตามกำหนด
+
+โปรดติดต่อแพทย์ถ้าคุณมีอาการแย่ลง หรือมีอาการหนัก"</string>
+    <string name="main_status_exposed_with_sympthoms_subtitle">"กรุณากักกันตนเองเป็นเวลา 4 วันหลังจากไม่มีอาการแล้ว"</string>
+    <string name="main_status_exposed_with_sympthoms_title">"คุณอาจเป็นผู้ป่วย"</string>
+    <string name="main_status_exposed_without_sympthoms_details">"คุณแจ้งว่าคุณมีโอกาสอาจได้รับเชื้อเมื่อวันที่ %1$s การกักตัว 14 วันจะสิ้นสุดในวันที่ %2$s
+
+เราจะส่งข้อความหาคุณทุกวัน เพื่อสอบถามสถานภาพ และแนะนำระยะเวลากักกันตัวเองของคุณ"</string>
+    <string name="main_status_exposed_without_sympthoms_subtitle">"กรุณากักกันตนเองเป็นเวลา &lt;u&gt;%1$d วัน&lt;/u&gt;"</string>
+    <string name="main_status_exposed_without_sympthoms_title">"คุณมีความเสี่ยงต่อการติดเชื้อ"</string>
+    <string name="main_status_ok_subtitle">"กรุณาปฏิบัติตามคำแนะนำของหน่วยงานและเจ้าหน้าที่ท้องถิ่นของคุณ"</string>
+    <string name="main_status_ok_title">"คุณสบายดี"</string>
+    <string name="main_status_positive_details">"คุณได้รับยืนยันผลตรวจว่าเป็นผู้ติดเชื้อเมื่อวันที่ %1$s เราจะส่งข้อความหาคุณวันละครั้งเพื่อสอบถามอาการ และแนะนำระยะเวลากักกันตัวเองตามกำหนด
+
+โปรดติดต่อแพทย์ถ้าคุณมีอาการแย่ลง หรือมีอาการหนัก"</string>
+    <string name="main_status_positive_subtitle">"กรุณากักกันตนเองเป็นเวลา 4 วันหลังจากไม่มีอาการแล้ว"</string>
+    <string name="main_status_positive_title">"คุณเป็นผู้ป่วยยืนยัน"</string>
+    <string name="next">"ต่อไป"</string>
+    <string name="not_now">"ไม่ส่ง"</string>
+    <string name="onboarding_permission_bluetooth_text">"CoviLights ใช้ Bluetooth เพื่อระบุระยะห่างระหว่างคุณกับคนอื่นที่ใช้ CoviLights"</string>
+    <string name="onboarding_permission_data_text">"ข้อมูลนี้ไม่สามารถใช้ในการเจาะจงตัวคุณได้ และจะถูกจัดเก็บไว้เป็นเวลาเพียง 14 วัน ในโทรศัพท์ของคุณเองเท่านั้น"</string>
+    <string name="onboarding_permission_exposure_text">"ข้อมูลนี้ถูกใช้เพื่อที่เราจะได้ส่งข้อความหาคุณ ในกรณีที่คุณได้อยู่ในบริเวณเดียวกันกับผู้ติดเชื้อ"</string>
+    <string name="onboarding_permission_required_snackbar">"คุณจะไม่สามารถใช้งาน CoviLights ได้ ถ้าเราไม่ได้รับการยินยอมนี้จากคุณ"</string>
+    <string name="onboarding_permission_required_snackbar_action">"การตั้งค่า"</string>
+    <string name="onboarding_permission_required_toast">"คุณจะไม่สามารถใช้งาน CoviLights ได้ ถ้าเราไม่ได้รับการยินยอมนี้จากคุณ"</string>
+    <string name="onboarding_permission_subtitle">"รักษาตัวคุณและคนรอบข้าง"</string>
+    <string name="onboarding_permission_title">"Stay safe"</string>
+    <string name="onboarding_share_now_text"><![CDATA[<a href="https://play.google.com/store/apps/details?id=com.covilights">บอกต่อ</a> เพื่อเพิ่มประสิทธิภาพการติดตามการแพร่กระจายของไวรัส]]></string>
+    <string name="onboarding_share_title">"บอกต่อ"</string>
+    <string name="onboarding_share_top_text">"ยิ่งมีคนใช้ CoviLights จำนวนมากขึ้นเท่าไหร่ เราก็จะสามารถติดตามการแพร่กระจายของไวรัสได้ดีขึ้นเท่านั้น"</string>
+    <string name="onboarding_status_bottom_text"><![CDATA[ถ้าคุณไม่มีผลตรวจ คุณสามารถใช้ <a href="https://cmsdm.net/Self-Screening/">แบบคัดกรองตนเอง สำหรับผู้สงสัยโรคไวรัสโคโรนา​ 19</a> เพื่อประเมิณความเสี่ยงการติดเชื้อ]]></string>
+    <string name="onboarding_status_dialog_radio_exposed">"มีโอกาสอาจได้รับเชื้อ"</string>
+    <string name="onboarding_status_dialog_radio_negative">"สบายดี"</string>
+    <string name="onboarding_status_dialog_radio_positive">"มีผลตรวจว่าติดเชื้อ"</string>
+    <string name="onboarding_status_dialog_title">"ระบุสถานะของคุณ"</string>
+    <string name="onboarding_status_green_text"><![CDATA[<font color=#02A675><b>สีเขียว</b></font> – ปฏิบัติตามคำแนะนำการรักษาสุขอนามัย และ อยู่ห่างจากผู้อื่น]]></string>
+    <string name="onboarding_status_red_text"><![CDATA[<font color=#E85151><b>สีแดง</b></font> – คุณได้รับการตรวจและมีผลยืนยันการติดเชื้อ]]></string>
+    <string name="onboarding_status_subtitle">"ระบุผลตรวจ COVID-19 ของคุณ หรือทำแบบสอบถามประเมิณความเสี่ยงต่อการติดเชื้อของคุณขณะนี้"</string>
+    <string name="onboarding_status_title">"ระบุสถานะของคุณ"</string>
+    <string name="onboarding_status_top_text">"CoviLights จะบอกสถานะของคุณด้วยสีของไฟจราจร"</string>
+    <string name="onboarding_status_yellow_text"><![CDATA[<font color=#F5B100><b>สีเหลือง</b></font> – คุณมีประวัติการอยู่ในบริเวณเดียวกันกับผู้ติดเชื้อและควรต้องแยกตัวจากผู้อื่น]]></string>
+    <string name="onboarding_welcome_subtitle">"ช่วยกันชะลอและป้องกันการแพร่กระจายเชื้อ COVID-19"</string>
+    <string name="onboarding_welcome_text">"CoviLights ช่วยชะลอและป้องกันการแพร่กระจายเชื้อ COVID-19 ด้วยการติดตามความเคลื่อนไหวของคุณและส่งข้อความแจ้งคุณในกรณีที่คุณได้อยู่ในบริเวณใกล้เคียงกับผู้ติดเชื้อ"</string>
+    <string name="onboarding_welcome_title">"ยินดีต้อนรับสู่ CoviLights"</string>
+    <string name="prev">"กลับ"</string>
+    <string name="send">"ส่ง"</string>
+    <string name="start">"เริ่ม"</string>
+</resources>
