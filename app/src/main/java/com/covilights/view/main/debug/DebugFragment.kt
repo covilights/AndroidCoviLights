@@ -84,11 +84,11 @@ class DebugFragment : Fragment() {
 
     private fun initUi() {
         binding.log.movementMethod = ScrollingMovementMethod()
-        binding.start.setOnClickListener(::onStartClick)
-        binding.stop.setOnClickListener(::onStopClick)
+        binding.start.setOnClickListener { onStartClick() }
+        binding.stop.setOnClickListener { onStopClick() }
     }
 
-    private fun onStartClick(v: View) {
+    private fun onStartClick() {
         if (closeToMe.isBluetoothEnabled.value == false) {
             log("Enabling bluetooth...")
 
@@ -114,7 +114,7 @@ class DebugFragment : Fragment() {
         }
     }
 
-    private fun onStopClick(v: View) {
+    private fun onStopClick() {
         closeToMe.stop(object : CloseToMeCallback {
             override fun onSuccess() {
                 log("Beacon stopped successfully!")
