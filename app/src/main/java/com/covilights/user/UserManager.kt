@@ -33,9 +33,7 @@ class UserManager(val context: Context) {
         }
     }
 
-    private fun String.toUuid(): UUID {
-        return UUID.fromString(this)
-    }
+    private fun String.toUuid(): UUID = UUID.fromString(this)
 
     var userStatus: UserStatus
         get() = UserStatus.values()[AppSettings.getInt(context, USER_STATUS) ?: 0]
