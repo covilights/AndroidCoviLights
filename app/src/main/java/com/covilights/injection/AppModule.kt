@@ -17,6 +17,7 @@
 package com.covilights.injection
 
 import com.covilights.user.UserManager
+import com.covilights.user.UserManagerImpl
 import com.covilights.utils.Constants
 import com.covilights.utils.StateManager
 import com.covilights.utils.StateManagerImpl
@@ -24,9 +25,12 @@ import com.mohsenoid.closetome.CloseToMe
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
+/**
+ * Koin appModule which holds objects that are required widely when the app is running.
+ */
 val appModule = module {
 
-    single { UserManager(androidContext()) }
+    single<UserManager> { UserManagerImpl(androidContext()) }
 
     single<StateManager> { StateManagerImpl(androidContext()) }
 

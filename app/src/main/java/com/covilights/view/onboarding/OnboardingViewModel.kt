@@ -30,7 +30,7 @@ import com.covilights.user.UserManager
 import com.covilights.user.UserStatus
 import com.covilights.utils.StateManager
 
-class OnboardingViewModel(
+internal class OnboardingViewModel(
     private val context: Context,
     private val resources: Resources,
     private val stateManager: StateManager,

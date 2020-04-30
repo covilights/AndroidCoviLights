@@ -30,6 +30,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 
+/**
+ * This fragment contains the app main screen including user states and other functionality.
+ */
 class MainFragment : Fragment() {
 
     private lateinit var binding: MainFragmentBinding

@@ -16,7 +16,13 @@
 
 package com.covilights.utils
 
+/**
+ * State Manager which holds app states and keep the changes available widely at runtime.
+ */
 interface StateManager {
 
+    /**
+     * This variable is true if the user never finished the onboarding flow.
+     */
     var isFirstRun: Boolean
 }

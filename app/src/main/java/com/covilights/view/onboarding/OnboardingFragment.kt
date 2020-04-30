@@ -40,6 +40,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 
+/**
+ * This fragment contains all steps to inform user how app works, ask for the permission required at runtime, and collect user status.
+ */
 class OnboardingFragment : Fragment() {
 
     private lateinit var binding: OnboardingFragmentBinding
@@ -166,6 +169,6 @@ class OnboardingFragment : Fragment() {
     }
 
     companion object {
-        const val PERMISSIONS_REQUEST = 1010
+        private const val PERMISSIONS_REQUEST = 1010
     }
 }

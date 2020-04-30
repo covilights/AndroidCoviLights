@@ -19,7 +19,7 @@ package com.covilights.utils
 import android.content.Context
 import com.mirhoseini.appsettings.AppSettings
 
-class StateManagerImpl(val context: Context) : StateManager {
+internal class StateManagerImpl(val context: Context) : StateManager {
 
     override var isFirstRun: Boolean
         get() = AppSettings.getBoolean(context, IS_FIRST_RUN) ?: true

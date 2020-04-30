@@ -16,6 +16,22 @@
 
 package com.covilights.user
 
+/**
+ * User different sickness status.
+ */
 enum class UserStatus {
-    NEGATIVE, EXPOSED, POSITIVE
+    /**
+     * User is healthy and no exposure to another sick person.
+     */
+    NEGATIVE,
+
+    /**
+     * User is exposed to another sick person but no positive test yet.
+     */
+    EXPOSED,
+
+    /**
+     * User is tested positive.
+     */
+    POSITIVE
 }

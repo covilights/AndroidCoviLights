@@ -22,6 +22,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.covilights.databinding.MainActivityBinding
 
+/**
+ * The Main Activity which contains the navigation graph.
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: MainActivityBinding
@@ -34,6 +37,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
+        /**
+         * Generates [MainActivity] [Intent].
+         */
         fun intent(context: Context) =
             Intent(context, MainActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)

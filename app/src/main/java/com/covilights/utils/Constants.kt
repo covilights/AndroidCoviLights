@@ -19,6 +19,9 @@ package com.covilights.utils
 import com.mohsenoid.closetome.utils.toUuid
 import java.util.UUID
 
+/**
+ * Constant variables used widely in the app.
+ */
 object Constants {
 
     const val SPLASH_TIMEOUT = 2_000L

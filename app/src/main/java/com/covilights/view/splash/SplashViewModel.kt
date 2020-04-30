@@ -26,7 +26,7 @@ import com.covilights.utils.StateManager
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class SplashViewModel(private val stateManager: StateManager) : ViewModel() {
+internal class SplashViewModel(private val stateManager: StateManager) : ViewModel() {
 
     private val _navigate = MutableLiveData<NavDirections>()
     val navigate: LiveData<NavDirections>
