@@ -21,7 +21,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
 
-class MainViewModel : ViewModel() {
+internal class MainViewModel : ViewModel() {
 
     private val _navigate = MutableLiveData<NavDirections>()
     val navigate: LiveData<NavDirections>

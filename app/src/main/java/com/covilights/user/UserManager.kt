@@ -16,34 +16,20 @@
 
 package com.covilights.user
 
-import android.content.Context
-import com.mirhoseini.appsettings.AppSettings
 import java.util.UUID
 
-class UserManager(val context: Context) {
+/**
+ * User data manager class holding UUID and Status.
+ */
+interface UserManager {
 
-    val userUuid: UUID by lazy {
-        val value: UUID? = AppSettings.getString(context, USER_UUID)?.toUuid()
+    /**
+     * User UUID randomly generated at first run.
+     */
+    val userUuid: UUID
 
-        if (value != null) {
-            value
-        } else {
-            val newUuid: UUID = UUID.randomUUID()
-            AppSettings.setValue(context, USER_UUID, newUuid.toString())
-            newUuid
-        }
-    }
-
-    private fun String.toUuid(): UUID = UUID.fromString(this)
-
+    /**
+     * User status stated by the user.
+     */
     var userStatus: UserStatus
-        get() = UserStatus.values()[AppSettings.getInt(context, USER_STATUS) ?: 0]
-        set(value) {
-            AppSettings.setValue(context, USER_STATUS, value.ordinal)
-        }
-
-    companion object {
-        const val USER_UUID = "user_uuid"
-        const val USER_STATUS = "user_status"
-    }
 }

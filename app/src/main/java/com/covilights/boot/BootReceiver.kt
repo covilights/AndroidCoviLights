@@ -22,6 +22,9 @@ import android.content.Intent
 import androidx.core.content.ContextCompat
 import com.covilights.service.BeaconServiceActions
 
+/**
+ * Device boot BroadcastReceiver which starts the BeaconService foreground.
+ */
 class BootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent) {

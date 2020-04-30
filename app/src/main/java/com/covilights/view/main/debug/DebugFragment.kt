@@ -33,6 +33,9 @@ import com.mohsenoid.closetome.CloseToMeCallback
 import com.mohsenoid.closetome.CloseToMeState
 import org.koin.android.ext.android.inject
 
+/**
+ * This fragment holds debugging tools and buttons and is not visible in final product.
+ */
 class DebugFragment : Fragment() {
 
     private lateinit var binding: DebugFragmentBinding

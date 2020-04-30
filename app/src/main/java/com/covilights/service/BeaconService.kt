@@ -39,6 +39,9 @@ import com.mohsenoid.closetome.CloseToMeState
 import org.koin.android.ext.android.inject
 import timber.log.Timber
 
+/**
+ * Beacon Android Service which keeps the CloseToMe feature running in background.
+ */
 class BeaconService : LifecycleService() {
 
     private val closeToMe: CloseToMe by inject()

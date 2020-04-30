@@ -24,11 +24,17 @@ import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 
+/**
+ * BindingAdapter which allows setting a [View] visibility [View.VISIBLE]/[View.GONE] using a boolean value.
+ */
 @BindingAdapter("visibility")
 fun View.setVisibleOrGone(isVisible: Boolean?) {
     visibility = if (isVisible == true) View.VISIBLE else View.GONE
 }
 
+/**
+ * BindingAdapter which allows setting [TextView] text a html value.
+ */
 @BindingAdapter("htmlText")
 fun TextView.setHtmlTextValue(htmlText: String?) {
     if (htmlText == null) return
@@ -40,6 +46,9 @@ fun TextView.setHtmlTextValue(htmlText: String?) {
     text = result
 }
 
+/**
+ * BindingAdapter which enables hyperlinking a [TextView] contents.
+ */
 @BindingAdapter("linkMovementMethod")
 fun TextView.setLinkMovementMethod(isLinkMovementMethod: Boolean) {
     movementMethod = if (isLinkMovementMethod) LinkMovementMethod.getInstance() else null

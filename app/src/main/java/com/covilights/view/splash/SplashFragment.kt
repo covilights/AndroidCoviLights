@@ -28,6 +28,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 
+/**
+ * This fragment contains the splash GUI.
+ */
 class SplashFragment : Fragment() {
 
     private lateinit var binding: SplashFragmentBinding

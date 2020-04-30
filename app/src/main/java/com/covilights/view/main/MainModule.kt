@@ -19,6 +19,9 @@ package com.covilights.view.main
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
+/**
+ * Koin module which provides [MainFragment] dependencies.
+ */
 val mainModule = module {
     viewModel { MainViewModel() }
 }

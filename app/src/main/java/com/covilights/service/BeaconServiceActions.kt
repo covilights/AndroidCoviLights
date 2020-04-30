@@ -21,17 +21,36 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.core.os.bundleOf
 
+/**
+ * Different types of actions that BeaconService can handle.
+ */
 sealed class BeaconServiceActions(private val serviceAction: String) {
-    open val bundle: Bundle = bundleOf()
 
+    internal open val bundle: Bundle = bundleOf()
+
+    /**
+     * The action used for the app start situation.
+     */
     object AppStart : BeaconServiceActions(ACTION_APP_START)
 
+    /**
+     * The action used for the device boot situation.
+     */
     object DeviceBoot : BeaconServiceActions(ACTION_DEVICE_BOOT)
 
+    /**
+     * The action used to start the CloseToMe service.
+     */
     object StartBeacon : BeaconServiceActions(ACTION_START_BEACON)
 
+    /**
+     * The action used to stop the CloseToMe service.
+     */
     object StopBeacon : BeaconServiceActions(ACTION_STOP_BEACON)
 
+    /**
+     * Generates Intent based on the action and extra params passed as bundle.
+     */
     fun toIntent(context: Context): Intent =
         Intent(context, BeaconService::class.java).apply {
             action = serviceAction
@@ -39,9 +58,9 @@ sealed class BeaconServiceActions(private val serviceAction: String) {
         }
 
     companion object {
-        const val ACTION_APP_START = "beacon_service_app_start_action"
-        const val ACTION_DEVICE_BOOT = "beacon_service_device_boot_action"
-        const val ACTION_START_BEACON = "beacon_service_start_beacon_action"
-        const val ACTION_STOP_BEACON = "beacon_service_stop_beacon_action"
+        internal const val ACTION_APP_START = "beacon_service_app_start_action"
+        internal const val ACTION_DEVICE_BOOT = "beacon_service_device_boot_action"
+        internal const val ACTION_START_BEACON = "beacon_service_start_beacon_action"
+        internal const val ACTION_STOP_BEACON = "beacon_service_stop_beacon_action"
     }
 }

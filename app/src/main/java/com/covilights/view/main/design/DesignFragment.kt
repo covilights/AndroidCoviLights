@@ -23,6 +23,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.covilights.databinding.DesignFragmentBinding
 
+/**
+ * This fragment visualize app design system and is not visible in final product.
+ */
 class DesignFragment : Fragment() {
 
     private lateinit var binding: DesignFragmentBinding

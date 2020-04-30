@@ -25,6 +25,9 @@ import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
+/**
+ * CoviLights Application class which starts Koin and the BeaconService foreground if it is not the first run before onboarding.
+ */
 class CoviLightsApplication : Application() {
 
     private val stateManager: StateManager by inject()
