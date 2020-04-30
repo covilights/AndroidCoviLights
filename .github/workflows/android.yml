@@ -20,6 +20,14 @@ jobs:
       - name: Test and Build
         run: ./gradlew build
 
+      - name: Generate code-coverage report
+        run: ./gradlew jacoco
+
+      - name: Push Code-Coverage Report to codecov.io
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: bash <(curl -s https://codecov.io/bash)
+
       - name: Firebase App Distribution
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/')
         env:
