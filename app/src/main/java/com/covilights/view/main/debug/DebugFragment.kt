@@ -51,15 +51,12 @@ class DebugFragment : Fragment() {
         closeToMe.state.observe(viewLifecycleOwner, Observer { state ->
             log("Beacon state: $state")
 
-            when (state) {
-                CloseToMeState.STARTED -> {
-                    binding.start.isVisible = false
-                    binding.stop.isVisible = true
-                }
-                else -> {
-                    binding.start.isVisible = true
-                    binding.stop.isVisible = false
-                }
+            if (state == CloseToMeState.STARTED) {
+                binding.start.isVisible = false
+                binding.stop.isVisible = true
+            } else {
+                binding.start.isVisible = true
+                binding.stop.isVisible = false
             }
         })
 

@@ -136,45 +136,42 @@ class BeaconService : LifecycleService() {
 
     @SuppressLint("RestrictedApi")
     private fun NotificationCompat.Builder.updateNotificationWithState(state: CloseToMeState?): NotificationCompat.Builder {
-        when (state) {
-            CloseToMeState.STARTED -> {
-                setSmallIcon(R.drawable.ic_notification_on)
-                setContentTitle("CoviLights is running")
+        if (state == CloseToMeState.STARTED) {
+            setSmallIcon(R.drawable.ic_notification_on)
+            setContentTitle("CoviLights is running")
 
-                mActions.clear()
+            mActions.clear()
 
-                // addAction(
-                //     NotificationCompat.Action.Builder(
-                //         R.drawable.ic_notification_off,
-                //         "Stop",
-                //         PendingIntent.getService(
-                //             this@BeaconService,
-                //             MAIN_SERVICE_REQUEST_CODE,
-                //             BeaconServiceActions.StopBeacon.toIntent(this@BeaconService),
-                //             PendingIntent.FLAG_UPDATE_CURRENT
-                //         )
-                //     ).build()
-                // )
-            }
-            else -> {
-                setSmallIcon(R.drawable.ic_notification_off)
-                setContentTitle("CoviLights stopped")
+            // addAction(
+            //     NotificationCompat.Action.Builder(
+            //         R.drawable.ic_notification_off,
+            //         "Stop",
+            //         PendingIntent.getService(
+            //             this@BeaconService,
+            //             MAIN_SERVICE_REQUEST_CODE,
+            //             BeaconServiceActions.StopBeacon.toIntent(this@BeaconService),
+            //             PendingIntent.FLAG_UPDATE_CURRENT
+            //         )
+            //     ).build()
+            // )
+        } else {
+            setSmallIcon(R.drawable.ic_notification_off)
+            setContentTitle("CoviLights stopped")
 
-                mActions.clear()
+            mActions.clear()
 
-                // addAction(
-                //     NotificationCompat.Action.Builder(
-                //         R.drawable.ic_notification_on,
-                //         "Start",
-                //         PendingIntent.getService(
-                //             this@BeaconService,
-                //             MAIN_SERVICE_REQUEST_CODE,
-                //             BeaconServiceActions.StartBeacon.toIntent(this@BeaconService),
-                //             PendingIntent.FLAG_UPDATE_CURRENT
-                //         )
-                //     ).build()
-                // )
-            }
+            // addAction(
+            //     NotificationCompat.Action.Builder(
+            //         R.drawable.ic_notification_on,
+            //         "Start",
+            //         PendingIntent.getService(
+            //             this@BeaconService,
+            //             MAIN_SERVICE_REQUEST_CODE,
+            //             BeaconServiceActions.StartBeacon.toIntent(this@BeaconService),
+            //             PendingIntent.FLAG_UPDATE_CURRENT
+            //         )
+            //     ).build()
+            // )
         }
 
         return this
