@@ -89,6 +89,10 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
+    lintOptions {
+        disable 'MissingTranslation'
+    }
 }
 
 check.dependsOn ktlint

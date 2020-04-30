@@ -18,50 +18,72 @@
 
 <resources>
     <string name="app_name">"CoviLights"</string>
-    <string name="ble_not_supported">"Dein Telefon unterstützt Bluetooth LE nicht"</string>
-    <string name="onboarding_welcome_title">"Willkommen bei CoviLights"</string>
-    <string name="onboarding_welcome_subtitle">"Stopp den Coronavirus!"</string>
-    <string name="onboarding_welcome_text">"Mit CoviLights wirst du benachrichtigt wenn in deiner Nähe jemand war der Corona hatte und dich vielleicht infiziert hat."</string>
-    <string name="onboarding_permission_title">"Bleib gesund!"</string>
-    <string name="onboarding_permission_subtitle">"Schütze dich und andere in deiner Nähe."</string>
-    <string name="onboarding_permission_bluetooth_text">"CoviLights benutzt Bluetooth um andere die Entfernung anderer CoviLights Nutzer zu erkennen."</string>
-    <string name="onboarding_permission_data_text">"Deine Daten werden für 14 Tage anonym und auf deinem Telefon gespeichert."</string>
-    <string name="onboarding_permission_exposure_text">"Falls du den Coronavirus bekommst nutzen wir deine Daten damit wir wissen wen wir benachrichtigen müssen. Anonym natürlich."</string>
+    <string name="ble_not_supported">"Dein Telefon unterstützt Bluetooth BLE nicht"</string>
+    <string name="cancel">"Abbrechen"</string>
+    <string name="change">"Ändern"</string>
+    <string name="main_allow_tracking">"Abstandsmessung mit Bluetooth erlauben."</string>
+    <string name="main_change_status">"Status ändern"</string>
+    <string name="main_change_status_calendar_dialog_title">"Seit wann hast du Symptome?"</string>
+    <string name="main_change_status_dialog_text">"Typische Symptome sind Fieber, Kurzatmigkeit, Husten und Müdigkeit."</string>
+    <string name="main_change_status_dialog_title">"Hast du Symptome?"</string>
+    <string name="main_did_you_test_positive">"Bist du infiziert oder in der Nähe eines Infizierten gewesen?"</string>
+    <string name="main_grow_community">"App mit Familie &amp; Freunden teilen."</string>
+    <string name="main_more_info">"Weiter Informationen"</string>
+    <string name="main_notify_status_dialog_title">"Andere Nutzer benachrichtigen?"</string>
+    <string name="main_notify_status_exposed_with_sympthoms_dialog_text">"Wir benachrichtigen andere CoviLights Nutzer die in deiner Nähe waren dass sie vielleicht infiziert wurden. Ganz anonym selbstverständlich."</string>
+    <string name="main_notify_status_exposed_without_sympthoms_dialog_text">"Wir benachrichtigen andere CoviLights Nutzer die in deiner Nähe waren dass sie vielleicht infiziert wurden. Ganz anonym selbstverständlich."</string>
+    <string name="main_notify_status_positive_dialog_text">"Wir benachrichtigen andere CoviLights Nutzer die in deiner Nähe waren dass sie vielleicht infiziert wurden. Ganz anonym selbstverständlich. "</string>
+    <string name="main_share_app">"CoviLights weitergeben"</string>
+    <string name="main_share_proximity">"Abstandsmessung aktivieren"</string>
+    <string name="main_status_exposed_with_sympthoms_details">"Du warst in der Nähe einer infizierten Person. Bitte bleibe ab jetzt zuhause. Wir werden uns täglich bei dir melden bis du wieder raus kannst. Melde dich bei einem Arzt wenn die Symptome schlimmer werden."</string>
+    <string name="main_status_exposed_with_sympthoms_subtitle">"Bleibe zuhause bis du wieder 4 Tage symptomfrei warst."</string>
+    <string name="main_status_exposed_with_sympthoms_title">"Du könntest infiziert sein."</string>
+    <string name="main_status_exposed_without_sympthoms_details">"Am %1$s warst du in der Nähe einer infizierten Person. Bitte bleibe zuhause bis zum %2$s. Wir werden uns täglich bei dir melden um zu sehen ob du Symptome bekommen hast."</string>
+
+    <!-- @mohsen -->
+    <string name="main_status_exposed_without_sympthoms_subtitle">"Bitte bleibe &lt;u&gt;%1$d Tage&lt;/u&gt; zuhause
+"</string>
+    <string name="main_status_exposed_without_sympthoms_title">"Du könntest infiziert sein."</string>
+    <string name="main_status_ok_subtitle">"Halte dich an die aktuellen Corona Verhaltensregeln."</string>
+    <string name="main_status_ok_title">"Niedriges Risiko"</string>
+    <string name="main_status_positive_details">"Dein Corona-Test am %1$s war positiv. Wir werden uns täglich bei dir melden um zu sehen wie lange du zuhause bleiben musst. Melde dich bei einem Arzt wenn die Symptome schlimmer werden."</string>
+    <string name="main_status_positive_subtitle">"Bleibe zuhause bis du wieder 4 Tage symptomfrei warst."</string>
+    <string name="main_status_positive_title">"Du bist infiziert."</string>
+    <string name="next">"Weiter"</string>
+    <string name="not_now">"Nicht jetzt."</string>
+    <string name="onboarding_permission_bluetooth_text">"CoviLights benutzt Bluetooth um andere CoviLights Nutzer in deiner Nähe zu erkennen."</string>
+    <string name="onboarding_permission_data_text">"Deine Daten werden für 14 Tage anonym und nur auf deinem Telefon gespeichert."</string>
+    <string name="onboarding_permission_exposure_text">"Falls du dich mit Corona infizierst benachrichtigen wir alle die in deiner Nähe waren. Anonym natürlich."</string>
+    <string name="onboarding_permission_required_snackbar">"Ohne Bluetooth funktioniert CoviLights leider nicht."</string>
+    <string name="onboarding_permission_required_snackbar_action">"Einstellungen"</string>
 
     <!-- @Mohsen: Where is this shown? And, does it go together with the onboarding_permission_requested_snackbar -->
-    <string name="onboarding_permission_required_toast">"CoviLights funktioniert ohne diese Erlaubnis nicht."</string>
-    <string name="onboarding_permission_required_snackbar">"CoviLights funktioniert ohne diese Erlaubnis nicht."</string>
-    <string name="onboarding_permission_required_snackbar_action">"Einstellungen"</string>
-    <string name="onboarding_status_title">"Wie ist dein Status?"</string>
-    <string name="onboarding_status_subtitle">"Überprüfe wie wahrscheinlich es ist dass du gerade den Coronavirus hast."</string>
-    <string name="onboarding_status_top_text">"CoviLights zeigt dein Risiko mit Ampelfarben:"</string>
-
-    <!-- @mohsen: do I need to copy the whole lot to the translation 
-
-<![CDATA[<font color=#02A675><b>Green</b></font> – follow hygiene and social distancing recommendations.]]> -->
-    <string name="onboarding_status_green_text"><![CDATA[<font color=#02A675><b>Grün</b></font> – Halte dich an die normalen Hygiene- und Vorbeugungsanweisungen.]]></string>
-    <string name="onboarding_status_yellow_text"><![CDATA[<font color=#F5B100><b>Gelb</b></font> – du warst in der Nähe einer infizierten Person und solltest zu Hause bleiben.]]></string>
-    <string name="onboarding_status_red_text"><![CDATA[<font color=#E85151><b>Rot</b></font> – wenn du positiv getestet bist.]]></string>
+    <string name="onboarding_permission_required_toast">"Ohne Bluetooth funktioniert CoviLights leider nicht."</string>
+    <string name="onboarding_permission_subtitle">"Schütze dich und andere in deiner Nähe."</string>
+    <string name="onboarding_permission_title">"Bleib gesund!"</string>
+    <string name="onboarding_share_now_text"><![CDATA[<a href="https://play.google.com/store/apps/details?id=com.covilights">Jetzt teilen</a> mit Familie & Freunden.]]></string>
+    <string name="onboarding_share_subtitle">"Gib die App weiter, nicht den Virus!"</string>
+    <string name="onboarding_share_title">"CoviLights für alle!"</string>
+    <string name="onboarding_share_top_text">"Damit du, deine Familie und deine Freunde optimal geschützt sind sollten alle CoviLights nutzen."</string>
     <string name="onboarding_status_bottom_text"><![CDATA[Wenn du deinen Status nicht weißt kannst du den <a href="https://covapp.charite.de/">Fragebogen der Charité</a> nutzen um ihn zu ermitteln.]]></string>
-    <string name="onboarding_status_dialog_title">"Status angeben"</string>
-    <string name="onboarding_status_dialog_radio_positive">"Ich bin gerade infiziert."</string>
     <string name="onboarding_status_dialog_radio_exposed">"Ich war in der Nähe einer infizierten Person."</string>
     <string name="onboarding_status_dialog_radio_negative">"Ich bin gesund."</string>
-    <string name="onboarding_share_title">"CoviLights für alle!"</string>
-    <string name="onboarding_share_subtitle">"Spread the app, not the virus."</string>
-    <string name="onboarding_share_top_text">"Damit du, deine Familie und deine Freunde optimal geschützt sind sollten alle CoviLights nutzen."</string>
-    <string name="onboarding_share_now_text"><![CDATA[<a href="https://play.google.com/store/apps/details?id=com.covilights">Jetzt teilen</a> mit Familie & Freunden.]]></string>
-    <string name="start">"Start"</string>
-    <string name="next">"Weiter"</string>
+    <string name="onboarding_status_dialog_radio_positive">"Ich bin gerade infiziert."</string>
+    <string name="onboarding_status_dialog_title">"Status angeben"</string>
+
+    <!-- @mohsen: do I need to copy the whole lot to the translation
+
+<![CDATA[<font color=#02A675><b>Green</b></font> – follow hygiene and social distancing recommendations.]]> -->
+    <string name="onboarding_status_green_text"><![CDATA[<font color=#02A675><b>Grün</b></font> – Halte dich an die aktuellen Corona Anweisungen in deiner Gegend.]]></string>
+    <string name="onboarding_status_red_text"><![CDATA[<font color=#E85151><b>Rot</b></font> – du bist selbst mit Corona infiziert.]]></string>
+    <string name="onboarding_status_subtitle">"Zeigt an ob du infiziert sein könntest, und wie du dich am besten verhältst."</string>
+    <string name="onboarding_status_title">"Dein CoviLights Status"</string>
+    <string name="onboarding_status_top_text">"CoviLights zeigt deinen Status mit Ampelfarben:"</string>
+    <string name="onboarding_status_yellow_text"><![CDATA[<font color=#F5B100><b>Gelb</b></font> – du warst in der Nähe einer infizierten Person und solltest zu Hause bleiben.]]></string>
+    <string name="onboarding_welcome_subtitle">"Zusammen gegen Corona!"</string>
+    <string name="onboarding_welcome_text">"Mit CoviLights wirst du benachrichtigt wenn in deiner Nähe jemand war der Corona hatte und dich vielleicht infiziert hat."</string>
+    <string name="onboarding_welcome_title">"Willkommen bei CoviLights"</string>
     <string name="prev">"Zurück"</string>
-    <string name="change">"Ändern"</string>
-    <string name="cancel">"Abbrechen"</string>
-    <string name="main_status_ok_title">"Niedriges Risiko"</string>
-    <string name="main_more_info">"Weiter Informationen"</string>
-    <string name="main_change_status">"Status ändern"</string>
-    <string name="main_did_you_test_positive">"Bist du infiziert oder in der Nähe eines Infizierten gewesen?"</string>
-    <string name="main_share_proximity">"Abstandsmessung"</string>
-    <string name="main_allow_tracking">"Messung über Bluetooth erlauben."</string>
-    <string name="main_share_app">"CoviLights weitergeben"</string>
-    <string name="main_grow_community">"App mit Familie &amp; Freunden teilen."</string>
+    <string name="send">"Benachrichtigen"</string>
+    <string name="start">"Start"</string>
 </resources>

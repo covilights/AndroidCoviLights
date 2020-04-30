@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright 2020 CoviLights GbR
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">"CoviLights"</string>
+    <string name="ble_not_supported">"Seu aparelho celular não suporta Bluetooth"</string>
+    <string name="cancel">"Cancelar"</string>
+    <string name="change">"Alterar"</string>
+    <string name="main_allow_tracking">"Permitir compartilhar proximidade usando Bluetooth"</string>
+    <string name="main_change_status">"Alterar status"</string>
+    <string name="main_change_status_calendar_dialog_title">"Quando os sintomas começaram?"</string>
+    <string name="main_change_status_dialog_text">"Os sintomas mais comuns são: febre, dificuldade para respirar, tosse e fadiga."</string>
+    <string name="main_change_status_dialog_title">"Você possuí algum sintoma?"</string>
+    <string name="main_did_you_test_positive">"Você está infectado ou foi exposto?"</string>
+    <string name="main_grow_community">"Aumente a comunidade para nos manter saudáveis"</string>
+    <string name="main_more_info">"O que isto significa?"</string>
+    <string name="main_notify_status_dialog_title">"Notificar pessoas?"</string>
+    <string name="main_notify_status_exposed_with_sympthoms_dialog_text">"Mande uma notificação para todas as pessoas que você encontrou nos últimos 14 dias, para informá-los que eles podem ter sido expostos. Sua identidade não será revelada."</string>
+    <string name="main_notify_status_exposed_without_sympthoms_dialog_text">"Mande uma notificação para todas as pessoas que você encontrou nos últimos 14 dias, para informá-los que eles podem ter sido expostos. Sua identidade não será revelada."</string>
+    <string name="main_notify_status_positive_dialog_text">"Mande uma notificação para todas as pessoas que você encontrou nos últimos 14 dias, para informá-los que eles podem ter sido expostos. Sua identidade não será revelada."</string>
+    <string name="main_share_app">"Compartilhar o aplicativo"</string>
+
+    <!-- Is "proximity" in this case for bluetooth or location? -->
+    <string name="main_share_proximity">"Compartilhar proximidade"</string>
+    <string name="main_status_exposed_with_sympthoms_details">"Como você foi exposto e têm os sintomas, nós vamos te contatar todos os dias para entender melhor seus sintomas e determinar a duração da quarentena. Contate seu médico se seus sintomas estiverem piorando."</string>
+    <string name="main_status_exposed_with_sympthoms_subtitle">"Por favor fique em quarentena por mais 4 dias após o término dos sintomas."</string>
+    <string name="main_status_exposed_with_sympthoms_title">"Você é um risco."</string>
+    <string name="main_status_exposed_without_sympthoms_details">"Você estimou que foi exposto em %1$s. A quarentena de 14 dias termina em %2$s.
+Nós vamos te contatar todos os dias para, em caso dos sintomas aparecerem, notificar outros usuários."</string>
+    <string name="main_status_exposed_without_sympthoms_subtitle">"Por favor fique em quarentena por
+&lt;u&gt;%1$d days&lt;/u&gt;"</string>
+    <string name="main_status_exposed_without_sympthoms_title">"Você é um risco."</string>
+    <string name="main_status_ok_subtitle">"Siga as recomendações das autoridades locais."</string>
+    <string name="main_status_ok_title">"Está tudo bem"</string>
+    <string name="main_status_positive_details">"Você foi infectado em %1$s. Nós vamos te contatar todos os dias para entender melhor seus sintomas e determinar a duração da quarentena. Contate seu médico se seus sintomas estiverem piorando."</string>
+    <string name="main_status_positive_subtitle">"Por favor fique em quarentena por mais 4 dias após o término dos sintomas."</string>
+    <string name="main_status_positive_title">"Você está infectado."</string>
+    <string name="next">"Próximo"</string>
+    <string name="not_now">"Agora não"</string>
+    <string name="onboarding_permission_bluetooth_text">"O CoviLights usa Bluetooth para detectar a proximidade entre usuários."</string>
+    <string name="onboarding_permission_data_text">"Os dados coletados são anônimos e mantidos no seu aparelho celular por 14 dias."</string>
+    <string name="onboarding_permission_exposure_text">"Em caso de infecção, os dados coletados são utilizados para notificar outros usuários."</string>
+    <string name="onboarding_permission_required_snackbar">"O CoviLights não funcionará sem essa permissão."</string>
+    <string name="onboarding_permission_required_snackbar_action">"Configurações"</string>
+    <string name="onboarding_permission_required_toast">"Essa permissão é mandatória para o funcionamento do CoviLights."</string>
+    <string name="onboarding_permission_subtitle">"Proteja a si mesmo e aqueles próximos"</string>
+    <string name="onboarding_permission_title">"Fique seguro"</string>
+    <string name="onboarding_share_now_text"><![CDATA[<a href="https://play.google.com/store/apps/details?id=com.covilights">Compartilhe agora</a> para a aumentar a comunidade do CoviLights.]]></string>
+    <string name="onboarding_share_subtitle">"Compartilhe o app, não o vírus."</string>
+    <string name="onboarding_share_title">"Compartilhe o aplicativo"</string>
+    <string name="onboarding_share_top_text">"Para um melhor desempenho, este aplicativo deve ser usado pela maior quantidade de pessoas."</string>
+    <string name="onboarding_status_bottom_text"><![CDATA[Se você não sabe seu status atual, responda ao questionário <a href="https://covapp.charite.de/"> do hospital Charité</a> ou a alguma auto avaliação similar.]]></string>
+    <string name="onboarding_status_dialog_radio_exposed">"Eu fui exposto"</string>
+    <string name="onboarding_status_dialog_radio_negative">"Eu estou bem"</string>
+    <string name="onboarding_status_dialog_radio_positive">"Eu estou infectado"</string>
+    <string name="onboarding_status_dialog_title">"Adicione seu status"</string>
+    <string name="onboarding_status_green_text"><![CDATA[<font color=#02A675><b>Verde</b></font> – está tudo bem, mas continue seguindo as recomendações de higiêne e distânciamento social.]]></string>
+    <string name="onboarding_status_red_text"><![CDATA[<font color=#E85151><b>Vermelho</b></font> – você está infectado.]]></string>
+    <string name="onboarding_status_subtitle">"Baseado no resultado do seu teste ou auto-avaliação"</string>
+    <string name="onboarding_status_title">"Adicione seu status"</string>
+    <string name="onboarding_status_top_text">"O aplicativo mostra seu status com luzes de trânsito:"</string>
+    <string name="onboarding_status_yellow_text"><![CDATA[<font color=#F5B100><b>Amarelo</b></font> – você foi exposto e deve entrar em quarentena.]]></string>
+    <string name="onboarding_welcome_subtitle">"Lute contra a disseminação do COVID-19"</string>
+    <string name="onboarding_welcome_text">"O CoviLights ajuda a conter a disseminação do COVID-19. Para isso monitoraremos suas proximidades e o notificaremos em caso de exposição."</string>
+    <string name="onboarding_welcome_title">"Bem vindo ao CoviLights"</string>
+    <string name="prev">"Anterior"</string>
+    <string name="send">"Enviar"</string>
+    <string name="start">"Começar"</string>
+</resources>
