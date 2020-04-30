@@ -23,10 +23,13 @@ import java.util.UUID
 class UserManager(val context: Context) {
 
     val userUuid: UUID by lazy {
-        AppSettings.getString(context, USER_UUID)?.toUuid() ?: run {
-            val newUuid = UUID.randomUUID()
+        val value: UUID? = AppSettings.getString(context, USER_UUID)?.toUuid()
+
+        if (value != null) value
+        else {
+            val newUuid: UUID = UUID.randomUUID()
             AppSettings.setValue(context, USER_UUID, newUuid.toString())
-            return@run newUuid
+            newUuid
         }
     }
 
