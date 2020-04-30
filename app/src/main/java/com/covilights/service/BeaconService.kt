@@ -49,7 +49,7 @@ class BeaconService : LifecycleService() {
         super.onCreate()
 
         closeToMe.state.observe(this, Observer { state ->
-            notificationBuilder?.updateNotificationCloseToMeState(state)?.also {
+            notificationBuilder?.updateNotificationWithState(state)?.also {
                 val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                 notificationManager.notify(Constants.NOTIFICATION_ID, it.build())
 
@@ -83,7 +83,7 @@ class BeaconService : LifecycleService() {
         }
 
         notificationBuilder = createNotificationBuilder().apply {
-            updateNotificationCloseToMeState(closeToMe.state.value)
+            updateNotificationWithState(closeToMe.state.value)
             applyNotificationResultCount(0)
         }.also {
             startForeground(Constants.NOTIFICATION_ID, it.build())
@@ -135,7 +135,7 @@ class BeaconService : LifecycleService() {
     }
 
     @SuppressLint("RestrictedApi")
-    private fun NotificationCompat.Builder.updateNotificationCloseToMeState(state: CloseToMeState?): NotificationCompat.Builder {
+    private fun NotificationCompat.Builder.updateNotificationWithState(state: CloseToMeState?): NotificationCompat.Builder {
         when (state) {
             CloseToMeState.STARTED -> {
                 setSmallIcon(R.drawable.ic_notification_on)
