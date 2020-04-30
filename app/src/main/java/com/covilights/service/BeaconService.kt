@@ -191,6 +191,6 @@ class BeaconService : LifecycleService() {
 
     companion object {
         private const val MAIN_ACTIVITY_REQUEST_CODE = 2001
-        private const val MAIN_SERVICE_REQUEST_CODE = 2002
+        // private const val MAIN_SERVICE_REQUEST_CODE = 2002
     }
 }
