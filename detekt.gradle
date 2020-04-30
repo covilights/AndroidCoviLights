@@ -1,0 +1,48 @@
+/*
+ * Copyright 2020 CoviLights GbR
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply from: "$rootDir/dependencies.gradle"
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+detekt {
+    version = detekt_version
+
+    failFast = true // fail build on any finding
+    buildUponDefaultConfig = true // preconfigure defaults
+    config = files("$rootDir/config/detekt/detekt.yml") // point to your custom config defining rules to run, overwriting default behavior
+
+    reports {
+        xml {
+            enabled = true
+            destination = file("$buildDir/reports/detekt.xml")
+        }
+        html {
+            enabled = true
+            destination = file("$buildDir/reports/detekt.html")
+        }
+    }
+}
+
+tasks.detekt {
+    jvmTarget = JavaVersion.VERSION_1_8.toString()
+}
