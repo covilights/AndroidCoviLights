@@ -41,10 +41,12 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <!--suppress AndroidUnknownAttribute -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:onLongClick="@{() -> viewmodel.onToolbarLongClick()}">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -106,5 +108,25 @@
                     app:viewmodel="@{viewmodel}" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <ImageView
+            visibility="@{viewmodel.isDebugMode}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewmodel.onDebugClick()}"
+            android:padding="@dimen/space_normal"
+            android:src="@drawable/ic_debug"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            visibility="@{viewmodel.isDebugMode}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewmodel.onDesignClick()}"
+            android:padding="@dimen/space_normal"
+            android:src="@drawable/ic_design"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
