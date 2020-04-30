@@ -33,7 +33,7 @@ import org.koin.core.context.unloadKoinModules
 
 class MainFragment : Fragment() {
 
-    lateinit var binding: MainFragmentBinding
+    private lateinit var binding: MainFragmentBinding
 
     private val viewModel: MainViewModel by viewModel()
 

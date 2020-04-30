@@ -24,7 +24,7 @@ import com.covilights.databinding.MainActivityBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: MainActivityBinding
+    private lateinit var binding: MainActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

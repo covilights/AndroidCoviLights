@@ -30,7 +30,7 @@ import org.koin.core.context.unloadKoinModules
 
 class SplashFragment : Fragment() {
 
-    lateinit var binding: SplashFragmentBinding
+    private lateinit var binding: SplashFragmentBinding
 
     private val viewModel: SplashViewModel by viewModel()
 

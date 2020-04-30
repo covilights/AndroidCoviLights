@@ -25,7 +25,7 @@ import com.covilights.databinding.DesignFragmentBinding
 
 class DesignFragment : Fragment() {
 
-    lateinit var binding: DesignFragmentBinding
+    private lateinit var binding: DesignFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DesignFragmentBinding.inflate(layoutInflater)
