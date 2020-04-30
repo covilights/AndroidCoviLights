@@ -19,9 +19,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.firebase.appdistribution'
 apply plugin: "androidx.navigation.safeargs.kotlin"
-
-
 apply from: "$rootDir/ktlint.gradle"
+apply from: "$rootDir/jacoco.gradle"
 
 def releaseNote = "Commit: ${commitMessage()}\n\n" +
         "Branch: ${System.getenv('GITHUB_REF')}\n\n" +
@@ -56,6 +55,8 @@ android {
             }
         }
         debug {
+            testCoverageEnabled true
+
             firebaseAppDistribution {
                 releaseNotes = releaseNote
                 groups = releaseTestersGroup

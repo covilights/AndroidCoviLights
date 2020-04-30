@@ -24,6 +24,7 @@ ext {
     ktlint_version = '0.36.0'
     firebase_appdistribution_version = '1.4.0'
     google_services_version = '4.2.0'
+    jacoco_version = '0.8.3'
 
     // Android Jetpack
     androidx_appcompat_version = '1.1.0'
