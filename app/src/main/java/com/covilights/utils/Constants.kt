@@ -16,9 +16,6 @@
 
 package com.covilights.utils
 
-import com.mohsenoid.closetome.utils.toUuid
-import java.util.UUID
-
 /**
  * Constant variables used widely in the app.
  */
@@ -30,9 +27,4 @@ object Constants {
     const val NOTIFICATION_CHANNEL_NAME = "Beacon Service Channel"
     const val NOTIFICATION_CHANNEL_DESC = "Beacon background service"
     const val NOTIFICATION_ID = 1
-
-    val MANUFACTURER_UUID: UUID = "C0D7950D-73F1-4D4D-8E47-C090502D4497".toUuid()!!
-
-    const val VISIBILITY_TIMEOUT: Long = 10_000
-    const val VISIBILITY_DISTANCE: Double = 1.0
 }

@@ -26,58 +26,23 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import androidx.core.app.ServiceCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.LifecycleService
-import androidx.lifecycle.Observer
 import com.covilights.R
 import com.covilights.utils.Constants
 import com.covilights.view.MainActivity
-import com.mohsenoid.closetome.CloseToMe
-import com.mohsenoid.closetome.CloseToMeCallback
-import com.mohsenoid.closetome.CloseToMeState
-import org.koin.android.ext.android.inject
-import timber.log.Timber
 
 /**
  * Beacon Android Service which keeps the CloseToMe feature running in background.
  */
 class BeaconService : LifecycleService() {
 
-    private val closeToMe: CloseToMe by inject()
-
     private var notificationBuilder: NotificationCompat.Builder? = null
 
     override fun onCreate() {
         super.onCreate()
 
-        closeToMe.state.observe(this, Observer { state ->
-            notificationBuilder?.updateNotificationWithState(state)?.also {
-                val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                notificationManager.notify(Constants.NOTIFICATION_ID, it.build())
-
-                if (state != CloseToMeState.STARTED) ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_DETACH)
-            }
-        })
-
-        closeToMe.results.observe(this, Observer { result ->
-            val resultCount =
-                result.values.filter { it.isVisible && it.isNear }.size
-            notificationBuilder?.applyNotificationResultCount(resultCount)?.also {
-                val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                notificationManager.notify(Constants.NOTIFICATION_ID, it.build())
-            }
-        })
-
-        closeToMe.start(object : CloseToMeCallback {
-            override fun onSuccess() {
-                Timber.i("CoviLights started successfully.")
-            }
-
-            override fun onError(throwable: Throwable) {
-                Timber.w(throwable, "CoviLights didn't start.")
-            }
-        })
+        // init API
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -86,15 +51,19 @@ class BeaconService : LifecycleService() {
         }
 
         notificationBuilder = createNotificationBuilder().apply {
-            updateNotificationWithState(closeToMe.state.value)
+            updateNotificationWithState(-1)
             applyNotificationResultCount(0)
         }.also {
             startForeground(Constants.NOTIFICATION_ID, it.build())
         }
 
         when (intent?.action) {
-            BeaconServiceActions.ACTION_START_BEACON -> closeToMe.start()
-            BeaconServiceActions.ACTION_STOP_BEACON -> closeToMe.stop()
+            BeaconServiceActions.ACTION_START_BEACON -> {
+                // start
+            }
+            BeaconServiceActions.ACTION_STOP_BEACON -> {
+                // stop
+            }
         }
 
         // return START_NOT_STICKY
@@ -138,44 +107,44 @@ class BeaconService : LifecycleService() {
     }
 
     @SuppressLint("RestrictedApi")
-    private fun NotificationCompat.Builder.updateNotificationWithState(state: CloseToMeState?): NotificationCompat.Builder {
-        if (state == CloseToMeState.STARTED) {
-            setSmallIcon(R.drawable.ic_notification_on)
-            setContentTitle("CoviLights is running")
+    private fun NotificationCompat.Builder.updateNotificationWithState(state: Int?): NotificationCompat.Builder {
+        // if (state == CloseToMeState.STARTED) {
+        setSmallIcon(R.drawable.ic_notification_on)
+        setContentTitle("CoviLights is running")
 
-            mActions.clear()
+        mActions.clear()
 
-            // addAction(
-            //     NotificationCompat.Action.Builder(
-            //         R.drawable.ic_notification_off,
-            //         "Stop",
-            //         PendingIntent.getService(
-            //             this@BeaconService,
-            //             MAIN_SERVICE_REQUEST_CODE,
-            //             BeaconServiceActions.StopBeacon.toIntent(this@BeaconService),
-            //             PendingIntent.FLAG_UPDATE_CURRENT
-            //         )
-            //     ).build()
-            // )
-        } else {
-            setSmallIcon(R.drawable.ic_notification_off)
-            setContentTitle("CoviLights stopped")
+        // addAction(
+        //     NotificationCompat.Action.Builder(
+        //         R.drawable.ic_notification_off,
+        //         "Stop",
+        //         PendingIntent.getService(
+        //             this@BeaconService,
+        //             MAIN_SERVICE_REQUEST_CODE,
+        //             BeaconServiceActions.StopBeacon.toIntent(this@BeaconService),
+        //             PendingIntent.FLAG_UPDATE_CURRENT
+        //         )
+        //     ).build()
+        // )
+        // } else {
+        //     setSmallIcon(R.drawable.ic_notification_off)
+        //     setContentTitle("CoviLights stopped")
+        //
+        //     mActions.clear()
 
-            mActions.clear()
-
-            // addAction(
-            //     NotificationCompat.Action.Builder(
-            //         R.drawable.ic_notification_on,
-            //         "Start",
-            //         PendingIntent.getService(
-            //             this@BeaconService,
-            //             MAIN_SERVICE_REQUEST_CODE,
-            //             BeaconServiceActions.StartBeacon.toIntent(this@BeaconService),
-            //             PendingIntent.FLAG_UPDATE_CURRENT
-            //         )
-            //     ).build()
-            // )
-        }
+        // addAction(
+        //     NotificationCompat.Action.Builder(
+        //         R.drawable.ic_notification_on,
+        //         "Start",
+        //         PendingIntent.getService(
+        //             this@BeaconService,
+        //             MAIN_SERVICE_REQUEST_CODE,
+        //             BeaconServiceActions.StartBeacon.toIntent(this@BeaconService),
+        //             PendingIntent.FLAG_UPDATE_CURRENT
+        //         )
+        //     ).build()
+        // )
+        // }
 
         return this
     }
