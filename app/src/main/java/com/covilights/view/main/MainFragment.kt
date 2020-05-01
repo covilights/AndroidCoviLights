@@ -37,8 +37,7 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: MainFragmentBinding
 
-    private val statusViewModel: MainStatusViewModel by viewModel()
-    private val contentViewModel: MainContentViewModel by viewModel()
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,11 +47,10 @@ class MainFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = MainFragmentBinding.inflate(layoutInflater)
         val view = binding.root
-        binding.contentViewModel = contentViewModel
-        binding.statusViewModel = statusViewModel
+        binding.viewmodel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        statusViewModel.navigate.observe(viewLifecycleOwner, Observer { direction ->
+        viewModel.navigate.observe(viewLifecycleOwner, Observer { direction ->
             view.findNavController().navigate(direction)
         })
 

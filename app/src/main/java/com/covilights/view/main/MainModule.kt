@@ -24,6 +24,10 @@ import org.koin.dsl.module
  * Koin module which provides [MainFragment] dependencies.
  */
 val mainModule = module {
+
+    viewModel { MainViewModel(statusViewModel = get(), contentViewModel = get()) }
+
     viewModel { MainStatusViewModel(context = androidContext(), userViewModel = get()) }
+
     viewModel { MainContentViewModel(context = androidContext()) }
 }

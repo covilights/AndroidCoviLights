@@ -24,12 +24,8 @@
     <data>
 
         <variable
-            name="statusViewModel"
-            type="com.covilights.view.main.MainStatusViewModel" />
-
-        <variable
-            name="contentViewModel"
-            type="com.covilights.view.main.MainContentViewModel" />
+            name="viewmodel"
+            type="com.covilights.view.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:onLongClick="@{() -> statusViewModel.onToolbarLongClick()}">
+                android:onLongClick="@{() -> viewmodel.onToolbarLongClick()}">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -99,7 +95,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:viewmodel="@{statusViewModel}" />
+                    app:viewmodel="@{viewmodel.statusViewModel}" />
 
                 <include
                     android:id="@+id/controls"
@@ -109,25 +105,25 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/status"
-                    app:viewmodel="@{contentViewModel}" />
+                    app:viewmodel="@{viewmodel.contentViewModel}" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
         <ImageView
-            visibility="@{statusViewModel.isDebugMode}"
+            visibility="@{viewmodel.isDebugMode}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> statusViewModel.onDebugClick()}"
+            android:onClick="@{() -> viewmodel.onDebugClick()}"
             android:padding="@dimen/space_normal"
             android:src="@drawable/ic_debug"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            visibility="@{statusViewModel.isDebugMode}"
+            visibility="@{viewmodel.isDebugMode}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> statusViewModel.onDesignClick()}"
+            android:onClick="@{() -> viewmodel.onDesignClick()}"
             android:padding="@dimen/space_normal"
             android:src="@drawable/ic_design"
             app:layout_constraintStart_toStartOf="parent"
