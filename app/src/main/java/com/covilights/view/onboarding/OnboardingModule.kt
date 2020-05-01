@@ -24,5 +24,12 @@ import org.koin.dsl.module
  * Koin module which provides [OnboardingFragment] dependencies.
  */
 val onboardingModule = module {
-    viewModel { OnboardingViewModel(context = androidContext(), resources = get(), stateManager = get(), userManager = get()) }
+    viewModel {
+        OnboardingViewModel(
+            context = androidContext(),
+            resources = get(),
+            stateManager = get(),
+            userViewModel = get()
+        )
+    }
 }

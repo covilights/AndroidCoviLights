@@ -27,7 +27,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.covilights.R
 import com.covilights.databinding.DebugFragmentBinding
-import com.covilights.user.UserManager
+import com.covilights.user.UserViewModel
 import com.mohsenoid.closetome.CloseToMe
 import com.mohsenoid.closetome.CloseToMeCallback
 import com.mohsenoid.closetome.CloseToMeState
@@ -40,7 +40,7 @@ class DebugFragment : Fragment() {
 
     private lateinit var binding: DebugFragmentBinding
 
-    private val userManager: UserManager by inject()
+    private val userViewModel: UserViewModel by inject()
     private val closeToMe: CloseToMe by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,7 +49,7 @@ class DebugFragment : Fragment() {
 
         initUi()
 
-        binding.user.text = "User: ${userManager.userUuid}"
+        binding.user.text = "User: ${userViewModel.userUuid}"
 
         closeToMe.state.observe(viewLifecycleOwner, Observer { state ->
             log("Beacon state: $state")

@@ -26,15 +26,15 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
 import com.covilights.R
-import com.covilights.user.UserManager
 import com.covilights.user.UserStatus
+import com.covilights.user.UserViewModel
 import com.covilights.utils.StateManager
 
 internal class OnboardingViewModel(
     private val context: Context,
     private val resources: Resources,
     private val stateManager: StateManager,
-    private val userManager: UserManager
+    private val userViewModel: UserViewModel
 ) : ViewModel() {
 
     private val _stepIndex = MutableLiveData(0)
@@ -103,7 +103,7 @@ internal class OnboardingViewModel(
     }
 
     fun onStatusSelected(status: UserStatus) {
-        userManager.userStatus = status
+        userViewModel.userStatus.value = status
         stepForward()
     }
 
