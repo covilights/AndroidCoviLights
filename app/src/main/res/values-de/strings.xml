@@ -30,20 +30,20 @@
     <string name="main_grow_community">"App mit Familie &amp; Freunden teilen."</string>
     <string name="main_more_info">"Weiter Informationen"</string>
     <string name="main_notify_status_dialog_title">"Andere Nutzer benachrichtigen?"</string>
-    <string name="main_notify_status_exposed_with_sympthoms_dialog_text">"Wir benachrichtigen andere CoviLights Nutzer die in deiner Nähe waren dass sie vielleicht infiziert wurden. Ganz anonym selbstverständlich."</string>
-    <string name="main_notify_status_exposed_without_sympthoms_dialog_text">"Wir benachrichtigen andere CoviLights Nutzer die in deiner Nähe waren dass sie vielleicht infiziert wurden. Ganz anonym selbstverständlich."</string>
+    <string name="main_notify_status_exposed_with_symptoms_dialog_text">"Wir benachrichtigen andere CoviLights Nutzer die in deiner Nähe waren dass sie vielleicht infiziert wurden. Ganz anonym selbstverständlich."</string>
+    <string name="main_notify_status_exposed_without_symptoms_dialog_text">"Wir benachrichtigen andere CoviLights Nutzer die in deiner Nähe waren dass sie vielleicht infiziert wurden. Ganz anonym selbstverständlich."</string>
     <string name="main_notify_status_positive_dialog_text">"Wir benachrichtigen andere CoviLights Nutzer die in deiner Nähe waren dass sie vielleicht infiziert wurden. Ganz anonym selbstverständlich. "</string>
     <string name="main_share_app">"CoviLights weitergeben"</string>
     <string name="main_share_proximity">"Abstandsmessung aktivieren"</string>
-    <string name="main_status_exposed_with_sympthoms_details">"Du warst in der Nähe einer infizierten Person. Bitte bleibe ab jetzt zuhause. Wir werden uns täglich bei dir melden bis du wieder raus kannst. Melde dich bei einem Arzt wenn die Symptome schlimmer werden."</string>
-    <string name="main_status_exposed_with_sympthoms_subtitle">"Bleibe zuhause bis du wieder 4 Tage symptomfrei warst."</string>
-    <string name="main_status_exposed_with_sympthoms_title">"Du könntest infiziert sein."</string>
-    <string name="main_status_exposed_without_sympthoms_details">"Am %1$s warst du in der Nähe einer infizierten Person. Bitte bleibe zuhause bis zum %2$s. Wir werden uns täglich bei dir melden um zu sehen ob du Symptome bekommen hast."</string>
+    <string name="main_status_exposed_with_symptoms_details">"Du warst in der Nähe einer infizierten Person. Bitte bleibe ab jetzt zuhause. Wir werden uns täglich bei dir melden bis du wieder raus kannst. Melde dich bei einem Arzt wenn die Symptome schlimmer werden."</string>
+    <string name="main_status_exposed_with_symptoms_subtitle">"Bleibe zuhause bis du wieder 4 Tage symptomfrei warst."</string>
+    <string name="main_status_exposed_with_symptoms_title">"Du könntest infiziert sein."</string>
+    <string name="main_status_exposed_without_symptoms_details">"Am %1$s warst du in der Nähe einer infizierten Person. Bitte bleibe zuhause bis zum %2$s. Wir werden uns täglich bei dir melden um zu sehen ob du Symptome bekommen hast."</string>
 
     <!-- @mohsen -->
-    <string name="main_status_exposed_without_sympthoms_subtitle">"Bitte bleibe &lt;u&gt;%1$d Tage&lt;/u&gt; zuhause
+    <string name="main_status_exposed_without_symptoms_subtitle">"Bitte bleibe &lt;u&gt;%1$d Tage&lt;/u&gt; zuhause
 "</string>
-    <string name="main_status_exposed_without_sympthoms_title">"Du könntest infiziert sein."</string>
+    <string name="main_status_exposed_without_symptoms_title">"Du könntest infiziert sein."</string>
     <string name="main_status_ok_subtitle">"Halte dich an die aktuellen Corona Verhaltensregeln."</string>
     <string name="main_status_ok_title">"Niedriges Risiko"</string>
     <string name="main_status_positive_details">"Dein Corona-Test am %1$s war positiv. Wir werden uns täglich bei dir melden um zu sehen wie lange du zuhause bleiben musst. Melde dich bei einem Arzt wenn die Symptome schlimmer werden."</string>

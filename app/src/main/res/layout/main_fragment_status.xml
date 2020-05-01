@@ -37,14 +37,14 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="@drawable/shape_status_ok_bg"
             android:backgroundTint="@{viewmodel.statusBackgroundColor}"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingStart="@dimen/space_large"
             android:paddingTop="@dimen/space_xlarge"
             android:paddingEnd="@dimen/space_large"
-            android:paddingBottom="@dimen/space_xlarge"
-            android:background="@drawable/shape_status_ok_bg">
+            android:paddingBottom="@dimen/space_xlarge">
 
             <ImageView
                 android:layout_width="40dp"
@@ -78,8 +78,8 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:backgroundTint="@{viewmodel.statusMoreInfoBackgroundColor}"
-            android:background="@drawable/shape_status_ok_more_info_bg">
+            android:background="@drawable/shape_status_ok_more_info_bg"
+            android:backgroundTint="@{viewmodel.statusMoreInfoBackgroundColor}">
 
             <LinearLayout
                 android:layout_width="wrap_content"

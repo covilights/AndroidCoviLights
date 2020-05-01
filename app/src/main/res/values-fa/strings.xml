@@ -34,11 +34,11 @@
     <string name="main_share_proximity">"انتشار نزدیکی"</string>
 
     <!-- Fuzzy -->
-    <string name="main_status_exposed_with_sympthoms_subtitle">"لطفاً 4 روز پس از از بین رفتن علائم خود را قرنطینه کنید."</string>
-    <string name="main_status_exposed_with_sympthoms_title">"شما یک خطر محسوب میشوید."</string>
-    <string name="main_status_exposed_without_sympthoms_subtitle">"لطفا خود را قرنطینه کنید به مدت
+    <string name="main_status_exposed_with_symptoms_subtitle">"لطفاً 4 روز پس از از بین رفتن علائم خود را قرنطینه کنید."</string>
+    <string name="main_status_exposed_with_symptoms_title">"شما یک خطر محسوب میشوید."</string>
+    <string name="main_status_exposed_without_symptoms_subtitle">"لطفا خود را قرنطینه کنید به مدت
 &lt;u&gt;%1$d روز&lt;/u&gt;"</string>
-    <string name="main_status_exposed_without_sympthoms_title">"شما در خطر هستید."</string>
+    <string name="main_status_exposed_without_symptoms_title">"شما در خطر هستید."</string>
     <string name="main_status_ok_subtitle">"توصیه های مقامات محلی خود را دنبال کنید."</string>
     <string name="main_status_ok_title">"باید خوب باشید."</string>
     <string name="main_status_positive_subtitle">"لطفا بعد از بهبود کامل خود را به مدت 4 روز قرنطینه کنید."</string>

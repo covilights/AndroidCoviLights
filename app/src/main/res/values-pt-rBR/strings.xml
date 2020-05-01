@@ -30,21 +30,21 @@
     <string name="main_grow_community">"Aumente a comunidade para nos manter saudáveis"</string>
     <string name="main_more_info">"O que isto significa?"</string>
     <string name="main_notify_status_dialog_title">"Notificar pessoas?"</string>
-    <string name="main_notify_status_exposed_with_sympthoms_dialog_text">"Mande uma notificação para todas as pessoas que você encontrou nos últimos 14 dias, para informá-los que eles podem ter sido expostos. Sua identidade não será revelada."</string>
-    <string name="main_notify_status_exposed_without_sympthoms_dialog_text">"Mande uma notificação para todas as pessoas que você encontrou nos últimos 14 dias, para informá-los que eles podem ter sido expostos. Sua identidade não será revelada."</string>
+    <string name="main_notify_status_exposed_with_symptoms_dialog_text">"Mande uma notificação para todas as pessoas que você encontrou nos últimos 14 dias, para informá-los que eles podem ter sido expostos. Sua identidade não será revelada."</string>
+    <string name="main_notify_status_exposed_without_symptoms_dialog_text">"Mande uma notificação para todas as pessoas que você encontrou nos últimos 14 dias, para informá-los que eles podem ter sido expostos. Sua identidade não será revelada."</string>
     <string name="main_notify_status_positive_dialog_text">"Mande uma notificação para todas as pessoas que você encontrou nos últimos 14 dias, para informá-los que eles podem ter sido expostos. Sua identidade não será revelada."</string>
     <string name="main_share_app">"Compartilhar o aplicativo"</string>
 
     <!-- Is "proximity" in this case for bluetooth or location? -->
     <string name="main_share_proximity">"Compartilhar proximidade"</string>
-    <string name="main_status_exposed_with_sympthoms_details">"Como você foi exposto e têm os sintomas, nós vamos te contatar todos os dias para entender melhor seus sintomas e determinar a duração da quarentena. Contate seu médico se seus sintomas estiverem piorando."</string>
-    <string name="main_status_exposed_with_sympthoms_subtitle">"Por favor fique em quarentena por mais 4 dias após o término dos sintomas."</string>
-    <string name="main_status_exposed_with_sympthoms_title">"Você é um risco."</string>
-    <string name="main_status_exposed_without_sympthoms_details">"Você estimou que foi exposto em %1$s. A quarentena de 14 dias termina em %2$s.
+    <string name="main_status_exposed_with_symptoms_details">"Como você foi exposto e têm os sintomas, nós vamos te contatar todos os dias para entender melhor seus sintomas e determinar a duração da quarentena. Contate seu médico se seus sintomas estiverem piorando."</string>
+    <string name="main_status_exposed_with_symptoms_subtitle">"Por favor fique em quarentena por mais 4 dias após o término dos sintomas."</string>
+    <string name="main_status_exposed_with_symptoms_title">"Você é um risco."</string>
+    <string name="main_status_exposed_without_symptoms_details">"Você estimou que foi exposto em %1$s. A quarentena de 14 dias termina em %2$s.
 Nós vamos te contatar todos os dias para, em caso dos sintomas aparecerem, notificar outros usuários."</string>
-    <string name="main_status_exposed_without_sympthoms_subtitle">"Por favor fique em quarentena por
+    <string name="main_status_exposed_without_symptoms_subtitle">"Por favor fique em quarentena por
 &lt;u&gt;%1$d days&lt;/u&gt;"</string>
-    <string name="main_status_exposed_without_sympthoms_title">"Você é um risco."</string>
+    <string name="main_status_exposed_without_symptoms_title">"Você é um risco."</string>
     <string name="main_status_ok_subtitle">"Siga as recomendações das autoridades locais."</string>
     <string name="main_status_ok_title">"Está tudo bem"</string>
     <string name="main_status_positive_details">"Você foi infectado em %1$s. Nós vamos te contatar todos os dias para entender melhor seus sintomas e determinar a duração da quarentena. Contate seu médico se seus sintomas estiverem piorando."</string>

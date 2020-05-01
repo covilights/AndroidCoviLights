@@ -31,10 +31,10 @@
     <string name="main_grow_community">"ช่วยเพิ่มจำนวนผู้ใช้ เพื่อเพิ่มประสิทธิภาพของระบบ"</string>
     <string name="main_more_info">"คำอธิบายเพิ่มเติม"</string>
     <string name="main_notify_status_dialog_title">"ส่งข้อความเตือนผู้อื่น"</string>
-    <string name="main_notify_status_exposed_with_sympthoms_dialog_text">"ส่งข้อความแจ้งผู้ใช้ CoviLights ที่ได้อยู่ในบริเวณใกล้เคียงกับคุณในระยะเวลา 14 วันที่ผ่านมา ว่าพวกเขามีความเสี่ยงต่อการติดเชื้อ
+    <string name="main_notify_status_exposed_with_symptoms_dialog_text">"ส่งข้อความแจ้งผู้ใช้ CoviLights ที่ได้อยู่ในบริเวณใกล้เคียงกับคุณในระยะเวลา 14 วันที่ผ่านมา ว่าพวกเขามีความเสี่ยงต่อการติดเชื้อ
 
 ตัวตนของคุณจะไม่ถูกเปิดเผย"</string>
-    <string name="main_notify_status_exposed_without_sympthoms_dialog_text">"ส่งข้อความแจ้งผู้ใช้ CoviLights ที่ได้อยู่ในบริเวณใกล้เคียงกับคุณในระยะเวลา 14 วันที่ผ่านมา ว่าพวกเขามีความเสี่ยงต่อการติดเชื้อ
+    <string name="main_notify_status_exposed_without_symptoms_dialog_text">"ส่งข้อความแจ้งผู้ใช้ CoviLights ที่ได้อยู่ในบริเวณใกล้เคียงกับคุณในระยะเวลา 14 วันที่ผ่านมา ว่าพวกเขามีความเสี่ยงต่อการติดเชื้อ
 
 ตัวตนของคุณจะไม่ถูกเปิดเผย"</string>
     <string name="main_notify_status_positive_dialog_text">"ส่งข้อความแจ้งผู้ใช้ CoviLights ที่ได้อยู่ในบริเวณใกล้เคียงกับคุณในระยะเวลา 14 วันที่ผ่านมา ว่าพวกเขามีความเสี่ยงต่อการติดเชื้อ
@@ -42,16 +42,16 @@
 ตัวตนของคุณจะไม่ถูกเปิดเผย"</string>
     <string name="main_share_app">"บอกต่อ"</string>
     <string name="main_share_proximity">"รายงานตำแหน่ง"</string>
-    <string name="main_status_exposed_with_sympthoms_details">"เนื่องจากคุณมีประวัติการอยู่ในบริเวณเดียวกันกับผู้ป่วย และตัวคุณเองเริ่มมีอาการป่วย เราจะส่งข้อความหาคุณวันละครั้งเพื่อสอบถามอาการ และแนะนำระยะเวลากักกันตัวเองตามกำหนด
+    <string name="main_status_exposed_with_symptoms_details">"เนื่องจากคุณมีประวัติการอยู่ในบริเวณเดียวกันกับผู้ป่วย และตัวคุณเองเริ่มมีอาการป่วย เราจะส่งข้อความหาคุณวันละครั้งเพื่อสอบถามอาการ และแนะนำระยะเวลากักกันตัวเองตามกำหนด
 
 โปรดติดต่อแพทย์ถ้าคุณมีอาการแย่ลง หรือมีอาการหนัก"</string>
-    <string name="main_status_exposed_with_sympthoms_subtitle">"กรุณากักกันตนเองเป็นเวลา 4 วันหลังจากไม่มีอาการแล้ว"</string>
-    <string name="main_status_exposed_with_sympthoms_title">"คุณอาจเป็นผู้ป่วย"</string>
-    <string name="main_status_exposed_without_sympthoms_details">"คุณแจ้งว่าคุณมีโอกาสอาจได้รับเชื้อเมื่อวันที่ %1$s การกักตัว 14 วันจะสิ้นสุดในวันที่ %2$s
+    <string name="main_status_exposed_with_symptoms_subtitle">"กรุณากักกันตนเองเป็นเวลา 4 วันหลังจากไม่มีอาการแล้ว"</string>
+    <string name="main_status_exposed_with_symptoms_title">"คุณอาจเป็นผู้ป่วย"</string>
+    <string name="main_status_exposed_without_symptoms_details">"คุณแจ้งว่าคุณมีโอกาสอาจได้รับเชื้อเมื่อวันที่ %1$s การกักตัว 14 วันจะสิ้นสุดในวันที่ %2$s
 
 เราจะส่งข้อความหาคุณทุกวัน เพื่อสอบถามสถานภาพ และแนะนำระยะเวลากักกันตัวเองของคุณ"</string>
-    <string name="main_status_exposed_without_sympthoms_subtitle">"กรุณากักกันตนเองเป็นเวลา &lt;u&gt;%1$d วัน&lt;/u&gt;"</string>
-    <string name="main_status_exposed_without_sympthoms_title">"คุณมีความเสี่ยงต่อการติดเชื้อ"</string>
+    <string name="main_status_exposed_without_symptoms_subtitle">"กรุณากักกันตนเองเป็นเวลา &lt;u&gt;%1$d วัน&lt;/u&gt;"</string>
+    <string name="main_status_exposed_without_symptoms_title">"คุณมีความเสี่ยงต่อการติดเชื้อ"</string>
     <string name="main_status_ok_subtitle">"กรุณาปฏิบัติตามคำแนะนำของหน่วยงานและเจ้าหน้าที่ท้องถิ่นของคุณ"</string>
     <string name="main_status_ok_title">"คุณสบายดี"</string>
     <string name="main_status_positive_details">"คุณได้รับยืนยันผลตรวจว่าเป็นผู้ติดเชื้อเมื่อวันที่ %1$s เราจะส่งข้อความหาคุณวันละครั้งเพื่อสอบถามอาการ และแนะนำระยะเวลากักกันตัวเองตามกำหนด

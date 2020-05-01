@@ -150,7 +150,7 @@ class OnboardingFragment : Fragment() {
 
                 val status = when {
                     positive.isChecked -> UserStatus.POSITIVE
-                    exposed.isChecked -> UserStatus.EXPOSED
+                    exposed.isChecked -> UserStatus.EXPOSED_WITHOUT_SYMPTOMS
                     negative.isChecked -> UserStatus.NEGATIVE
                     else -> UserStatus.NEGATIVE
                 }
