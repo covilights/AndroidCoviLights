@@ -24,15 +24,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.covilights.R
+import com.covilights.user.UserManager
 import com.covilights.user.UserStatus
-import com.covilights.user.UserViewModel
 
-internal class MainStatusViewModel(val context: Context, val userViewModel: UserViewModel) : ViewModel() {
+internal class MainStatusViewModel(val context: Context, userManager: UserManager) : ViewModel() {
 
-    private val userStatus: LiveData<UserStatus>
-        get() = userViewModel.userStatus
-
-    val statusIcon: LiveData<Drawable> = Transformations.map(userStatus) { status ->
+    val statusIcon: LiveData<Drawable> = Transformations.map(userManager.userStatus) { status ->
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.drawable.ic_confirm
@@ -43,7 +40,7 @@ internal class MainStatusViewModel(val context: Context, val userViewModel: User
         }
     }
 
-    val statusIconTint: LiveData<ColorStateList> = Transformations.map(userStatus) { status ->
+    val statusIconTint: LiveData<ColorStateList> = Transformations.map(userManager.userStatus) { status ->
         status?.let {
             val resourceId = when (status) {
                 UserStatus.POSITIVE,
@@ -54,7 +51,7 @@ internal class MainStatusViewModel(val context: Context, val userViewModel: User
         }
     }
 
-    val statusTextColor: LiveData<Int> = Transformations.map(userStatus) { status ->
+    val statusTextColor: LiveData<Int> = Transformations.map(userManager.userStatus) { status ->
         status?.let {
             val resourceId = when (status) {
                 UserStatus.POSITIVE,
@@ -65,7 +62,7 @@ internal class MainStatusViewModel(val context: Context, val userViewModel: User
         }
     }
 
-    val statusTitle: LiveData<String> = Transformations.map(userStatus) { status ->
+    val statusTitle: LiveData<String> = Transformations.map(userManager.userStatus) { status ->
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.string.main_status_ok_title
@@ -76,7 +73,7 @@ internal class MainStatusViewModel(val context: Context, val userViewModel: User
         }
     }
 
-    val statusSubtitle: LiveData<String> = Transformations.map(userStatus) { status ->
+    val statusSubtitle: LiveData<String> = Transformations.map(userManager.userStatus) { status ->
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.string.main_status_ok_subtitle
@@ -87,7 +84,7 @@ internal class MainStatusViewModel(val context: Context, val userViewModel: User
         }
     }
 
-    val statusBackgroundColor: LiveData<Int> = Transformations.map(userStatus) { status ->
+    val statusBackgroundColor: LiveData<Int> = Transformations.map(userManager.userStatus) { status ->
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.color.status_ok_bg
@@ -98,7 +95,7 @@ internal class MainStatusViewModel(val context: Context, val userViewModel: User
         }
     }
 
-    val statusMoreInfoBackgroundColor: LiveData<Int> = Transformations.map(userStatus) { status ->
+    val statusMoreInfoBackgroundColor: LiveData<Int> = Transformations.map(userManager.userStatus) { status ->
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.color.status_ok_more_info_bg

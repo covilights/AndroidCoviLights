@@ -14,20 +14,28 @@
  * limitations under the License.
  */
 
-package com.covilights.view.main
+package com.covilights.user
 
-import org.koin.android.ext.koin.androidContext
-import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import androidx.lifecycle.LiveData
+import java.util.UUID
 
 /**
- * Koin module which provides [MainFragment] dependencies.
+ * User data manager class holding UUID and Status.
  */
-val mainModule = module {
+interface UserManager {
 
-    viewModel { MainViewModel(statusViewModel = get(), contentViewModel = get()) }
+    /**
+     * User UUID randomly generated at first run.
+     */
+    val userUuid: UUID
 
-    viewModel { MainStatusViewModel(context = androidContext(), userManager = get()) }
+    /**
+     * User status stated by the user [LiveData].
+     */
+    val userStatus: LiveData<UserStatus>
 
-    viewModel { MainContentViewModel(context = androidContext()) }
+    /**
+     * User status setter.
+     */
+    fun setUserStatus(status: UserStatus)
 }
