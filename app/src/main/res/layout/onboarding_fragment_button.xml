@@ -45,49 +45,47 @@
             android:text="@string/start"
             app:cornerRadius="20dp" />
 
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             visibility="@{!viewmodel.startVisible}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="4dp">
+            android:layout_marginTop="@dimen/space_small"
+            android:background="@color/onboarding_button_container_background"
+            android:elevation="@dimen/space_normal"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/prev"
+                style="@style/AppTheme.Button.TextButton.Secondary"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/space_small"
-                android:orientation="horizontal">
+                android:onClick="@{() -> viewmodel.onPrevClick() }"
+                android:padding="@dimen/space_small"
+                android:text="@string/prev"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                app:icon="@drawable/ic_arrow_left"
+                app:iconGravity="start"
+                app:iconTint="@color/text_button_secondary" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/prev"
-                    style="@style/AppTheme.Button.TextButton.Secondary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{() -> viewmodel.onPrevClick() }"
-                    android:text="@string/prev"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                    app:icon="@drawable/ic_arrow_left"
-                    app:iconGravity="start"
-                    app:iconTint="@color/text_button_secondary" />
+            <include
+                layout="@layout/onboarding_fragment_progress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:padding="@dimen/space_small"
+                app:viewmodel="@{viewmodel}" />
 
-                <include
-                    layout="@layout/onboarding_fragment_progress"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    app:viewmodel="@{viewmodel}" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/next"
-                    style="@style/AppTheme.Button.TextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{() -> viewmodel.onNextClick() }"
-                    android:text="@string/next"
-                    app:icon="@drawable/ic_arrow_right"
-                    app:iconGravity="end"
-                    app:iconTint="@color/text_button" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/next"
+                style="@style/AppTheme.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewmodel.onNextClick() }"
+                android:text="@string/next"
+                app:icon="@drawable/ic_arrow_right"
+                app:iconGravity="end"
+                app:iconTint="@color/text_button" />
+        </LinearLayout>
     </LinearLayout>
 </layout>
