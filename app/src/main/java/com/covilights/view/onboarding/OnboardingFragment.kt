@@ -16,7 +16,6 @@
 
 package com.covilights.view.onboarding
 
-import android.Manifest
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -35,6 +34,7 @@ import androidx.navigation.findNavController
 import com.covilights.R
 import com.covilights.databinding.OnboardingFragmentBinding
 import com.covilights.user.UserStatus
+import com.covilights.utils.Constants
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
@@ -94,19 +94,12 @@ class OnboardingFragment : Fragment() {
     }
 
     private fun requestPermissions() {
-        val permissions: Array<String> = arrayOf(
-            Manifest.permission.INTERNET,
-            Manifest.permission.BLUETOOTH,
-            Manifest.permission.BLUETOOTH_ADMIN,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        )
-
-        val notGranted = permissions.any { permission ->
+        val notGranted = Constants.permissions.any { permission ->
             ContextCompat.checkSelfPermission(requireContext(), permission) != PackageManager.PERMISSION_GRANTED
         }
 
         if (notGranted) {
-            requestPermissions(permissions, PERMISSIONS_REQUEST)
+            requestPermissions(Constants.permissions, PERMISSIONS_REQUEST)
         } else {
             viewModel.onPermissionsGranted()
         }

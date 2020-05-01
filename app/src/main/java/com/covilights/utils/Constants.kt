@@ -16,6 +16,9 @@
 
 package com.covilights.utils
 
+import android.Manifest
+import android.os.Build
+
 /**
  * Constant variables used widely in the app.
  */
@@ -27,4 +30,19 @@ object Constants {
     const val NOTIFICATION_CHANNEL_NAME = "Beacon Service Channel"
     const val NOTIFICATION_CHANNEL_DESC = "Beacon background service"
     const val NOTIFICATION_ID = 1
+
+    val permissions: Array<String> by lazy {
+        val permissions: MutableList<String> = mutableListOf(
+            Manifest.permission.INTERNET,
+            Manifest.permission.BLUETOOTH
+        )
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            permissions.add(
+                Manifest.permission.FOREGROUND_SERVICE
+            )
+        }
+
+        permissions.toTypedArray()
+    }
 }
