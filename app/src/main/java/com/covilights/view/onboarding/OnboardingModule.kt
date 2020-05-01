@@ -29,7 +29,7 @@ val onboardingModule = module {
             context = androidContext(),
             resources = get(),
             stateManager = get(),
-            userViewModel = get()
+            userManager = get()
         )
     }
 }

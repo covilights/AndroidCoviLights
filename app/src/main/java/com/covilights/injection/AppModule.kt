@@ -16,7 +16,8 @@
 
 package com.covilights.injection
 
-import com.covilights.user.UserViewModel
+import com.covilights.user.UserManager
+import com.covilights.user.UserManagerImpl
 import com.covilights.utils.Constants
 import com.covilights.utils.StateManager
 import com.covilights.utils.StateManagerImpl
@@ -29,14 +30,14 @@ import org.koin.dsl.module
  */
 val appModule = module {
 
-    single { UserViewModel(androidContext()) }
+    single<UserManager> { UserManagerImpl(androidContext()) }
 
     single<StateManager> { StateManagerImpl(androidContext()) }
 
     single { androidContext().resources }
 
     single {
-        val userUuid = get<UserViewModel>().userUuid
+        val userUuid = get<UserManager>().userUuid
         CloseToMe.Builder(androidContext(), Constants.MANUFACTURER_UUID).apply {
             setUserUuid(userUuid)
             setVisibilityDistanceMeter(Constants.VISIBILITY_DISTANCE)
