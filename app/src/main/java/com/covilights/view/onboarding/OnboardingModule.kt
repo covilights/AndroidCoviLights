@@ -27,7 +27,6 @@ val onboardingModule = module {
     viewModel {
         OnboardingViewModel(
             context = androidContext(),
-            resources = get(),
             stateManager = get(),
             userManager = get()
         )
