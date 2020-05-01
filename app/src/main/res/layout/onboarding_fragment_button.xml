@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
             android:background="@color/onboarding_button_container_background"
-            android:elevation="@dimen/space_normal"
+            android:elevation="@dimen/space_small"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton

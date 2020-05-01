@@ -34,8 +34,6 @@ val appModule = module {
 
     single<StateManager> { StateManagerImpl(androidContext()) }
 
-    single { androidContext().resources }
-
     single {
         val userUuid = get<UserManager>().userUuid
         CloseToMe.Builder(androidContext(), Constants.MANUFACTURER_UUID).apply {

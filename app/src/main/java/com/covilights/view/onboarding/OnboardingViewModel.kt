@@ -32,10 +32,11 @@ import com.covilights.utils.StateManager
 
 internal class OnboardingViewModel(
     private val context: Context,
-    private val resources: Resources,
     private val stateManager: StateManager,
     private val userManager: UserManager
 ) : ViewModel() {
+
+    private val resources: Resources = context.resources
 
     private val _stepIndex = MutableLiveData(0)
     val stepIndex: LiveData<Int>
@@ -61,25 +62,25 @@ internal class OnboardingViewModel(
     val statusDialog: LiveData<Boolean>
         get() = _statusDialog
 
-    val startVisible: LiveData<Boolean> = Transformations.map(_stepIndex) { index ->
-        index == 0
+    val startVisible: LiveData<Boolean> = Transformations.map(stepIndex) { index ->
+        index == FIRST_STEP_INDEX
     }
 
-    val icon: LiveData<Drawable> = Transformations.map(_stepIndex) { index ->
+    val icon: LiveData<Drawable> = Transformations.map(stepIndex) { index ->
         val resourceId = resources.obtainTypedArray(R.array.onboarding_icon).getResourceId(index, -1)
         ContextCompat.getDrawable(context, resourceId)
     }
 
-    val title: LiveData<String> = Transformations.map(_stepIndex) { index ->
+    val title: LiveData<String> = Transformations.map(stepIndex) { index ->
         resources.getStringArray(R.array.onboarding_title)[index]
     }
 
-    val subtitle: LiveData<String> = Transformations.map(_stepIndex) { index ->
+    val subtitle: LiveData<String> = Transformations.map(stepIndex) { index ->
         resources.getStringArray(R.array.onboarding_subtitle)[index]
     }
 
     fun onNextClick() {
-        when (_stepIndex.value ?: 0) {
+        when (stepIndex.value ?: 0) {
             LAST_STEP_INDEX -> {
                 stateManager.isFirstRun = false
                 _navigate.value = OnboardingFragmentDirections.actionOnboardingFragmentToMainFragment()
@@ -112,16 +113,19 @@ internal class OnboardingViewModel(
     }
 
     private fun stepForward() {
-        _stepIndex.value = (_stepIndex.value ?: 0) + 1
+        val currentStepIndex: Int = _stepIndex.value ?: FIRST_STEP_INDEX
+        if (currentStepIndex < LAST_STEP_INDEX) _stepIndex.value = currentStepIndex + 1
     }
 
     private fun stepBackward() {
-        _stepIndex.value = (_stepIndex.value ?: 0) - 1
+        val currentStepIndex: Int = _stepIndex.value ?: FIRST_STEP_INDEX
+        if (currentStepIndex > FIRST_STEP_INDEX) _stepIndex.value = currentStepIndex - 1
     }
 
     companion object {
-        private const val LAST_STEP_INDEX = 3
+        private const val FIRST_STEP_INDEX = 0
         private const val PERMISSION_STEP_INDEX = 1
         private const val STATUS_STEP_INDEX = 2
+        private const val LAST_STEP_INDEX = 3
     }
 }
