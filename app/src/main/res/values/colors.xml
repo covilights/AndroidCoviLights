@@ -39,4 +39,5 @@
     <color name="status_ok_bg">@color/accent</color>
     <color name="status_exposed_bg">@color/brand_yellow</color>
     <color name="status_positive_bg">@color/brand_red</color>
+    <color name="onboarding_button_container_background">@color/brand_white</color>
 </resources>
