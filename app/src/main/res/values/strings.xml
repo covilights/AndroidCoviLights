@@ -45,6 +45,8 @@ Your identity won’t be revealed."</string>
 Your identity won’t be revealed."</string>
     <string name="main_share_app">"Share the app"</string>
     <string name="main_share_proximity">"Share proximity"</string>
+
+    <!-- Fuzzy -->
     <string name="main_status_exposed_with_symptoms_details">"As you were exposed and have symptoms, we will prompt you every day to determine the length of your self-quarantine.
 Contact your doctor if your symptoms are bad or get worse."</string>
 
@@ -53,14 +55,19 @@ Contact your doctor if your symptoms are bad or get worse."</string>
 
     <!-- Fuzzy -->
     <string name="main_status_exposed_with_symptoms_title">"You are a risk."</string>
-    <string name="main_status_exposed_without_symptoms_details">"You estimated you were exposed on %1$s. The 14-day self-quarantine ends on %2$s.
+
+    <!-- Fuzzy -->
+    <string name="main_status_exposed_without_symptoms_details">"You estimated you were exposed on %1$s. The 14-day self-quarantine ends on %2$s.&lt;br /&gt;
 We will prompt you every day to allow others to be notified in case symptoms arise."</string>
-    <string name="main_status_exposed_without_symptoms_subtitle">"Please self-quarantine for
-&lt;u&gt;%1$d days&lt;/u&gt;"</string>
+
+    <!-- Fuzzy -->
+    <string name="main_status_exposed_without_symptoms_subtitle">"Please self-quarantine for&lt;br /&gt;&lt;u&gt;%1$d days&lt;/u&gt;"</string>
+
+    <!-- Fuzzy -->
     <string name="main_status_exposed_without_symptoms_title">"You are at risk."</string>
     <string name="main_status_ok_subtitle">"Follow the recommendations of your local authorities."</string>
     <string name="main_status_ok_title">"You should be fine."</string>
-    <string name="main_status_positive_details">"You tested positive on %1$s. We will prompt you each day for your symptoms to determine the length of your self-quarantine.
+    <string name="main_status_positive_details">"You tested positive on %1$s. We will prompt you each day for your symptoms to determine the length of your self-quarantine.&lt;br /&gt;
 Contact your doctor if your symptoms are bad or get worse."</string>
     <string name="main_status_positive_subtitle">"Please self-quarantine for 4 days after symptoms are gone."</string>
     <string name="main_status_positive_title">"You tested positive."</string>
