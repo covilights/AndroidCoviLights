@@ -22,7 +22,7 @@ import android.os.Build
 /**
  * Constant variables used widely in the app.
  */
-object Constants {
+object AppConstant {
 
     const val SPLASH_TIMEOUT = 2_000L
 

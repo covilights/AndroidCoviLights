@@ -34,7 +34,7 @@ import androidx.navigation.findNavController
 import com.covilights.R
 import com.covilights.databinding.OnboardingFragmentBinding
 import com.covilights.user.UserStatus
-import com.covilights.utils.Constants
+import com.covilights.utils.AppConstant
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
@@ -94,12 +94,12 @@ class OnboardingFragment : Fragment() {
     }
 
     private fun requestPermissions() {
-        val notGranted = Constants.permissions.any { permission ->
+        val notGranted = AppConstant.permissions.any { permission ->
             ContextCompat.checkSelfPermission(requireContext(), permission) != PackageManager.PERMISSION_GRANTED
         }
 
         if (notGranted) {
-            requestPermissions(Constants.permissions, PERMISSIONS_REQUEST)
+            requestPermissions(AppConstant.permissions, PERMISSIONS_REQUEST)
         } else {
             viewModel.onPermissionsGranted()
         }

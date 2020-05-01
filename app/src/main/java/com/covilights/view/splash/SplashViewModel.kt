@@ -21,7 +21,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
-import com.covilights.utils.Constants
+import com.covilights.utils.AppConstant
 import com.covilights.utils.StateManager
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -33,7 +33,7 @@ internal class SplashViewModel(private val stateManager: StateManager) : ViewMod
         get() = _navigate
 
     private val job = viewModelScope.launch {
-        delay(Constants.SPLASH_TIMEOUT)
+        delay(AppConstant.SPLASH_TIMEOUT)
         navigate()
     }
 

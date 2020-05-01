@@ -29,7 +29,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.LifecycleService
 import com.covilights.R
-import com.covilights.utils.Constants
+import com.covilights.utils.AppConstant
 import com.covilights.view.MainActivity
 
 /**
@@ -54,7 +54,7 @@ class BeaconService : LifecycleService() {
             updateNotificationWithState(-1)
             applyNotificationResultCount(0)
         }.also {
-            startForeground(Constants.NOTIFICATION_ID, it.build())
+            startForeground(AppConstant.NOTIFICATION_ID, it.build())
         }
 
         when (intent?.action) {
@@ -73,11 +73,11 @@ class BeaconService : LifecycleService() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel() {
         val serviceChannel = NotificationChannel(
-            Constants.NOTIFICATION_CHANNEL_ID,
-            Constants.NOTIFICATION_CHANNEL_NAME,
+            AppConstant.NOTIFICATION_CHANNEL_ID,
+            AppConstant.NOTIFICATION_CHANNEL_NAME,
             NotificationManager.IMPORTANCE_LOW
         ).apply {
-            description = Constants.NOTIFICATION_CHANNEL_DESC
+            description = AppConstant.NOTIFICATION_CHANNEL_DESC
             enableLights(false)
             enableVibration(false)
             setSound(null, null)
@@ -94,7 +94,7 @@ class BeaconService : LifecycleService() {
             PendingIntent.FLAG_UPDATE_CURRENT
         )
 
-        return NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL_ID).apply {
+        return NotificationCompat.Builder(this, AppConstant.NOTIFICATION_CHANNEL_ID).apply {
             setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             setContentIntent(pendingIntent)
             setShowWhen(false)
