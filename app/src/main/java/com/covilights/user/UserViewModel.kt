@@ -17,30 +17,28 @@
 package com.covilights.user
 
 import android.content.Context
+import androidx.lifecycle.MutableLiveData
 import com.mirhoseini.appsettings.AppSettings
-import java.util.UUID
+import com.mohsenoid.closetome.utils.toUuid
+import java.util.*
 
-internal class UserManagerImpl(val context: Context) : UserManager {
+internal class UserViewModel(val context: Context) {
 
-    override val userUuid: UUID by lazy {
-        val value: UUID? = AppSettings.getString(context, USER_UUID)?.toUuid()
-
-        if (value != null) {
-            value
-        } else {
-            val newUuid: UUID = UUID.randomUUID()
+    val userUuid: UUID by lazy {
+        AppSettings.getString(context, USER_UUID)?.toUuid() ?: run {
+            val newUuid = UUID.randomUUID()
             AppSettings.setValue(context, USER_UUID, newUuid.toString())
             newUuid
         }
     }
 
-    private fun String.toUuid(): UUID = UUID.fromString(this)
+    var userStatus = MutableLiveData(UserStatus.values()[AppSettings.getInt(context, USER_STATUS) ?: 0])
 
-    override var userStatus: UserStatus
-        get() = UserStatus.values()[AppSettings.getInt(context, USER_STATUS) ?: UserStatus.NEGATIVE.ordinal]
-        set(value) {
+    init {
+        userStatus.observeForever { value ->
             AppSettings.setValue(context, USER_STATUS, value.ordinal)
         }
+    }
 
     companion object {
         const val USER_UUID = "user_uuid"

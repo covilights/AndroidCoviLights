@@ -23,7 +23,9 @@
     <color name="brand_green">#02A675</color>
     <color name="brand_green_20">#3302A675</color>
     <color name="brand_yellow">#F5B100</color>
+    <color name="brand_yellow_20">#33F5B100</color>
     <color name="brand_red">#E85151</color>
+    <color name="brand_red_20">#33E85151</color>
     <color name="brand_light_gray">#EBEBEE</color>
     <color name="brand_white">#FFFFFF</color>
     <color name="brand_black">#000000</color>

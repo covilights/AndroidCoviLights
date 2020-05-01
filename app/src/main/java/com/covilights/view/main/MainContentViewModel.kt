@@ -14,22 +14,9 @@
  * limitations under the License.
  */
 
-package com.covilights.user
+package com.covilights.view.main
 
-import java.util.UUID
+import android.content.Context
+import androidx.lifecycle.ViewModel
 
-/**
- * User data manager class holding UUID and Status.
- */
-interface UserManager {
-
-    /**
-     * User UUID randomly generated at first run.
-     */
-    val userUuid: UUID
-
-    /**
-     * User status stated by the user.
-     */
-    var userStatus: UserStatus
-}
+internal class MainContentViewModel(val context: Context) : ViewModel()

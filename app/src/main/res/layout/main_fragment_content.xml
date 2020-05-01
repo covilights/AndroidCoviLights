@@ -25,7 +25,7 @@
 
         <variable
             name="viewmodel"
-            type="com.covilights.view.main.MainViewModel" />
+            type="com.covilights.view.main.MainContentViewModel" />
     </data>
 
     <LinearLayout
