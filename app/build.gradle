@@ -136,6 +136,8 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_component_version"
 
     implementation "com.mirhoseini.appsettings:appsettings:$appsettings_version"
+
+    implementation "com.google.android.play:core:$android_play_core_version"
 }
 
 apply plugin: 'com.google.gms.google-services'
