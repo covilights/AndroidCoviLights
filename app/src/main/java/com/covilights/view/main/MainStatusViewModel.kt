@@ -89,6 +89,8 @@ internal class MainStatusViewModel(val context: Context, userManager: UserManage
         }
     }
 
+    val quarantineDays: Int = EXPOSED_QUARANTINE_DAYS
+
     val statusBackgroundColor: LiveData<Int> = Transformations.map(userManager.userStatus) { status ->
         status?.let {
             val resourceId = when (status) {
@@ -101,7 +103,7 @@ internal class MainStatusViewModel(val context: Context, userManager: UserManage
         }
     }
 
-    val statusMoreInfoBackgroundColor: LiveData<Int> = Transformations.map(userManager.userStatus) { status ->
+    val statusMoreInfoBackgroundColor: LiveData<ColorStateList> = Transformations.map(userManager.userStatus) { status ->
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.color.status_ok_more_info_bg
@@ -109,7 +111,11 @@ internal class MainStatusViewModel(val context: Context, userManager: UserManage
                 UserStatus.EXPOSED_WITH_SYMPTOMS -> R.color.status_exposed_more_info_bg
                 UserStatus.POSITIVE -> R.color.status_positive_more_info_bg
             }
-            ContextCompat.getColor(context, resourceId)
+            ColorStateList.valueOf(ContextCompat.getColor(context, resourceId))
         }
+    }
+
+    companion object {
+        const val EXPOSED_QUARANTINE_DAYS = 4
     }
 }

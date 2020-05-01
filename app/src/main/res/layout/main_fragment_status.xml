@@ -65,9 +65,9 @@
                 tools:textColor="@color/status_ok_text" />
 
             <TextView
+                htmlText="@{String.format(viewmodel.statusSubtitle, viewmodel.quarantineDays)}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{viewmodel.statusSubtitle}"
                 android:textAlignment="center"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="@{viewmodel.statusTextColor}"
