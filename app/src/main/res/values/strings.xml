@@ -19,8 +19,54 @@
 <resources>
     <string name="app_name">"CoviLights"</string>
     <string name="ble_not_supported">"Your phone does not support BluetoothLE"</string>
+    <string name="cancel">"Cancel"</string>
+    <string name="change">"Change"</string>
+
+    <!-- @Patrick I don't think this is right. Needs proper tech background as well. -->
+    <string name="main_allow_tracking">"Allow tracking of proximity using
+Bluetooth"</string>
+    <string name="main_change_status">"Change status"</string>
+    <string name="main_change_status_calendar_dialog_title">"When did the symptoms start?"</string>
+    <string name="main_change_status_dialog_text">"Typical symptoms include fever, shortness of breath, cough, and fatigue."</string>
+    <string name="main_change_status_dialog_title">"Do you have symptoms?"</string>
+    <string name="main_did_you_test_positive">"Did you test positive or were you exposed?"</string>
+    <string name="main_grow_community">"Grow the community to keep all of us safe"</string>
+    <string name="main_more_info">"What does this mean?"</string>
+    <string name="main_notify_status_dialog_title">"Notify people?"</string>
+
+    <!-- Fuzzy -->
+    <string name="main_notify_status_exposed_with_symptoms_dialog_text">"Send a notification to the people you have encountered in the past 14 days to make sure they know they might be exposed.
+Your identity won’t be revealed."</string>
+
+    <!-- Fuzzy -->
+    <string name="main_notify_status_exposed_without_symptoms_dialog_text">"Send a notification to the people you have encountered in the past 14 days to make sure they know they might be exposed.
+Your identity won’t be revealed."</string>
+    <string name="main_notify_status_positive_dialog_text">"Send a notification to the people you have encountered in the past 14 days to make sure they know they were exposed.
+Your identity won’t be revealed."</string>
+    <string name="main_share_app">"Share the app"</string>
+    <string name="main_share_proximity">"Share proximity"</string>
+    <string name="main_status_exposed_with_symptoms_details">"As you were exposed and have symptoms, we will prompt you every day to determine the length of your self-quarantine.
+Contact your doctor if your symptoms are bad or get worse."</string>
+
+    <!-- Fuzzy -->
+    <string name="main_status_exposed_with_symptoms_subtitle">"Please self-quarantine for 4 days after the symptoms are gone."</string>
+
+    <!-- Fuzzy -->
+    <string name="main_status_exposed_with_symptoms_title">"You are a risk."</string>
+    <string name="main_status_exposed_without_symptoms_details">"You estimated you were exposed on %1$s. The 14-day self-quarantine ends on %2$s.
+We will prompt you every day to allow others to be notified in case symptoms arise."</string>
+    <string name="main_status_exposed_without_symptoms_subtitle">"Please self-quarantine for
+&lt;u&gt;%1$d days&lt;/u&gt;"</string>
+    <string name="main_status_exposed_without_symptoms_title">"You are at risk."</string>
+    <string name="main_status_ok_subtitle">"Follow the recommendations of your local authorities."</string>
+    <string name="main_status_ok_title">"You should be fine."</string>
+    <string name="main_status_positive_details">"You tested positive on %1$s. We will prompt you each day for your symptoms to determine the length of your self-quarantine.
+Contact your doctor if your symptoms are bad or get worse."</string>
+    <string name="main_status_positive_subtitle">"Please self-quarantine for 4 days after symptoms are gone."</string>
+    <string name="main_status_positive_title">"You tested positive."</string>
     <string name="next">"Next"</string>
     <string name="not_now">"Not now"</string>
+
     <!-- @minna: Similar issue here, "location infromation for tracking" ... also has this Big Brother element. For a draft in German I'm saying "to detect other CoviLights users" but will finetune further in the future. -->
     <string name="onboarding_permission_bluetooth_text">"CoviLights uses Bluetooth to detect proximity to other CoviLights users."</string>
     <string name="onboarding_permission_data_text">"The tracking data is anonymous and stored locally in your phone for 14 days."</string>
@@ -51,24 +97,6 @@
     <string name="onboarding_welcome_text">"CoviLights helps contain the spread of COVID-19 by tracking your movements and notifying you in case of exposure."</string>
     <string name="onboarding_welcome_title">"Welcome to CoviLights"</string>
     <string name="prev">"Previous"</string>
-    <string name="change">"Change"</string>
-    <string name="cancel">"Cancel"</string>
     <string name="send">"Send"</string>
     <string name="start">"Start"</string>
-    <string name="main_status_ok_title">"You should be fine."</string>
-    <string name="main_status_ok_subtitle">"Follow the recommendations of your local authorities."</string>
-    <string name="main_status_exposed_title">"You are a risk."</string>
-    <string name="main_status_exposed_subtitle">"Please self-quarantine for 4 days after the symptoms are gone."</string>
-    <string name="main_status_positive_title">"You tested positive."</string>
-    <string name="main_status_positive_subtitle">"Please self-quarantine for 4 days after symptoms are gone."</string>
-    <string name="main_more_info">"What does this mean?"</string>
-    <string name="main_change_status">"Change status"</string>
-    <string name="main_did_you_test_positive">"Did you test positive or were you exposed?"</string>
-    <string name="main_share_proximity">"Share proximity"</string>
-
-    <!-- @Patrick I don't think this is right. Needs proper tech background as well. -->
-    <string name="main_allow_tracking">"Allow tracking of proximity using
-Bluetooth"</string>
-    <string name="main_share_app">"Share the app"</string>
-    <string name="main_grow_community">"Grow the community to keep all of us safe"</string>
 </resources>

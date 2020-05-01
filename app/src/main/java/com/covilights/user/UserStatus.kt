@@ -26,9 +26,14 @@ enum class UserStatus {
     NEGATIVE,
 
     /**
-     * User is exposed to another sick person but no positive test yet.
+     * User is exposed to another sick person but has no symptoms and no positive test yet.
      */
-    EXPOSED,
+    EXPOSED_WITHOUT_SYMPTOMS,
+
+    /**
+     * User is exposed to another sick person and has symptoms but no positive test yet.
+     */
+    EXPOSED_WITH_SYMPTOMS,
 
     /**
      * User is tested positive.

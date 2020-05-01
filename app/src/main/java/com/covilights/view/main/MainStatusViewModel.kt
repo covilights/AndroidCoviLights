@@ -33,7 +33,8 @@ internal class MainStatusViewModel(val context: Context, userManager: UserManage
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.drawable.ic_confirm
-                UserStatus.EXPOSED -> R.drawable.ic_attention
+                UserStatus.EXPOSED_WITHOUT_SYMPTOMS,
+                UserStatus.EXPOSED_WITH_SYMPTOMS -> R.drawable.ic_attention
                 UserStatus.POSITIVE -> R.drawable.ic_alert
             }
             ContextCompat.getDrawable(context, resourceId)
@@ -45,7 +46,8 @@ internal class MainStatusViewModel(val context: Context, userManager: UserManage
             val resourceId = when (status) {
                 UserStatus.POSITIVE,
                 UserStatus.NEGATIVE -> R.color.status_ok_icon
-                UserStatus.EXPOSED -> R.color.primary
+                UserStatus.EXPOSED_WITHOUT_SYMPTOMS,
+                UserStatus.EXPOSED_WITH_SYMPTOMS -> R.color.primary
             }
             ColorStateList.valueOf(ContextCompat.getColor(context, resourceId))
         }
@@ -56,7 +58,8 @@ internal class MainStatusViewModel(val context: Context, userManager: UserManage
             val resourceId = when (status) {
                 UserStatus.POSITIVE,
                 UserStatus.NEGATIVE -> R.color.status_ok_icon
-                UserStatus.EXPOSED -> R.color.primary
+                UserStatus.EXPOSED_WITHOUT_SYMPTOMS,
+                UserStatus.EXPOSED_WITH_SYMPTOMS -> R.color.primary
             }
             ContextCompat.getColor(context, resourceId)
         }
@@ -66,7 +69,8 @@ internal class MainStatusViewModel(val context: Context, userManager: UserManage
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.string.main_status_ok_title
-                UserStatus.EXPOSED -> R.string.main_status_exposed_title
+                UserStatus.EXPOSED_WITHOUT_SYMPTOMS -> R.string.main_status_exposed_without_symptoms_title
+                UserStatus.EXPOSED_WITH_SYMPTOMS -> R.string.main_status_exposed_with_symptoms_title
                 UserStatus.POSITIVE -> R.string.main_status_positive_title
             }
             context.getString(resourceId)
@@ -77,7 +81,8 @@ internal class MainStatusViewModel(val context: Context, userManager: UserManage
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.string.main_status_ok_subtitle
-                UserStatus.EXPOSED -> R.string.main_status_exposed_subtitle
+                UserStatus.EXPOSED_WITHOUT_SYMPTOMS -> R.string.main_status_exposed_without_symptoms_subtitle
+                UserStatus.EXPOSED_WITH_SYMPTOMS -> R.string.main_status_exposed_with_symptoms_subtitle
                 UserStatus.POSITIVE -> R.string.main_status_positive_subtitle
             }
             context.getString(resourceId)
@@ -88,7 +93,8 @@ internal class MainStatusViewModel(val context: Context, userManager: UserManage
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.color.status_ok_bg
-                UserStatus.EXPOSED -> R.color.status_exposed_bg
+                UserStatus.EXPOSED_WITHOUT_SYMPTOMS,
+                UserStatus.EXPOSED_WITH_SYMPTOMS -> R.color.status_exposed_bg
                 UserStatus.POSITIVE -> R.color.status_positive_bg
             }
             ContextCompat.getColor(context, resourceId)
@@ -99,7 +105,8 @@ internal class MainStatusViewModel(val context: Context, userManager: UserManage
         status?.let {
             val resourceId = when (status) {
                 UserStatus.NEGATIVE -> R.color.status_ok_more_info_bg
-                UserStatus.EXPOSED -> R.color.status_exposed_more_info_bg
+                UserStatus.EXPOSED_WITHOUT_SYMPTOMS,
+                UserStatus.EXPOSED_WITH_SYMPTOMS -> R.color.status_exposed_more_info_bg
                 UserStatus.POSITIVE -> R.color.status_positive_more_info_bg
             }
             ContextCompat.getColor(context, resourceId)
