@@ -21,22 +21,13 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import androidx.navigation.NavDirections
-import com.covilights.BuildConfig
 import com.covilights.R
 import com.covilights.user.UserStatus
 import com.covilights.user.UserViewModel
 
 internal class MainStatusViewModel(val context: Context, val userViewModel: UserViewModel) : ViewModel() {
-
-    private val _navigate = MutableLiveData<NavDirections>()
-    val navigate: LiveData<NavDirections>
-        get() = _navigate
-    private val _isDebugMode = MutableLiveData(BuildConfig.DEBUG)
-    val isDebugMode: LiveData<Boolean> = _isDebugMode
 
     private val userStatus: LiveData<UserStatus>
         get() = userViewModel.userStatus
@@ -115,23 +106,6 @@ internal class MainStatusViewModel(val context: Context, val userViewModel: User
                 UserStatus.POSITIVE -> R.color.status_positive_more_info_bg
             }
             ContextCompat.getColor(context, resourceId)
-        }
-    }
-
-    fun onDebugClick() {
-        _navigate.value = MainFragmentDirections.actionMainFragmentToDebugFragment()
-    }
-
-    fun onDesignClick() {
-        _navigate.value = MainFragmentDirections.actionMainFragmentToDesignFragment()
-    }
-
-    fun onToolbarLongClick(): Boolean {
-        return if (_isDebugMode.value != true) {
-            _isDebugMode.value = true
-            true
-        } else {
-            false
         }
     }
 }

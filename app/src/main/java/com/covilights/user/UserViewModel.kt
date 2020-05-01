@@ -20,7 +20,7 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.mirhoseini.appsettings.AppSettings
 import com.mohsenoid.closetome.utils.toUuid
-import java.util.*
+import java.util.UUID
 
 internal class UserViewModel(val context: Context) {
 
