@@ -137,7 +137,7 @@ dependencies {
 
     implementation "com.mirhoseini.appsettings:appsettings:$appsettings_version"
 
-    implementation "com.mohsenoid.closetome:closetome:$closetome_version"
+    implementation "com.mohsenoid.close-to-me:close-to-me:$closetome_version"
 }
 
 apply plugin: 'com.google.gms.google-services'
